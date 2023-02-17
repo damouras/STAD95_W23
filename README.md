@@ -1,6 +1,27 @@
 # STAD95
 Exploring non-linear time series techniques
 
+## Feb 13 (week 6)
+
+### Lance
+- [ ] Aggregate to daily data (sum of demands, avg of prices) 
+- [ ] Combine daily weather to previous data (all in one master daily file)
+- [ ] Update: constant/SARIMA/ETS models for daily data (Log-transform prices)
+- [ ] Try models with external regressors
+- [ ] Try Gaussian Process model
+
+### Nghia
+- [ ] Refit following models on daily data
+- Dynamic factor
+- Kalman Filter 
+- Transformer 
+- (LSTM ?)
+- XGboost
+- [ ] Try models with external regressors
+- [ ] Try SSA (Singular Spectrum Analysis) on daily data
+
+
+
 ## Feb 6 (week 5)
 
 ### Summer
