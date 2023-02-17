@@ -20,7 +20,28 @@ Exploring non-linear time series techniques
 - [ ] Try models with external regressors
 - [ ] Try SSA (Singular Spectrum Analysis) on daily data
 
+#####
+Table for filling in model performance
 
+| MAPE           | Price | Demand |
+|----------------|-------|--------|
+| Model          | Price | Demand |
+| Simple Mean    |       |        |
+| IESO forecasts |       |        |
+| ETS            |       |        |
+| SARIMA         |       |        |
+|                |       |        |
+|                |       |        |
+|                |       |        |
+|                |       |        |
+|                |       |        |
+|                |       |        |
+|                |       |        |
+|                |       |        |
+|                |       |        |
+|                |       |        |
+|                |       |        |
+|                |       |        |
 
 ## Feb 6 (week 5)
 
