@@ -23,9 +23,8 @@ Exploring non-linear time series techniques
 #####
 Table for filling in model performance
 
-| MAPE           | Price | Demand |
+| Model           | Price | Demand |
 |----------------|-------|--------|
-| Model          | Price | Demand |
 | Simple Mean    |       |        |
 | IESO forecasts |       |        |
 | ETS            |       |        |
