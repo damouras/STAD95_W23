@@ -1,0 +1,63 @@
+---
+title: "ets_log"
+output: html_document
+date: "2023-02-18"
+---
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache=TRUE)
+library(fpp2)
+library(ggplot2)
+library(tseries)
+library(xts)
+library(lubridate)
+options(width=45)
+```
+
+```{r}
+raw = read.csv("final_daily.csv")
+date_time = as_datetime(raw[,1])
+price = xts( x = raw[,"price"], order.by = date_time) 
+demand = xts( x = raw[,"demand"], order.by = date_time) 
+
+demand_train = demand["2020/2021"]; demand_test = demand["2022"]
+price_train = price["2020/2021"]; price_test = price["2022"]
+```
+
+```{r}
+price_train = log(price_train+5)
+price_test=log(price_test+5)
+out =  ets( price_train )
+fit = ets( c(price_train, price_test), model = out )
+summary(fit)
+pred = tail( fitted(fit ), n = length(price_test) )
+```
+
+```{r}
+pred = exp(pred)
+result= cbind(price_test,pred)
+autoplot(result)
+diff = result$price_test-result$pred
+MSE = mean(diff^2)
+MSE
+MAE=mean(abs(diff))
+MAE
+```
+
+
+```{r}
+out =  ets( log(demand_train) )
+fit = ets( c(log(demand_train), log(demand_test)), model = out )
+summary(fit)
+pred = tail( fitted(fit ), n = length(demand_test) )
+```
+
+```{r}
+pred = exp(pred)
+result= cbind(demand_test,pred)
+autoplot(result)
+diff = result$demand_test-result$pred
+MSE = mean(diff^2)
+MSE
+MAE=mean(abs(diff))
+MAE
+```
