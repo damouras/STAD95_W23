@@ -81,3 +81,11 @@ mean( abs( price_train - price_fitd ) )
 perf[2,3] = mean( abs( price_test - price_pred ) )
 perf[2,4] = mean( ( price_test - price_pred )^2 )
 perf
+
+error = abs(demand_test-demand_pred)/abs(demand_test)
+error[error > 1] = 1
+mean(error)
+
+error = abs(price_test-price_pred)/abs(price_test)
+error[error > 1] = 1
+mean(error)

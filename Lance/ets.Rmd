@@ -39,6 +39,9 @@ MSE = mean(diff^2)
 MSE
 MAE=mean(abs(diff))
 MAE
+error = abs(price_test-pred)/abs(price_test)
+error[error > 1] = 1
+mean(error)
 ```
 
 
@@ -57,4 +60,7 @@ MSE = mean(diff^2)
 MSE
 MAE=mean(abs(diff))
 MAE
+error = abs(demand_test-pred)/abs(demand_test)
+error[error > 1] = 1
+mean(error)
 ```

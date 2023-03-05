@@ -17,6 +17,10 @@ mean((ts(for1) - ts(price_test+5))**2)
 
 mean(abs(ts(for1) - ts(price_test+5)))
 
+error = abs(price_test+5-for1)/abs(price_test+5)
+error[error > 1] = 1
+mean(error)
+
 ##Demand
 
 demand_test = tail(df["demand"], 365)
@@ -31,3 +35,4 @@ lines(ts(for1), col='blue')
 mean((ts(for1) - ts(demand_test))**2)
 
 mean(abs(ts(for1) - ts(demand_test)))
+
