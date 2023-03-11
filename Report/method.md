@@ -1,4 +1,8 @@
-# SARIMA
+# Data preprocessing
+
+# Overview of the model
+
+## SARIMA
 
 SARIMA is the abbreviation for Seasonal Autoregressive Integrated Moving Average model. To introduce the SARIMA model, we will give some overview about the canonical autoregressive (AR) model and moving average (MA) model.
 
@@ -10,9 +14,9 @@ where $\epsilon_t$ is the white noise.
 
 Rather 
 
-# Vector autoregressive (VAR)
-# Regression with ARIMA errors
-# Exponential smoothing
+## Vector autoregressive (VAR)
+## Regression with ARIMA errors
+## Exponential smoothing
 The prediction of the exponential smoothing model can be expressed as:
 
 $$\hat{y}_{t+1|t} = \alpha y_t + \alpha (1 - \alpha) y_{t-1} + \alpha (1 - \alpha)^2 y_{t-2} + ... $$
@@ -21,13 +25,13 @@ where $0 \leq \alpha \leq 1$ is the smoothing parameter. We can also write the f
 
 $$\hat{y}_{t+1|t} = \alpha y_t + (1 - \alpha) \hat{y}_{t|t-1}$$
 
-# Kalman filter
-# Dynamic factor
-# XGBoost
-# Gaussian process
-# Fast Fourier transform
-# Singular spectrum analysis
-# Long short-term memory (LSTM)
-# Transformer 
-# Structured state space model (S4)
+## Kalman filter
+## Dynamic factor
+## XGBoost
+## Gaussian process
+## Fast Fourier transform
+## Singular spectrum analysis
+## Long short-term memory (LSTM)
+## Transformer 
+## Structured state space model (S4)
 
