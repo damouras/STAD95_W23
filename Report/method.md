@@ -10,9 +10,13 @@ An autoregressive of order $p$, denotes AR($p$), can be written as:
 
 $$y_t = c + \phi_1 y_{t-1} +\phi_2 y_{t-2} + ... + \phi_p y_{t - p} + \epsilon_t$$
 
-where $\epsilon_t$ is the white noise.
+where $\epsilon_t$ is the white noise. This is like a multiple regression but with lagged values of $y_t$ as the predictors.
 
-Rather 
+Rather than using the past values of $y_t$ in a regression, a moving average model uses past forecast errors in a regression-like model:
+
+$$y_t = c + \epsilon_t + \theta_1 \epsilon_{t - 1} + \theta_2 \epsilon_{t-2} + ... + \theta_q \epsilon_{t - q}$$
+
+We refer to this model as an MA($q$) model, a moving average model of order $q$
 
 ## Vector autoregressive (VAR)
 ## Regression with ARIMA errors
