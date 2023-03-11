@@ -60,8 +60,11 @@ When using gradient boosting for regression, the weak learners are regression tr
 Transformer is a type of neural network architecture that is used for sequential data, such as NLP tasks or time series data. The model is known for its ability to efficiently handle long-term dependencies and parallelizable computation. The underlying core of Transformer model is the **self-attention mechanism**, which allows the model to weigh the importance of different parts of the input when making predictions. Furthermore, the model has an encoder-decoder architecture, where the encoder is responsible for processing the input sequence and the decoder is mainly responsible for producing the output sequence.
 
 The attention mechanism can be mathematically represented as:
-$$Attention(Q, K, V) = softmax(\frac{QK^{\top}}{\sqrt{}d_k} V)$$
+$$Attention(Q, K, V) = softmax(\frac{QK^{\top}}{\sqrt{}d_k})V$$
 
+where $Q$, $K$, and $V$ are matrices representing the query, key, and value respectively. $d_k$ is the dimension of the key.
+
+The attention mechanism is applied multiple times in the Transformer model, in a multi-head attention mechanism, where multiple sets of queries, keys, and values are used. The output of the multi-head attention is then concatenated and passed through a linear layer.
 
 
 
