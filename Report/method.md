@@ -2,7 +2,10 @@
 # Vector autoregressive (VAR)
 # Regression with ARIMA errors
 # Exponential smoothing
-Our approach involves using the package <code>ets</code> in R and \texttt{statsmodels} in Python
+The prediction of the exponential smoothing model can be expressed as:
+
+$$\hat{y}_{T+1|T}$$
+
 # Kalman filter
 # Dynamic factor
 # XGBoost
