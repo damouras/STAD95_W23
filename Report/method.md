@@ -2,6 +2,7 @@
 # Vector autoregressive (VAR)
 # Regression with ARIMA errors
 # Exponential smoothing
+Our approach involves using the package \texttt{ets} in R and \texttt{statsmodels} in Python
 # Kalman filter
 # Dynamic factor
 # XGBoost
