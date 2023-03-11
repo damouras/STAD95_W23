@@ -31,6 +31,12 @@ For time series, we can also allow the errors from a regression to contain autoc
 
 $$y_t = \beta_0 + \beta_1 x_{1, t} + ... + \beta_k x_{k, t} + \eta_t$$
 
+For example, if $\eta_t \sim$ ARIMA(1, 1, 1), then we can write:
+
+$$(1 - \phi_1 B)(1 - B)\eta_t = (1 + \theta_1 B)\epsilon_t$$
+
+Here, $B$ denotes the backshift operator, and $\epsilon_t$ is a white noise series.
+
 ## Exponential smoothing
 The prediction of the exponential smoothing model can be expressed as:
 
