@@ -56,10 +56,9 @@ $$x_0 \sim p(x_0)$$
 
 for $k = 1, 2, ..., T$. The first expression is called the dynamic model, which represents the dynamic of the states. The second one is called the measurement model, capturing the measurements and their uncertainties. The last expression is called the prior distribuion, which contains the information about the state before obtaining any measurements.
 
-Our goal is to do the following things:
-\begin{itemize}
-  \item Hello world
-\end{itemize}
+Our goal is to recursively compute those marginal distributions:
+- Filtering distribution: $p(x_k|y_1, ..., y_k)$
+- Prediction distribution: $p(x_{k + n}|y_1, ..., y_k)$, for $n = 1, 2, ...$
 
 ## Dynamic factor
 ## XGBoost
