@@ -6,12 +6,11 @@ price_test = tail(df["price"], 365)
 price_train = head(df["price"], length(ts(df['price'])) - 365)
 
 price_train = log(price_train+5)
-price_test = log(price_test+5)
+price_test = price_test+5
 
 s <- ssa(price_train, L = 100)
 for1 <- rforecast(s, groups = list(trend = c(1:24)), len = 365, recurrent=TRUE)
 
-price_test=exp(price_test)
 for1=exp(for1)
 
 plot(ts(price_test))
@@ -20,6 +19,10 @@ lines(ts(for1), col='blue')
 mean((ts(for1) - ts(price_test))**2)
 
 mean(abs(ts(for1) - ts(price_test)))
+
+error = abs(ts(price_test)-ts(for1))/abs(ts(price_test))
+error[error > 1] = 1
+mean(error)
 
 ##Demand
 
@@ -40,3 +43,7 @@ lines(ts(for1), col='blue')
 mean((ts(for1) - ts(demand_test))**2)
 
 mean(abs(ts(for1) - ts(demand_test)))
+
+error = abs(ts(demand_test)-ts(for1))/abs(ts(demand_test))
+error[error > 1] = 1
+mean(error)

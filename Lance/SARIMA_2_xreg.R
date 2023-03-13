@@ -26,7 +26,7 @@ perf[1,4] = mean( ( price_test - mean(price_train) )^2 )
 library(forecast)
 library(tictoc)
 # tic("auto.arima")
-out = auto.arima( ts(demand_train), seasonal = TRUE, xreg = ts(temp_train) )
+out = auto.arima( ts(demand_train), seasonal = TRUE, xreg = ts(temp_train,price_train) )
 ## ARIMA(2,0,0)(2,1,0)[24] with drift 
 # toc() 
 ## auto.arima: 109.06 sec elapsed ~ 2min
@@ -36,7 +36,7 @@ demand_fitd = xts( as.numeric(out$fitted), order.by = time(demand_train) )
 
 # For 1-step-ahead ARIMA predictions using same model while updating  data
 # see: https://stats.stackexchange.com/questions/55168/one-step-ahead-forecast-with-new-data-collected-sequentially
-newfit = Arima( ts( c(demand_train, demand_test)),xreg=ts( c(temp_train, temp_test)), model = out)
+newfit = Arima( ts( c(demand_train, demand_test)),xreg=ts( c(temp_train, temp_test),c(price_train, price_test)), model = out)
 
 library(magrittr)
 demand_pred = tail( as.numeric(newfit$fitted), n = length(demand_test) ) %>%
@@ -56,11 +56,11 @@ perf[2,2] = mean( ( demand_test - demand_pred )^2 )
 
 #### Price  ####
 
-out = auto.arima( ts(price_train), seasonal = TRUE, xreg = ts(temp_train))
+out = auto.arima( ts(price_train), seasonal = TRUE, xreg = ts(temp_train,demand_train))
 ## ARIMA(1,1,3)(0,0,2)[24] 
 price_fitd = xts( as.numeric(out$fitted), order.by = time(price_train) )
 
-newfit = Arima( ts( c(price_train, price_test)), model = out, xreg=ts( c(temp_train, temp_test)))
+newfit = Arima( ts( c(price_train, price_test)), model = out, xreg=ts( c(temp_train, temp_test),c(demand_train, demand_test)))
 
 price_pred = tail( as.numeric(newfit$fitted), n = length(price_test) ) %>%
   xts(x = ., order.by = time(price_test))
@@ -81,13 +81,5 @@ error[error > 1] = 1
 mean(error)
 
 error = abs(price_test-price_pred)/abs(price_test)
-error[error > 1] = 1
-mean(error)
-
-error = abs(price_test-mean(price_train))/abs(price_test)
-error[error > 1] = 1
-mean(error)
-
-error = abs(demand_test-mean(demand_train))/abs(demand_test)
 error[error > 1] = 1
 mean(error)
