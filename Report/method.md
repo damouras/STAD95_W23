@@ -62,6 +62,14 @@ Our goal is to recursively compute those marginal distributions:
 - Filtering distribution: $p(x_k|y_1, ..., y_k)$
 - Prediction distribution: $p(x_{k + n}|y_1, ..., y_k)$, for $n = 1, 2, ...$
 
+We will define our linear Gaussian state space model (Kalman filter) in the same structure that we define the state space model above. Specifically, we define:
+
+$$p(x_k|x_{k - 1}) = N(x_k | A_{k - 1}x_{k -1}, Q_{k - 1})$$
+
+$$p(y_k|x_k) = N(y_k | H_k x_k, R_k)$$
+
+$$p(x_0) = N(x_0 | m_0, P_0)$$
+
 ## Dynamic factor
 ## XGBoost
 
