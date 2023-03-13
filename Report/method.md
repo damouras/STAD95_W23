@@ -64,8 +64,17 @@ When using gradient boosting for regression, the weak learners are regression tr
 
 Long short-term memory (LSTM) is a type of neural network that is explicitly designed to avoid the long-term dependency problem. LSTM uses three gates (input, forget and output gates) to control the flow of information. Each gate is implemented as a sigmoid layer that receives the input and the previous hidden state, and produces a value between 0 and 1. The update equations are as follows:
 
-$$ i_t = \sigma(W_{xi} \cdot x_t + W_{hi} \cdot h_{t-1} + b_i)$$ \expl {input gate}
+$$ i_t = \sigma(W_{xi} \cdot x_t + W_{hi} \cdot h_{t-1} + b_i)$$
 
+$$ f_t = \sigma(W_{xf} \cdot x_t + W_{hf} \cdot h_{t-1} + b_f)$$
+
+$$ o_t = \sigma(W_{xo} \cdot x_t + W_{ho} \cdot h_{t-1} + b_o)$$
+
+$$ c_t = f_t \cdot c_{t-1} + i_t \cdot \tanh(W_{xc} \cdot x_t + W_{hc} \cdot h_{t-1} + b_c) $$
+
+$$ h_t = o_t \cdot \tanh(c_t)$$
+
+where $i_t$ is the input gate, $o_t$ is the output gate, $f_t$ is the forget gate, $c_t$ is the memory cell, and $h_t$ is the hidden state. We denote $\sigma$ as the sigmoid function, which is defined as $\sigma(x) = \frac{1}{1 + e^{-x}}$.
 
 
 ## Transformer 
