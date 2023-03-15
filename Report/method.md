@@ -48,9 +48,9 @@ $$\hat{y}_{t+1|t} = \alpha y_t + (1 - \alpha) \hat{y}_{t|t-1}$$
 
 ## Kalman filter
 
-Let's define $x_1, x_2, ..., x_T$ to be the states and $y_1, y_2, ..., y_T$ to be the measurements. Generally, state space models have the following form:
+Let's define $\mathbf{x}_1, \mathbf{x}_2, ..., \mathbf{x}_T$ to be the states and $\mathbf{y}_1, \mathbf{y}_2, ..., \mathbf{y}_T$ to be the measurements. Generally, state space models have the following form:
 
-$$x_k \sim p(x_k | x_{k-1})$$
+$$\mathbf{x}_k \sim p(\mathbf{x_k} | \mathbf{x}_{k-1})$$
 
 $$y_k \sim p(y_k | x_k)$$
 
@@ -72,7 +72,7 @@ $$p(x_0) = N(x_0 | m_0, P_0)$$
 
 The Kalman filter actually calculates the following distributions:
 
-$$p(x_k|y_{1:k-1}) = N(x_k | m^{-}_k, P^{-}_k$$
+$$p(x_k|y_{1:k-1}) = N(x_k | m^{-}_k, P^{-}_k)$$
 
 ## Dynamic factor
 ## XGBoost
