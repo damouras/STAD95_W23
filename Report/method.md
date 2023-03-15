@@ -76,7 +76,7 @@ $$p(\mathbf{x}_k|\mathbf{y}_{1:k-1}) = N(\mathbf{x}_k | \mathbf{m}^{-}_k, \mathb
 
 $$p(\mathbf{x}_k|\mathbf{y}_{1:k}) = N(\mathbf{x}_k | \mathbf{m}_k, \mathbf{P}_k)$$
 
-The \textcolor{red}{prediction step} of Kalman filter:
+The \textbf{prediction step} of Kalman filter:
 
 $$\mathbf{m}_k^{-} = \mathbf{A}_{k - 1}\mathbf{m}_{k - 1}$$
 
