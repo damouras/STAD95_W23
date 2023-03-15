@@ -86,7 +86,7 @@ The **update step** of Kalman filter:
 
 $$\mathbf{S}_k = \mathbf{H}_k \mathbf{P}^{-}_k \mathbf{H}^{\top}_k+ \mathbf{R}_k$$
 
-$$\mathbf{K}_k = \mathbf{P}^{-}_k \mathbf{H}^{\top})_k \mathbf{S}_k^{-1}$$
+$$\mathbf{K}_k = \mathbf{P}^{-}_k \mathbf{H}^{\top}_k \mathbf{S}_k^{-1}$$
 
 $$\mathbf{m}_k = \mathbf{m}^{-}_k + \mathbf{K}_k (\mathbf{y}_k - \mathbf{H}_k \mathbf{m}^{-}_k)$$
 
