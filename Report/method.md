@@ -52,27 +52,27 @@ Let's define $\mathbf{x}_1, \mathbf{x}_2, ..., \mathbf{x}_T$ to be the states an
 
 $$\mathbf{x}_k \sim p(\mathbf{x_k} | \mathbf{x}_{k-1})$$
 
-$$y_k \sim p(y_k | x_k)$$
+$$\mathbf{y}_k \sim p(\mathbf{y}_k | \mathbf{x}_k)$$
 
-$$x_0 \sim p(x_0)$$
+$$\mathbf{x}_0 \sim p(\mathbf{x}_0)$$
 
 for $k = 1, 2, ..., T$. The first expression is called the dynamic model, which represents the dynamic of the states. The second one is called the measurement model, capturing the measurements and their uncertainties. The last expression is called the prior distribuion, which contains the information about the state before obtaining any measurements.
 
 Our goal is to recursively compute those marginal distributions:
-- Filtering distribution: $p(x_k|y_1, ..., y_k)$
-- Prediction distribution: $p(x_{k + n}|y_1, ..., y_k)$, for $n = 1, 2, ...$
+- Filtering distribution: $p(\mathbf{x}_k|\mathbf{y}_1, ..., \mathbf{y}_k)$
+- Prediction distribution: $p(\mathbf{x}_{k + n}|\mathbf{y}_1, ..., \mathbf{y}_k)$, for $n = 1, 2, ...$
 
 We will define our linear Gaussian state space model (Kalman filter) in the same structure that we define the state space model above. Specifically, we define:
 
-$$p(x_k|x_{k - 1}) = N(x_k | A_{k - 1}x_{k -1}, Q_{k - 1})$$
+$$p(\mathbf{x}_k|\mathbf{x}_{k - 1}) = N(\mathbf{x}_k | \mathbf{A}_{k - 1}\mathbf{x}_{k -1}, \mathbf{Q}_{k - 1})$$
 
-$$p(y_k|x_k) = N(y_k | H_k x_k, R_k)$$
+$$p(\mathbf{y}_k|\mathbf{x}_k) = N(\mathbf{y}_k | \mathbf{H}_k \mathbf{x}_k, \mathbf{R}_k)$$
 
-$$p(x_0) = N(x_0 | m_0, P_0)$$
+$$p(\mathbf{x}_0) = N(\mathbf{x}_0 | \mathbf{m}_0, \mathbf{P}_0)$$
 
 The Kalman filter actually calculates the following distributions:
 
-$$p(x_k|y_{1:k-1}) = N(x_k | m^{-}_k, P^{-}_k)$$
+$$p(\mathbf{x}_k|\mathbf{y}_{1:k-1}) = N(\mathbf{x}_k | \mathbf{m}^{-}_k, \mathbf{P}^{-}_k)$$
 
 ## Dynamic factor
 ## XGBoost
