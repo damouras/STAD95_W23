@@ -70,6 +70,10 @@ $$p(y_k|x_k) = N(y_k | H_k x_k, R_k)$$
 
 $$p(x_0) = N(x_0 | m_0, P_0)$$
 
+The Kalman filter actually calculates the following distributions:
+
+$$p(x_k|y_{1:k-1} = N(x_k | m^{-}_k, P^{-}_k}$$
+
 ## Dynamic factor
 ## XGBoost
 
