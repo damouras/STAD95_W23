@@ -74,6 +74,14 @@ The Kalman filter actually calculates the following distributions:
 
 $$p(\mathbf{x}_k|\mathbf{y}_{1:k-1}) = N(\mathbf{x}_k | \mathbf{m}^{-}_k, \mathbf{P}^{-}_k)$$
 
+$$p(\mathbf{x}_k|\mathbf{y}_{1:k}) = N(\mathbf{x}_k | \mathbf{m}_k, \mathbf{P}_k)$$
+
+The \textcolor{red}{prediction step} of Kalman filter:
+
+$$\mathbf{m}_k^{-} = \mathbf{A}_{k - 1}\mathbf{m}_{k - 1}$$
+
+$$\mathbf{P}_k^{-} = \mathbf{A}_{k - 1}\mathbf{P}_{k - 1}\mathbf{A}^{\top}_{k - 1} + Q_{k - 1}$$
+
 ## Dynamic factor
 ## XGBoost
 
