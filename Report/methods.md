@@ -107,6 +107,12 @@ $$\mathbf{P}_k = \mathbf{P}^{-}_k - \mathbf{K}_k \mathbf{S}_k \mathbf{K}_k^{\top
 
 The implement of the dynamic factor model in <code>Python</code> is supported by the <code>statsmodels</code> package.
 
+The dynamic factor can be written as:
+
+$$y_t = \mu_t + \mathbf{\Lambda}_t \mathbf{f}_t + e_t$$
+
+where $\mathbf{f}_t$ is the static factor vector, $e_t$ is the idiosyncratic disturbances, and $\mathbf{\Lambda}_t$ is the factor loading matrix.
+
 ## XGBoost
 
 The implement of the XGBoost model for time series regression in <code>Python</code> is supported by the <code>xgboost</code> package, together with the <code>RegressorChain</code> module from the <code>scikit-learn</code> package.
@@ -172,6 +178,8 @@ $$y_k = \sum^{N - 1}_{n = 0} e^{-2 \pi j \frac{kn}{N}} x_n$$
 The inverse FFT is defined as follow:
 
 $$x_n = \frac{1}{N} \sum^{N - 1}_{k = 0} e^{2 \pi j \frac{kn}{N}} y_k$$
+
+With the assumption that the time series is periodic, we can use the FFT to extrapolate the time series, which is equivalent to making prediction.
 
 ## Singular spectrum analysis
 
