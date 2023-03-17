@@ -21,7 +21,12 @@ $$y_t = c + \epsilon_t + \theta_1 \epsilon_{t - 1} + \theta_2 \epsilon_{t-2} + .
 We refer to this model as an MA($q$) model, a moving average model of order $q$.
 
 ## Vector autoregressive (VAR)
+
+The implement of VAR in <code>Python</code> is supported by the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>vars</code> package
+
 ## Regression with ARIMA errors
+
+The implement of regression with ARIMA errors in <code>R</code> is supported by the <code>forecast</code> package.
 
 Often, when we use linear regression (with respect to time), we consider regression models of the form:
 
@@ -40,6 +45,8 @@ $$(1 - \phi_1 B)(1 - B)\eta_t = (1 + \theta_1 B)\epsilon_t$$
 Here, $B$ denotes the backshift operator, and $\epsilon_t$ is a white noise series.
 
 ## Exponential smoothing
+The implement of exponential smoothing in <code>Python</code> is supported by the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>forecast</code> package using the <code>ets</code> function.
+
 The prediction of the exponential smoothing model can be expressed as:
 
 $$\hat{y}_{t+1|t} = \alpha y_t + \alpha (1 - \alpha) y_{t-1} + \alpha (1 - \alpha)^2 y_{t-2} + ... $$
@@ -49,6 +56,8 @@ where $0 \leq \alpha \leq 1$ is the smoothing parameter. We can also write the f
 $$\hat{y}_{t+1|t} = \alpha y_t + (1 - \alpha) \hat{y}_{t|t-1}$$
 
 ## Kalman filter
+
+We implement two version of Kalman filter in <code>Python</code>. The simple version is an implementation from scratch using <code>Numpy</code>, and the advanced version using the class <code>KalmanForecaster</code> from the <code>darts</code> package.
 
 Let's define $\mathbf{x}_1, \mathbf{x}_2, ..., \mathbf{x}_T$ to be the states and $\mathbf{y}_1, \mathbf{y}_2, ..., \mathbf{y}_T$ to be the measurements. Generally, state space models have the following form:
 
@@ -95,7 +104,12 @@ $$\mathbf{m}_k = \mathbf{m}^{-}_k + \mathbf{K}_k (\mathbf{y}_k - \mathbf{H}_k \m
 $$\mathbf{P}_k = \mathbf{P}^{-}_k - \mathbf{K}_k \mathbf{S}_k \mathbf{K}_k^{\top}$$
 
 ## Dynamic factor
+
+The implement of the dynamic factor model in <code>Python</code> is supported by the <code>statsmodels</code> package.
+
 ## XGBoost
+
+The implement of the XGBoost model for time series regression in <code>Python</code> is supported by the <code>xgboost</code> package, together with the <code>RegressorChain</code> module from the <code>scikit-learn</code> package.
 
 XGBoost is a supervised learning algorithm that can be used for both regression and classification. It attempts to predict the target variable by combining the estimates of a set of simpler and weaker models. 
 
@@ -105,8 +119,17 @@ When using gradient boosting for regression, the weak learners are regression tr
 
 
 ## Gaussian process
+
+The implement of the Gaussian process regression model for time series in <code>Python</code> is supported by the <code>sklearn</code> package, together with the <code>RegressorChain</code> module also from <code>scikit-learn</code>.
+
 ## Fast Fourier transform
+
+The implement of FFT for time series prediction in <code>Python</code> is from the <code>darts</code> package.
+
 ## Singular spectrum analysis
+
+The model is implemented using the <code>ssa</code> package in <code>R</code>.
+
 ## Long short-term memory (LSTM)
 
 Long short-term memory (LSTM) is a type of neural network that is explicitly designed to avoid the long-term dependency problem. LSTM uses three gates (input, forget and output gates) to control the flow of information. Each gate is implemented as a sigmoid layer that receives the input and the previous hidden state, and produces a value between 0 and 1. The update equations are as follows:
