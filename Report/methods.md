@@ -185,6 +185,14 @@ With the assumption that the time series is periodic, we can use the FFT to extr
 
 The model is implemented using the <code>ssa</code> package in <code>R</code>.
 
+$\mathbf{X} = \begin{bmatrix}
+y_0 & y_1 & y_2 & y_3 &\ldots & y_{N-L} \\ 
+y_1 & y_2 & y_3 & y_4 &\ldots & y_{N-L+1} \\
+y_2 & y_3 & y_4 & y_5 &\ldots & y_{N-L+2} \\
+\vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+y_{L-1} & y_{L} & y_{L+1} & y_{L+2} & \ldots & y_{N-1} \\ 
+\end{bmatrix}$
+
 ## Long short-term memory (LSTM)
 
 Long short-term memory (LSTM) is a type of neural network that is explicitly designed to avoid the long-term dependency problem. LSTM uses three gates (input, forget and output gates) to control the flow of information. Each gate is implemented as a sigmoid layer that receives the input and the previous hidden state, and produces a value between 0 and 1. The update equations are as follows:
