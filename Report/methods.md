@@ -132,6 +132,15 @@ where $\phi(\mathbf{x}): \mathbb{R}^D \rightarrow \mathbb{R}^M$ is the feature m
 
 $$\mathbf{y} | \hat{\mathbf{y}} \sim N(\hat{\mathbf{y}}, \sigma^2 I)$$
 
+Since $\hat{\mathbf{y}}$ is a (zero-mean) Gaussian process, we have: $\hat{\mathbf{y}} \sim N(0, \mathbf{K})$. Therefore, the marginal of $\mathbf{y}$ is given by:
+
+$$\mathbf{y} \sim N(0, \mathbf{C})$$
+$$\mathbf{C} = \mathbf{K} + \sigma^2 I$$
+
+where: 
+
+$$C(\mathbf{x}^{(i)}, \mathbf{x}^{(j)}) = \frac{1}{\alpha}k(\mathbf{x}^{(i)}, \mathbf{x}^{(j)}) + \sigma^2 \delta_{ij}$$
+
 ## Fast Fourier transform
 
 The implement of FFT for time series prediction in <code>Python</code> is from the <code>darts</code> package.
