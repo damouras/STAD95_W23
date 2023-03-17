@@ -111,7 +111,7 @@ The dynamic factor can be written as:
 
 $$y_t = \mu_t + \mathbf{\Lambda}_t \mathbf{f}_t + e_t$$
 
-where $\mathbf{f}_t$ is the static factor vector, $e_t$ is the idiosyncratic disturbances, and $\mathbf{\Lambda}_t$ is the factor loading matrix. Each factor in the dynamic factor model (i.e each $f_{jt}$, where $j = 1, ..., q$) is modelled as an autoregressive stationary process.
+where $\mathbf{f_t}$ is the static factor vector, $e_t$ is the idiosyncratic disturbances, and $\mathbf{\Lambda_t}$ is the factor loading matrix. Each factor in the dynamic factor model (i.e each $f_{jt}$, where $j = 1, ..., q$) is modelled as an autoregressive stationary process.
 
 ## XGBoost
 
