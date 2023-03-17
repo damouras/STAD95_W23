@@ -126,7 +126,7 @@ A Gaussian process is a probability distribution over functions $\hat{y}(\mathbf
 
 $$y | \mathbf{x} \sim N(\hat{y}(\mathbf{x}), \sigma^2)$$
 
-$$\hat{y}(\mathbf{x}) = \mathbf{w}^{\top} \phi(\mathbf{x})$$
+$$\hat{y}(\mathbf{x}) = \mathbf{w}^{\top} \psi(\mathbf{x})$$
 
 where $\phi(\mathbf{x}): \mathbb{R}^D \rightarrow \mathbb{R}^M$ is the feature map. In the multivariate case, where $N$ samples are given, we can write:
 
@@ -141,7 +141,19 @@ with each elements of the covariance matrix $\mathbf{C}$ defined as:
 
 $$C(\mathbf{x}^{(i)}, \mathbf{x}^{(j)}) = \frac{1}{\alpha}k(\mathbf{x}^{(i)}, \mathbf{x}^{(j)}) + \sigma^2 \delta_{ij}$$
 
-where $k(\mathbf{x}, \mathbf{x}^{'}) = \phi(\mathbf{x})^{\top} \phi(\mathbf{x}^{'})$ be the positive semidefinite kernel defined by the feature maps.
+where $k(\mathbf{x}, \mathbf{x}^{'}) = \psi(\mathbf{x})^{\top} \psi(\mathbf{x}^{'})$ be the positive semidefinite kernel defined by the feature maps.
+
+To find the predictive distribution, or the distribution for the new output $y^{N + 1}$ given its past, we can use the conditional distribution of the Multivariate Normal distribution. Specifically, we have:
+
+$$p(y^{(N + 1)} | \mathbf{y}_N) = N(\mathbf{k}^{\top} \mathbf{C}_N^{-1} \mathbf{y}_N, c - \mathbf{k}^{\top} \mathbf{C}_N^{-1} \mathbf{k}$$
+
+where:
+
+$$y_{N + 1} \sim N(0, \mathbf{C}_{N + 1})$$
+$$\mathbf{C}_{N + 1} = \mathbf{K}_{N + 1} + \sigma^2 I$$
+$$C_{N + 1}(\mathbf{x}^{(i)}, \mathbf{x}^{(j)})$$
+$$c = \frac{1}{\alpha} k(\mathbf{x}^{(N + 1)}, \mathbf{x}^{(N + 1)}) + \sigma^2$$
+
 
 ## Fast Fourier transform
 
