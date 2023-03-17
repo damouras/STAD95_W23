@@ -158,7 +158,7 @@ $$C_{N + 1}(\mathbf{x}^{(i)}, \mathbf{x}^{(j)}) = \frac{1}{\alpha} k(\mathbf{x}^
 
 $$c = \frac{1}{\alpha} k(\mathbf{x}^{(N + 1)}, \mathbf{x}^{(N + 1)}) + \sigma^2$$
 
-Note that the vector $\mathbf{k}$ is a function of the new test input $\mathbf{x}^{(N + 1)}$.
+Note that the vector $\mathbf{k}$ is a vector with entries $k_i = \frac{1}{\alpha} k(\mathbf{x}^{(i)}, \mathbf{x}^{(N + 1)})$. Hence, $\mathbf{k}$ is a function of the new test input $\mathbf{x}^{(N + 1)}$.
 
 
 ## Fast Fourier transform
