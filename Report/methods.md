@@ -4,6 +4,8 @@
 
 ## SARIMA
 
+The implement of SARIMA in <code>Python</code> is supported by the <code>pmdarima</code> as well as the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>forecast</code> package.
+
 SARIMA is the abbreviation for Seasonal Autoregressive Integrated Moving Average model. To introduce the SARIMA model, we will give some overview about the canonical autoregressive (AR) model and moving average (MA) model.
 
 An autoregressive of order $p$, denotes AR($p$), can be written as:
