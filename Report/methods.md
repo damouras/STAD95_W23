@@ -146,7 +146,7 @@ where $k(\mathbf{x}, \mathbf{x}^{'}) = \psi(\mathbf{x})^{\top} \psi(\mathbf{x}^{
 
 To find the predictive distribution, or the distribution for the new output $y^{N + 1}$ given its past, we can use the conditional distribution of the Multivariate Normal distribution. Specifically, we have:
 
-$$p(y^{(N + 1)} | \mathbf{y}_N) = N(\mathbf{k}^{\top} \mathbf{C}_N^{-1} \mathbf{y}_N, c - \mathbf{k}^{\top} \mathbf{C}_N^{-1} \mathbf{k}$$
+$$p(y^{(N + 1)} | \mathbf{y}_N) = N(\mathbf{k}^{\top} \mathbf{C}_N^{-1} \mathbf{y}_N, c - \mathbf{k}^{\top} \mathbf{C}_N^{-1} \mathbf{k})$$
 
 where:
 
@@ -154,9 +154,9 @@ $$y_{N + 1} \sim N(0, \mathbf{C}_{N + 1})$$
 
 $$\mathbf{C}_{N + 1} = \mathbf{K}_{N + 1} + \sigma^2 I$$
 
-$$C_{N + 1}(\mathbf{x}^{(i)}, \mathbf{x}^{(j)})$$
+$$C_{N + 1}(\mathbf{x}^{(i)}, \mathbf{x}^{(j)}) = \frac{1}{\alpha} k(\mathbf{x}^{(i)}, \mathbf{x}^{(j)}) + \sigma^2 \delta_{ij}$$
 
-$$c = \frac{1}{\alpha} k(\mathbf{x}^{(N + 1)}, \mathbf{x}^{(N + 1)}) + \sigma^2)$$
+$$c = \frac{1}{\alpha} k(\mathbf{x}^{(N + 1)}, \mathbf{x}^{(N + 1)}) + \sigma^2$$
 
 
 ## Fast Fourier transform
