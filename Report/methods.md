@@ -165,6 +165,10 @@ Note that the vector $\mathbf{k}$ is a vector with entries $k_i = \frac{1}{\alph
 
 The implement of FFT for time series prediction in <code>Python</code> is from the <code>darts</code> package.
 
+Let $x_1, x_2, ..., x_N$ be a sequence of length $N$. We define the Fast Fourier transform $y_k$ of length $N$ as:
+
+$$y_k = \sum^{N - 1}_{n = 0} e^{-2 \pi j \frac{kn}{N}} x_n$$
+
 ## Singular spectrum analysis
 
 The model is implemented using the <code>ssa</code> package in <code>R</code>.
