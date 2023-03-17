@@ -128,7 +128,9 @@ $$y | \mathbf{x} \sim N(\hat{y}(\mathbf{x}), \sigma^2)$$
 
 $$\hat{y}(\mathbf{x}) = \mathbf{w}^{\top} \phi(\mathbf{x})$$
 
-where $\phi(\mathbf{x}): \mathbb{R}^D \rightarrow \mathbb{R}^M$ is the feature map.
+where $\phi(\mathbf{x}): \mathbb{R}^D \rightarrow \mathbb{R}^M$ is the feature map. In the multivariate case, where $N$ samples are given, we can write:
+
+$$\mathbf{y} | \hat{\mathbf{y}} \sim N(\hat{\mathbf{y}}, \sigma^2 I)$$
 
 ## Fast Fourier transform
 
