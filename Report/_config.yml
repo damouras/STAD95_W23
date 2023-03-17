@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Electricity Demand Forecasting
-author: Nghia Le, Summer Yang, Lance Zheng
+author: Nghia Le, Lance Zheng
 logo: logo.png
 
 # Force re-execution of notebooks on each build.
