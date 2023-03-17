@@ -150,7 +150,7 @@ $$p(y^{(N + 1)} | \mathbf{y}_N) = N(\mathbf{k}^{\top} \mathbf{C}_N^{-1} \mathbf{
 
 where:
 
-$$y_{N + 1} \sim N(0, \mathbf{C}_{N + 1})$$
+$$\mathbf{y}_{N + 1} \sim N(0, \mathbf{C}_{N + 1})$$
 
 $$\mathbf{C}_{N + 1} = \mathbf{K}_{N + 1} + \sigma^2 I$$
 
