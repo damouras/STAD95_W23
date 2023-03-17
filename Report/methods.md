@@ -169,6 +169,10 @@ Let $x_1, x_2, ..., x_N$ be a sequence of length $N$. We define the Fast Fourier
 
 $$y_k = \sum^{N - 1}_{n = 0} e^{-2 \pi j \frac{kn}{N}} x_n$$
 
+The inverse FFT is defined as follow:
+
+$$x_n = \frac{1}{N} \sum^{N - 1}_{k = 0} e^{2 \pi j \frac{kn}{N}} y_k$$
+
 ## Singular spectrum analysis
 
 The model is implemented using the <code>ssa</code> package in <code>R</code>.
