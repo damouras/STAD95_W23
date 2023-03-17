@@ -135,6 +135,7 @@ $$\mathbf{y} | \hat{\mathbf{y}} \sim N(\hat{\mathbf{y}}, \sigma^2 I)$$
 Since $\hat{\mathbf{y}}$ is a (zero-mean) Gaussian process, we have: $\hat{\mathbf{y}} \sim N(0, \mathbf{K})$. Therefore, the marginal of $\mathbf{y}$ is given by:
 
 $$\mathbf{y} \sim N(0, \mathbf{C})$$
+
 $$\mathbf{C} = \mathbf{K} + \sigma^2 I$$
 
 with each elements of the covariance matrix $\mathbf{C}$ defined as: 
@@ -150,9 +151,12 @@ $$p(y^{(N + 1)} | \mathbf{y}_N) = N(\mathbf{k}^{\top} \mathbf{C}_N^{-1} \mathbf{
 where:
 
 $$y_{N + 1} \sim N(0, \mathbf{C}_{N + 1})$$
+
 $$\mathbf{C}_{N + 1} = \mathbf{K}_{N + 1} + \sigma^2 I$$
+
 $$C_{N + 1}(\mathbf{x}^{(i)}, \mathbf{x}^{(j)})$$
-$$c = \frac{1}{\alpha} k(\mathbf{x}^{(N + 1)}, \mathbf{x}^{(N + 1)}) + \sigma^2$$
+
+$$c = \frac{1}{\alpha} k(\mathbf{x}^{(N + 1)}, \mathbf{x}^{(N + 1)}) + \sigma^2)$$
 
 
 ## Fast Fourier transform
