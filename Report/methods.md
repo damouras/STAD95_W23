@@ -137,9 +137,11 @@ Since $\hat{\mathbf{y}}$ is a (zero-mean) Gaussian process, we have: $\hat{\math
 $$\mathbf{y} \sim N(0, \mathbf{C})$$
 $$\mathbf{C} = \mathbf{K} + \sigma^2 I$$
 
-where: 
+with each elements of the covariance matrix $\mathbf{C}$ defined as: 
 
 $$C(\mathbf{x}^{(i)}, \mathbf{x}^{(j)}) = \frac{1}{\alpha}k(\mathbf{x}^{(i)}, \mathbf{x}^{(j)}) + \sigma^2 \delta_{ij}$$
+
+where $k(\mathbf{x}, \mathbf{x}^{'}) = \phi(\mathbf{x})^{\top} \phi(\mathbf{x}^{'})$ be the positive semidefinite kernel defined by the feature maps.
 
 ## Fast Fourier transform
 
