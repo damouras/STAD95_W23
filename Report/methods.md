@@ -185,8 +185,10 @@ With the assumption that the time series is periodic, we can use the FFT to extr
 
 The model is implemented using the <code>ssa</code> package in <code>R</code>.
 
+We consider a time series $\mathbf{y_T} = (y_1, ..., y_T)$. Fix $L$ such that $L < \frac{T}{2}$, the window length, and let $K = T - L + 1$. 
+
 ```math
-\mathbf{X} = \begin{bmatrix}
+\mathbf{X} = (x_{ij})_{i, j = 1}^{L, K} = \begin{bmatrix}
 y_0 & y_1 & y_2 & y_3 &\ldots & y_{N-L} \\ 
 y_1 & y_2 & y_3 & y_4 &\ldots & y_{N-L+1} \\
 y_2 & y_3 & y_4 & y_5 &\ldots & y_{N-L+2} \\
