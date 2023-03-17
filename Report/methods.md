@@ -124,7 +124,9 @@ The implement of the Gaussian process regression model for time series in <code>
 
 A Gaussian process is a probability distribution over functions $\hat{y}(\mathbf{x})$ such that for any set of values of $\hat{y}(\mathbf{x})$ evaluated at an arbitrary set of points $\mathbf{x}^{(1)}, \mathbf{x}^{(2)}, ...$ is jointly Gaussian. Recall that a linear model can be written in a form:
 
-$$y | \mathbf{x} \sim N(\hat{y}(\mathbf{x}), \sigma^2)$$
+$$y | \mathbf{x} \sim N(\hat{y}(\mathbf{x}), \sigma^2) \hspace{10mm} \hat{y}(\mathbf{x}) = \mathbf{w}^{\top} \phi(\mathbf{x})$$
+
+where $\phi(\mathbf{x}): \mathbb{R}^D \rightarrow \mathbb{R}^M$ is the feature map.
 
 ## Fast Fourier transform
 
