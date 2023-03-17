@@ -185,13 +185,15 @@ With the assumption that the time series is periodic, we can use the FFT to extr
 
 The model is implemented using the <code>ssa</code> package in <code>R</code>.
 
-$\mathbf{X} = \begin{bmatrix}
+```math
+\mathbf{X} = \begin{bmatrix}
 y_0 & y_1 & y_2 & y_3 &\ldots & y_{N-L} \\ 
 y_1 & y_2 & y_3 & y_4 &\ldots & y_{N-L+1} \\
 y_2 & y_3 & y_4 & y_5 &\ldots & y_{N-L+2} \\
 \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
 y_{L-1} & y_{L} & y_{L+1} & y_{L+2} & \ldots & y_{N-1} \\ 
-\end{bmatrix}$
+\end{bmatrix}
+```
 
 ## Long short-term memory (LSTM)
 
