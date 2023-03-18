@@ -22,7 +22,7 @@ We refer to this model as an MA($q$) model, a moving average model of order $q$.
 
 ## Vector autoregressive (VAR)
 
-The implement of VAR in <code>Python</code> is supported by the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>vars</code> package
+The implement of VAR in <code>Python</code> is supported by the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>vars</code> package.
 
 ## Regression with ARIMA errors
 
