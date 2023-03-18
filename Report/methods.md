@@ -187,15 +187,21 @@ The model is implemented using the <code>ssa</code> package in <code>R</code>.
 
 We consider a time series $\mathbf{y_T} = (y_1, ..., y_T)$. Fix $L$ such that $L < \frac{T}{2}$, the window length, and let $K = T - L + 1$. 
 
+First, we need to compute the trajectory matrix $\mathbf{X} = [X_1, ..., X_K]$ as follow:
+
 ```math
 \mathbf{X} = (x_{ij})_{i, j = 1}^{L, K} = \begin{bmatrix}
-y_0 & y_1 & y_2 & y_3 &\ldots & y_{N-L} \\ 
-y_1 & y_2 & y_3 & y_4 &\ldots & y_{N-L+1} \\
-y_2 & y_3 & y_4 & y_5 &\ldots & y_{N-L+2} \\
+y_1 & y_2 & y_3 & y_4 &\ldots & y_{K} \\ 
+y_2 & y_3 & y_4 & y_5 &\ldots & y_{K + 1} \\
+y_3 & y_4 & y_5 & y_6 &\ldots & y_{K + 2} \\
 \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
-y_{L-1} & y_{L} & y_{L+1} & y_{L+2} & \ldots & y_{N-1} \\ 
+y_{L} & y_{L + 1} & y_{L + 2} & y_{L + 3} & \ldots & y_{T} \\ 
 \end{bmatrix}
 ```
+
+Note that the trajectory matrix $\mathbf{X}$ is a Hankel matrix, which means that all the elements along the diagonal $i + j = $const are equal. 
+
+Then, we apply SVD (Singular Value Decomposition) for the matrix $\mathbf{X}\mathbf{X}^{\top}$. To calculate the SVD, we need to calculate the eigenvalues and eigenvectors of the matrix $\mathbf{X}\mathbf{X}^{\top}$ and represent it in the form $\mathbf{X}\mathbf{X}^{\top} = \mathbf{P}\mathbf{\Lambda}\mathbf{P}^{\top}$. Here, $\mathbf{\Lambda} = diag(\lambda_1, ..., \lambda_L)$ is the diagonal matrix of $\mathbf{X}\mathbf{X}^{\top}$ ordered such that $\lambda_1 \geq \lambda_2 \geq...\geq \lambda_L \geq 0$ and $\mathbf{P} = (P_1, ..., P_L)$ is the corresponding orthogonal matrix of eigenvectors of $\mathbf{X}\mathbf{X}^{\top}$.
 
 ## Long short-term memory (LSTM)
 
