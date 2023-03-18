@@ -24,6 +24,10 @@ We refer to this model as an MA($q$) model, a moving average model of order $q$.
 
 The implement of VAR in <code>Python</code> is supported by the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>vars</code> package.
 
+The general model specification for vector autogressive model of order $p$, or VAR($p$):
+
+$$\mathbf{y}_t = \mathbf{\Phi}_1 \mathbf{y}_{t - 1} + ... + \mathbf{\Phi}_p \mathbf{y}_{t - p} + \mathbf{\Epsilon}_t$$
+
 ## Regression with ARIMA errors
 
 The implement of regression with ARIMA errors in <code>R</code> is supported by the <code>forecast</code> package.
@@ -126,7 +130,7 @@ When using gradient boosting for regression, the weak learners are regression tr
 
 ## Gaussian process
 
-The implement of the Gaussian process regression model for time series in <code>Python</code> is supported by the <code>scikit-learn</code> package, together with the <code>RegressorChain</code> module also from <code>scikit-learn</code>. For the choice of kernel, we use <code> DotProduct() + WhiteKernel()</code>.
+The implement of the Gaussian process regression model for time series in <code>Python</code> is supported by the <code>scikit-learn</code> package, together with the <code>RegressorChain</code> module also from <code>scikit-learn</code>. For the choice of kernel, we use <code>DotProduct() + WhiteKernel()</code>.
 
 A Gaussian process is a probability distribution over functions $\hat{y}(\mathbf{x})$ such that for any set of values of $\hat{y}(\mathbf{x})$ evaluated at an arbitrary set of points $\mathbf{x}^{(1)}, \mathbf{x}^{(2)}, ...$ is jointly Gaussian. Recall that a linear model can be written in a form:
 
