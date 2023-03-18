@@ -213,7 +213,7 @@ By applying Hankelization to all matrices $\mathbf{X_{I_1}}, ..., \mathbf{X_{I_m
 
 $$\mathbf{X} = \tilde{\mathbf{X}}_{I_1} + ... + \tilde{\mathbf{X}}_{I_m}$$
 
-where $\tilde{\mathbf{X}_{I_m}} = \mathcal{H}\mathbf{X_{I_m}}$
+where $\tilde{\mathbf{X}_{I_m}}$ = $\mathcal{H}\mathbf{X_{I_m}}$
 
 ## Long short-term memory (LSTM)
 
