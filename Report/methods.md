@@ -237,7 +237,7 @@ Hence, we can make prediction by using this recurrent relation.
 
 ## Long short-term memory (LSTM)
 
-The model is implemented using the <code>Pytorch</code> library in <code>Python</code>.
+The model is implemented using the <code>PyTorch</code> library in <code>Python</code>.
 
 Long short-term memory (LSTM) is a type of neural network that is explicitly designed to avoid the long-term dependency problem. LSTM uses three gates (input, forget and output gates) to control the flow of information. Each gate is implemented as a sigmoid layer that receives the input and the previous hidden state, and produces a value between 0 and 1. The update equations are as follows:
 
@@ -256,7 +256,7 @@ where $i_t$ is the input gate, $o_t$ is the output gate, $f_t$ is the forget gat
 
 ## Transformer 
 
-The model is implemented using the <code>Pytorch</code> library in <code>Python</code>.
+The model is implemented using the <code>PyTorch</code> library in <code>Python</code>.
 
 Transformer is a type of neural network architecture that is used for sequential data, such as NLP tasks or time series data. The model is known for its ability to efficiently handle long-term dependencies and parallelizable computation. The underlying core of Transformer model is the **self-attention mechanism**, which allows the model to weigh the importance of different parts of the input when making predictions. Furthermore, the model has an encoder-decoder architecture, where the encoder is responsible for processing the input sequence and the decoder is mainly responsible for producing the output sequence.
 
@@ -271,6 +271,6 @@ The attention mechanism is applied multiple times in the Transformer model, in a
 
 ## Structured state space model (S4)
 
-The model is implemented using the <code>Pytorch</code> library in <code>Python</code>.
+The model is implemented using the <code>PyTorch</code> library in <code>Python</code>.
 
 
