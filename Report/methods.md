@@ -53,7 +53,7 @@ y_{k, t}
 
 \mathbf{\Phi}_i = \begin{bmatrix}
 \phi_{i:1, 1} & \phi_{i:1, 2} &\ldots & \phi_{i:1, k} \\ 
-\phi_{i:2, 1} & \phi{i:2, 2} &\ldots & \phi_{i:2, k} \\
+\phi_{i:2, 1} & \phi_{i:2, 2} &\ldots & \phi_{i:2, k} \\
 \vdots & \vdots & \ddots & \vdots \\
 \phi_{i:k, 1} & \phi_{i:k, 2} & \ldots & \phi_{i:k, k}
 \end{bmatrix} 
@@ -66,19 +66,28 @@ Moreover, note that any VAR($p$) model can be expressed as a special VAR($1$) mo
 $$\mathbf{y}_t = \mathbf{\Phi}_1 \mathbf{y}_{t - 1} + ... + \mathbf{\Phi}_p \mathbf{y}_{t - p} + \mathcal{E}_t$$
 
 ``` math
-\mathbf{y}_t = \begin{bmatrix}
-y_{1, t} \\
-y_{2, t} \\
+\begin{bmatrix}
+\mathbf{y}_{t} \\
+\mathbf{y}_{t - 1} \\
 \vdots \\
-y_{k, t}
-\end{bmatrix},
+\mathbf{y}_{t - p + 1}
+\end{bmatrix} =
 
-\mathbf{\Phi}_i = \begin{bmatrix}
-\phi_{i:1, 1} & \phi_{i:1, 2} &\ldots & \phi_{i:1, k} \\ 
-\phi_{i:2, 1} & \phi{i:2, 2} &\ldots & \phi_{i:2, k} \\
-\vdots & \vdots & \ddots & \vdots \\
-\phi_{i:k, 1} & \phi_{i:k, 2} & \ldots & \phi_{i:k, k}
-\end{bmatrix} +
+\begin{bmatrix}
+\mathbf{\Phi}_{1} & \mathbf{\Phi}_{2} &\ldots & \mathbf{\Phi}_{p} \\ 
+\mathbf{I} & \mathbf{0} &\ldots & \mathbf{0} \\
+\mathbf{0} & \mathbf{I} &\ldots & \vdots \\
+\vdots & \vdots & \ddots & \mathbf{0}
+\end{bmatrix} 
+
+\begin{bmatrix}
+\mathbf{y}_{t - 1} \\
+\mathbf{y}_{t - 2} \\
+\vdots \\
+\mathbf{y}_{t - p}
+\end{bmatrix}
+
++
 
 \begin{bmatrix}
 \mathcal{E}_t \\
