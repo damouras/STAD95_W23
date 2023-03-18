@@ -213,7 +213,19 @@ By applying Hankelization to all matrices $\mathbf{X_{I_1}}, ..., \mathbf{X_{I_m
 
 $$\mathbf{X} = \tilde{\mathbf{X}}_{I_1} + ... + \tilde{\mathbf{X}}_{I_m}$$
 
-where: $$\tilde{\mathbf{X}}_{I_m} = \mathcal{H}\mathbf{X}_{I_m}$$
+where: 
+
+$$\tilde{\mathbf{X}}_{I_m} = \mathcal{H}\mathbf{X}_{I_m}$$
+
+This is equivalent to the decomposition of the intial series $\mathbf{y}_T = (y_1, ..., y_T)$ into a sum of $m$ series:
+
+$$y_t = \sum^m_{k = 1} \tilde{y}_t^{k}$$
+
+where:
+
+$$\mathbf{y}^{(k)}_T = (\tilde{y}^{(k)}_1, ..., \tilde{y}^{(k)}_T)$$
+
+corresponds to the matrix $\mathbf{X_{I_k}}$.
 
 ## Long short-term memory (LSTM)
 
