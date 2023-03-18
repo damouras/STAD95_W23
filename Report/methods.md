@@ -203,6 +203,8 @@ Note that the trajectory matrix $\mathbf{X}$ is a Hankel matrix, which means tha
 
 Then, we apply SVD (Singular Value Decomposition) for the matrix $\mathbf{X}\mathbf{X}^{\top}$. To calculate the SVD, we need to calculate the eigenvalues and eigenvectors of the matrix $\mathbf{X}\mathbf{X}^{\top}$ and represent it in the form $\mathbf{X}\mathbf{X}^{\top} = \mathbf{P}\mathbf{\Lambda}\mathbf{P}^{\top}$. Here, $\mathbf{\Lambda} = diag(\lambda_1, ..., \lambda_L)$ is the diagonal matrix of $\mathbf{X}\mathbf{X}^{\top}$ ordered such that $\lambda_1 \geq \lambda_2 \geq...\geq \lambda_L \geq 0$ and $\mathbf{P} = (P_1, ..., P_L)$ is the corresponding orthogonal matrix of eigenvectors of $\mathbf{X}\mathbf{X}^{\top}$.
 
+Next, we will reconstruct the time series from the SVD that we obtain above. We would divide the set of indices ${1, ..., L}$
+
 ## Long short-term memory (LSTM)
 
 Long short-term memory (LSTM) is a type of neural network that is explicitly designed to avoid the long-term dependency problem. LSTM uses three gates (input, forget and output gates) to control the flow of information. Each gate is implemented as a sigmoid layer that receives the input and the previous hidden state, and produces a value between 0 and 1. The update equations are as follows:
