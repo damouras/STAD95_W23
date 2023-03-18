@@ -203,7 +203,7 @@ Note that the trajectory matrix $\mathbf{X}$ is a Hankel matrix, which means tha
 
 Then, we apply SVD (Singular Value Decomposition) for the matrix $\mathbf{X}\mathbf{X}^{\top}$. To calculate the SVD, we need to calculate the eigenvalues and eigenvectors of the matrix $\mathbf{X}\mathbf{X}^{\top}$ and represent it in the form $\mathbf{X}\mathbf{X}^{\top} = \mathbf{P}\mathbf{\Lambda}\mathbf{P}^{\top}$. Here, $\mathbf{\Lambda} = diag(\lambda_1, ..., \lambda_L)$ is the diagonal matrix of $\mathbf{X}\mathbf{X}^{\top}$ ordered such that $\lambda_1 \geq \lambda_2 \geq...\geq \lambda_L \geq 0$ and $\mathbf{P} = (P_1, ..., P_L)$ is the corresponding orthogonal matrix of eigenvectors of $\mathbf{X}\mathbf{X}^{\top}$.
 
-Next, we will reconstruct the time series from the SVD that we obtain above. We would divide the set of indices $\{1, ..., L\}$ into m disjoint partitions $I_1, ..., I_m$. Let $I = \{i_1, ..., i_p\}$. Then the matrix $\mathbf{X_I}$ corresponding to group $I$ is defined as $\mathbf{X_I} = \mathbf{X}_{i_1} + ... + \mathbf{X_{i_p}}$. Computing this quantity for each group $I_1, ..., I_m$ as constructed above, we have:
+Next, we will reconstruct the time series from the SVD that we obtain above. We would divide the set of indices $\{1, ..., L\}$ into m disjoint partitions $I_1, ..., I_m$. Let $I = \{i_1, ..., i_p\}$. Then the matrix $\mathbf{X_I}$ corresponding to group $I$ is defined as $\mathbf{X_I} = \mathbf{X_{i_1}} + ... + \mathbf{X_{i_p}}$. Computing this quantity for each group $I_1, ..., I_m$ as constructed above, we have:
 
 $$\mathbf{X} = \mathbf{X}_{I_1} + ... + \mathbf{X}_{I_m}$$
 
