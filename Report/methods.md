@@ -26,7 +26,7 @@ The implement of VAR in <code>Python</code> is supported by the <code>statsmodel
 
 The general model specification for vector autogressive model of order $p$, or VAR($p$):
 
-$$\mathbf{y}_t = \mathbf{\Phi}_1 \mathbf{y}_{t - 1} + ... + \mathbf{\Phi}_p \mathbf{y}_{t - p} + \mathbf{\epsilon}_t$$
+$$\mathbf{y}_t = \mathbf{\Phi}_1 \mathbf{y}_{t - 1} + ... + \mathbf{\Phi}_p \mathbf{y}_{t - p} + \mathcal{E}_t$$
 
 ## Regression with ARIMA errors
 
