@@ -35,7 +35,7 @@ where:
 y_{1, t} \\
 y_{2, t} \\
 \vdots \\
-y_{k, t} \\
+y_{k, t}
 \end{bmatrix}
 
 \quad
@@ -45,13 +45,13 @@ y_1 & y_2 & y_3 &\ldots & y_{K} \\
 y_2 & y_3 & y_4 &\ldots & y_{K + 1} \\
 y_3 & y_4 & y_5 &\ldots & y_{K + 2} \\
 \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
-y_{L} & y_{L + 1} & y_{L + 2} & \ldots & y_{T} \\ 
+y_{L} & y_{L + 1} & y_{L + 2} & \ldots & y_{T}
 \end{bmatrix} 
 \begin{bmatrix}
 y_{1, t} \\
 y_{2, t} \\
 \vdots \\
-y_{k, t} \\
+y_{k, t}
 \end{bmatrix}
 
 \quad
@@ -60,7 +60,7 @@ y_{k, t} \\
 \epsilon_{1, t} \\
 \epsilon_{2, t} \\
 \vdots \\
-\epsilon_{k, t} \\
+\epsilon_{k, t}
 \end{bmatrix}
 ```
 
