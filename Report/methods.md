@@ -28,6 +28,27 @@ The general model specification for vector autogressive model of order $p$, or V
 
 $$\mathbf{y}_t = \mathbf{\Phi}_1 \mathbf{y}_{t - 1} + ... + \mathbf{\Phi}_p \mathbf{y}_{t - p} + \mathcal{E}_t$$
 
+In matrix form:
+
+``` math
+\begin{matrix}
+y_{1, t} \\
+y_{2, t} \\
+\vdots \\
+y_{k, t} \\
+\end{matrix} =
+
+\begin{bmatrix}
+y_1 & y_2 & y_3 &\ldots & y_{K} \\ 
+y_2 & y_3 & y_4 &\ldots & y_{K + 1} \\
+y_3 & y_4 & y_5 &\ldots & y_{K + 2} \\
+\vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+y_{L} & y_{L + 1} & y_{L + 2} & \ldots & y_{T} \\ 
+\end{bmatrix}
+```
+
+
+
 ## Regression with ARIMA errors
 
 The implement of regression with ARIMA errors in <code>R</code> is supported by the <code>forecast</code> package.
