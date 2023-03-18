@@ -227,6 +227,8 @@ $$\mathbf{\tilde{y}}^{(k)}_T = (\tilde{y}^{(k)}_1, ..., \tilde{y}^{(k)}_T)$$
 
 corresponds to the matrix $\mathbf{X_{I_k}}$.
 
+We can see that SSA possesses a linear recurrence relation, such that $y_n = \sum^{L - 1}_{k = 1} a_k x_{n - k}$. Hence, we can make prediction by using this recurrent relation.
+
 ## Long short-term memory (LSTM)
 
 Long short-term memory (LSTM) is a type of neural network that is explicitly designed to avoid the long-term dependency problem. LSTM uses three gates (input, forget and output gates) to control the flow of information. Each gate is implemented as a sigmoid layer that receives the input and the previous hidden state, and produces a value between 0 and 1. The update equations are as follows:
