@@ -229,7 +229,7 @@ corresponds to the matrix $\mathbf{X_{I_k}}$.
 
 We can see that SSA possesses a linear recurrence relation, such that 
 
-$$y_n = \sum^{L - 1}_{k = 1} a_k x_{n - k}$$
+$$y_n = \sum^{L - 1}_{k = 1} a_k y_{n - k}$$
 
 Hence, we can make prediction by using this recurrent relation.
 
