@@ -6,7 +6,8 @@ root: intro
 chapters:
 - file: data
   sections:
-  - file: EDA   
+  - file: EDA
+  - file: EDApy
 - file: methods
 - file: analysis
 - file: results

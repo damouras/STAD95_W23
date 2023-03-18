@@ -151,6 +151,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="data.html">Data Description</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="EDA.html">Exploratory Data Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EDApy.html">EDA</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="methods.html">Methodology</a></li>
@@ -354,87 +355,13 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="data.html">Data Description</a></li>
-<li class="toctree-l1"><a class="reference internal" href="methods.html">Methodology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analysis.html">Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="results.html">Results</a></li>
-<li class="toctree-l1"><a class="reference internal" href="discussion.html">Discussion</a></li>
-</ul>
-</div>
-<p>Price: predicting next few hours
-Demand: longer time frame</p>
-<p>Source: <a class="reference external" href="https://www.ieso.ca/en/">Independent Electricity System Operator (IESO)</a>
-(add description)</p>
 <ul class="simple">
-<li><p>final_data.csv (n = 9144)</p>
-<ul>
-<li><p>Date (9144)</p></li>
-<li><p>Price (9144)</p></li>
-<li><p>1_hour_pred (9127)</p></li>
-<li><p>2_hour_pred (9127)</p></li>
-<li><p>3_hour_pred (9127)</p></li>
-<li><p>Market Demand (9144)</p></li>
-<li><p>Ontario Demand (9144)</p></li>
-<li><p>1_lag_pred (9126): prediction from one hour ago</p></li>
-<li><p>2_lag_pred (9125): prediction from two hour ago</p></li>
-<li><p>3_lag_pred (9124): prediction from three hour ago</p></li>
+<li><p>Problem Context: modern electricity markets, demand/price forecasting</p></li>
+<li><p>Overview of project</p></li>
+<li><p>Brief summary of key results</p></li>
 </ul>
-</li>
-<li><p>5minutes.csv (n = 840)</p>
-<ul>
-<li><p>Price</p></li>
-<li><p>Demand</p></li>
-<li><p>Supply</p></li>
-</ul>
-</li>
-<li><p>PUB_demand_202*.csv (n = 8761)</p>
-<ul>
-<li><p>Date</p></li>
-<li><p>Hour</p></li>
-<li><p>Market Demand</p></li>
-<li><p>Ontario Demand</p></li>
-</ul>
-</li>
-<li><p>hourlay_data_202*.csv (n = 8761)</p>
-<ul>
-<li><p>Date</p></li>
-<li><p>Hour</p></li>
-<li><p>HOEP</p></li>
-<li><p>Hour 1 predispatch</p></li>
-<li><p>Hour 2 predispatch</p></li>
-<li><p>Hour 3 predispatch</p></li>
-<li><p>OR 10 min sync</p></li>
-<li><p>OR 10 min non-sync</p></li>
-<li><p>OR 30 min</p></li>
-</ul>
-</li>
-<li><p>generation_fuel_type_multiday.xml (n = 140)</p>
-<ul>
-<li><p>Supply_BIOFUEL</p></li>
-<li><p>Supply_GAS</p></li>
-<li><p>Supply_HYDRO</p></li>
-<li><p>Supply_NUCLEAR</p></li>
-<li><p>Supply_SOLAR</p></li>
-<li><p>Supply_WIND</p></li>
-</ul>
-</li>
-<li><p>ontario_demand_multiday.xml</p>
-<ul>
-<li><p>Demand_5_Minute (n = 1729)</p></li>
-<li><p>Demand_Actual (n = 140)</p></li>
-<li><p>Demand_Projected (n = 140)</p></li>
-</ul>
-</li>
-<li><p>price_multiday.xml</p>
-<ul>
-<li><p>Price_HOEP (n = 140): Hourly Ontario energy price</p></li>
-<li><p>Price_HOEP_Projected (n = 140): Projected hourly Ontario energy price</p></li>
-<li><p>Price_MCP (n = 1729): Market clearing price</p></li>
-</ul>
-</li>
-</ul>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
