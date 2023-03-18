@@ -126,7 +126,7 @@ When using gradient boosting for regression, the weak learners are regression tr
 
 ## Gaussian process
 
-The implement of the Gaussian process regression model for time series in <code>Python</code> is supported by the <code>scikit-learn</code> package, together with the <code>RegressorChain</code> module also from <code>scikit-learn</code>.
+The implement of the Gaussian process regression model for time series in <code>Python</code> is supported by the <code>scikit-learn</code> package, together with the <code>RegressorChain</code> module also from <code>scikit-learn</code>. For the choice of kernel, we use <code> DotProduct() + WhiteKernel()</code>.
 
 A Gaussian process is a probability distribution over functions $\hat{y}(\mathbf{x})$ such that for any set of values of $\hat{y}(\mathbf{x})$ evaluated at an arbitrary set of points $\mathbf{x}^{(1)}, \mathbf{x}^{(2)}, ...$ is jointly Gaussian. Recall that a linear model can be written in a form:
 
@@ -179,7 +179,7 @@ The inverse FFT is defined as follow:
 
 $$x_n = \frac{1}{N} \sum^{N - 1}_{k = 0} e^{2 \pi j \frac{kn}{N}} y_k$$
 
-With the assumption that the time series is periodic, we can use the FFT to extrapolate the time series, which is equivalent to making prediction. The <code>darts</code> package allows us to choose how many frequencies to keep in order to forecast the time series.
+With the assumption that the time series is periodic, we can use the FFT to extrapolate the time series, which is equivalent to making prediction. The module <code>FFT</code> in the <code>darts</code> package allows us to choose how many frequencies to keep in order to forecast the time series.
 
 ## Singular spectrum analysis
 
