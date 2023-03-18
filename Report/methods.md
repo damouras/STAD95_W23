@@ -55,13 +55,38 @@ y_{k, t}
 \phi_{i:1, 1} & \phi_{i:1, 2} &\ldots & \phi_{i:1, k} \\ 
 \phi_{i:2, 1} & \phi{i:2, 2} &\ldots & \phi_{i:2, k} \\
 \vdots & \vdots & \ddots & \vdots \\
-\phi_{i:k, 1} & \phi_{i:k, 2} & \ldots & \phi_{i:k, k} \\
+\phi_{i:k, 1} & \phi_{i:k, 2} & \ldots & \phi_{i:k, k}
 \end{bmatrix} 
 
 \quad \forall i = 1, ..., p
 ```
 
+Moreover, note that any VAR($p$) model can be expressed as a special VAR($1$) model:
 
+$$\mathbf{y}_t = \mathbf{\Phi}_1 \mathbf{y}_{t - 1} + ... + \mathbf{\Phi}_p \mathbf{y}_{t - p} + \mathcal{E}_t$$
+
+``` math
+\mathbf{y}_t = \begin{bmatrix}
+y_{1, t} \\
+y_{2, t} \\
+\vdots \\
+y_{k, t}
+\end{bmatrix},
+
+\mathbf{\Phi}_i = \begin{bmatrix}
+\phi_{i:1, 1} & \phi_{i:1, 2} &\ldots & \phi_{i:1, k} \\ 
+\phi_{i:2, 1} & \phi{i:2, 2} &\ldots & \phi_{i:2, k} \\
+\vdots & \vdots & \ddots & \vdots \\
+\phi_{i:k, 1} & \phi_{i:k, 2} & \ldots & \phi_{i:k, k}
+\end{bmatrix} +
+
+\begin{bmatrix}
+\mathcal{E}_t \\
+\mathbf{0} \\
+\vdots \\
+\mathbf{0}
+\end{bmatrix}
+```
 
 ## Regression with ARIMA errors
 
