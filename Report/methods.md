@@ -219,7 +219,7 @@ $$\tilde{\mathbf{X}}_{I_m} = \mathcal{H}\mathbf{X}_{I_m}$$
 
 This is equivalent to the decomposition of the intial series $\mathbf{y}_T = (y_1, ..., y_T)$ into a sum of $m$ series:
 
-$$y_t = \sum^m_{k = 1} \tilde{y}_t^{k}$$
+$$y_t = \sum^m_{k = 1} \tilde{y}_t^{(k)}$$
 
 where:
 
