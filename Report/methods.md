@@ -223,7 +223,7 @@ $$y_t = \sum^m_{k = 1} \tilde{y}_t^{(k)}$$
 
 where:
 
-$$\mathbf{y}^{(k)}_T = (\tilde{y}^{(k)}_1, ..., \tilde{y}^{(k)}_T)$$
+$$\tilde{\mathbf{y}}^{(k)}_T = (\tilde{y}^{(k)}_1, ..., \tilde{y}^{(k)}_T)$$
 
 corresponds to the matrix $\mathbf{X_{I_k}}$.
 
