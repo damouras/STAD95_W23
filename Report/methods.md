@@ -179,7 +179,7 @@ The inverse FFT is defined as follow:
 
 $$x_n = \frac{1}{N} \sum^{N - 1}_{k = 0} e^{2 \pi j \frac{kn}{N}} y_k$$
 
-With the assumption that the time series is periodic, we can use the FFT to extrapolate the time series, which is equivalent to making prediction.
+With the assumption that the time series is periodic, we can use the FFT to extrapolate the time series, which is equivalent to making prediction. The <code>darts</code> package allows us to choose how many frequencies to keep in order to forecast the time series.
 
 ## Singular spectrum analysis
 
