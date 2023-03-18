@@ -38,7 +38,7 @@ y_{2, t} \\
 y_{k, t} \\
 \end{bmatrix}
 
-\tab
+\quad
 
 \begin{bmatrix}
 y_1 & y_2 & y_3 &\ldots & y_{K} \\ 
@@ -54,7 +54,7 @@ y_{2, t} \\
 y_{k, t} \\
 \end{bmatrix}
 
-\tab
+\quad
 
 \mathcal{E}_t = \begin{bmatrix}
 \epsilon_{1, t} \\
