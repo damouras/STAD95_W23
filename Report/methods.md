@@ -45,25 +45,18 @@ y_{k, t}
 \epsilon_{2, t} \\
 \vdots \\
 \epsilon_{k, t}
-\end{bmatrix},
+\end{bmatrix}
 
 \quad \forall t,
 
 \quad
 
-\begin{bmatrix}
-y_1 & y_2 & y_3 &\ldots & y_{K} \\ 
-y_2 & y_3 & y_4 &\ldots & y_{K + 1} \\
-y_3 & y_4 & y_5 &\ldots & y_{K + 2} \\
-\vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
-y_{L} & y_{L + 1} & y_{L + 2} & \ldots & y_{T} \\
+\mathbf{\Phi}_i = \begin{bmatrix}
+\phi_{i:1, 1} & \phi_{i:1, 2} &\ldots & \phi_{i:1, k} \\ 
+\phi_{i:2, 1} & \phi{i:2, 2} &\ldots & \phi_{i:2, k} \\
+\vdots & \vdots & \ddots & \vdots \\
+\phi_{i:k, 1} & \phi_{i:k, 2} & \ldots & \phi_{i:k, k} \\
 \end{bmatrix} 
-\begin{bmatrix}
-y_{1, t} \\
-y_{2, t} \\
-\vdots \\
-y_{k, t}
-\end{bmatrix}
 
 \quad \forall i = 1, ..., p
 ```
