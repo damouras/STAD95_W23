@@ -36,7 +36,7 @@ y_{1, t} \\
 y_{2, t} \\
 \vdots \\
 y_{k, t}
-\end{bmatrix}
+\end{bmatrix},
 
 \quad
 
@@ -52,7 +52,7 @@ y_{1, t} \\
 y_{2, t} \\
 \vdots \\
 y_{k, t}
-\end{bmatrix}
+\end{bmatrix},
 
 \quad
 
