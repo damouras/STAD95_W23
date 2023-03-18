@@ -40,6 +40,17 @@ y_{k, t}
 
 \quad
 
+\mathcal{E}_t = \begin{bmatrix}
+\epsilon_{1, t} \\
+\epsilon_{2, t} \\
+\vdots \\
+\epsilon_{k, t}
+\end{bmatrix},
+
+\quad \forall t,
+
+\quad
+
 \begin{bmatrix}
 y_1 & y_2 & y_3 &\ldots & y_{K} \\ 
 y_2 & y_3 & y_4 &\ldots & y_{K + 1} \\
@@ -52,16 +63,9 @@ y_{1, t} \\
 y_{2, t} \\
 \vdots \\
 y_{k, t}
-\end{bmatrix},
-
-\quad
-
-\mathcal{E}_t = \begin{bmatrix}
-\epsilon_{1, t} \\
-\epsilon_{2, t} \\
-\vdots \\
-\epsilon_{k, t}
 \end{bmatrix}
+
+\quad \forall i = 1, ..., p
 ```
 
 
