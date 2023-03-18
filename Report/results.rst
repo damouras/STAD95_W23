@@ -1,2 +1,0 @@
-Heading: results.rst
-====================
