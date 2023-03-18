@@ -126,7 +126,7 @@ When using gradient boosting for regression, the weak learners are regression tr
 
 ## Gaussian process
 
-The implement of the Gaussian process regression model for time series in <code>Python</code> is supported by the <code>sklearn</code> package, together with the <code>RegressorChain</code> module also from <code>scikit-learn</code>.
+The implement of the Gaussian process regression model for time series in <code>Python</code> is supported by the <code>scikit-learn</code> package, together with the <code>RegressorChain</code> module also from <code>scikit-learn</code>.
 
 A Gaussian process is a probability distribution over functions $\hat{y}(\mathbf{x})$ such that for any set of values of $\hat{y}(\mathbf{x})$ evaluated at an arbitrary set of points $\mathbf{x}^{(1)}, \mathbf{x}^{(2)}, ...$ is jointly Gaussian. Recall that a linear model can be written in a form:
 
