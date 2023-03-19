@@ -2,8 +2,13 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: 0.intro
+root: intro
 chapters:
-- file: 1.preprocess
-- file: 2.EDA
-- file: 3.ARMA
+- file: data
+  sections:
+  - file: EDA
+  - file: EDApy
+- file: methods
+- file: analysis
+- file: results
+- file: discussion
