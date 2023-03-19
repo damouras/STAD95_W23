@@ -5,45 +5,39 @@ Sources
 Variables
 References
 
-### 1 .Data source:
+1. Data source:
+   - Hourly electricity price and demand data: Ontario's Independent Electricity System Operator (IESO) website (https://www.ieso.ca/en/Power-Data/Data-Directory)
+   - Weather data: Environment and Climate Change Canada website (https://climate.weather.gc.ca)
 
-    - Hourly electricity price and demand data: Ontario's Independent Electricity System Operator (IESO) website (https://www.ieso.ca/en/Power-Data/Data-Directory)
-    - Weather data: Environment and Climate Change Canada website (https://climate.weather.gc.ca)
+
+2. Time period:
+   - Data was collected for the years 2020 to 2022.
     
-### 2. Time period:
-
-    - Data was collected for the years 2020 to 2022.
+3. Variables:
+   - Hourly electricity price: The cost of electricity in Ontario for each hour.
+   - Hourly electricity demand: The amount of electricity demanded by consumers in Ontario for each hour.
+   - Daily electricity price: The average of hourly prices for each day.
+   - Daily electricity demand: The sum of hourly demands for each day.
+   - Weather data: The average temperature in the Greater Toronto Area (GTA) for each day.
     
-### 3. Variables:
+4. Data processing:
+   - Hourly electricity price and demand data were collected from the IESO website.
+   - Daily electricity price was calculated as the average of hourly prices for each day.
+   - Daily electricity demand was calculated as the sum of hourly demands for each day.
+   - Weather data was collected from the Environment and Climate Change Canada website.
+   - The average temperature for each day was extracted from weather stations in the GTA whose postal code started with "M".
 
-    - Hourly electricity price: The cost of electricity in Ontario for each hour.
-    - Hourly electricity demand: The amount of electricity demanded by consumers in Ontario for each hour.
-    - Daily electricity price: The average of hourly prices for each day.
-    - Daily electricity demand: The sum of hourly demands for each day.
-    - Weather data: The average temperature in the Greater Toronto Area (GTA) for each day.
+5. Data size:
+   - The data consists of daily electricity price and demand data for each hour from 2020 to 2022, resulting in 1096 data points for each variable.
+   - The weather data consists of daily average temperature data for the same time period.
     
-### 4. Data processing:
-
-    - Hourly electricity price and demand data were collected from the IESO website.
-    - Daily electricity price was calculated as the average of hourly prices for each day.
-    - Daily electricity demand was calculated as the sum of hourly demands for each day.
-    - Weather data was collected from the Environment and Climate Change Canada website.
-    - The average temperature for each day was extracted from weather stations in the GTA whose postal code started with "M".
-
-### 5. Data size:
-
-    - The data consists of daily electricity price and demand data for each hour from 2020 to 2022, resulting in 1096 data points for each variable.
-    - The weather data consists of daily average temperature data for the same time period.
-    
-### 6. Data format:
-
-    - The electricity price and demand data are presented in CSV format, with columns for date and time, price, and demand.
-    - The weather data is presented in CSV format, with columns for date and average temperature.
+6. Data format:
+   - The electricity price and demand data are presented in CSV format, with columns for date and time, price, and demand.
+   - The weather data is presented in CSV format, with columns for date and average temperature.
    
-### 7. Data limitations:
-
-    - The data only includes electricity price and demand data for Ontario, and temperature data for the GTA, which may not be representative of other regions.
-    - Other factors that may impact electricity price and demand, such as economic conditions or policy changes, are not included in the dataset.
+7. Data limitations:
+   - The data only includes electricity price and demand data for Ontario, and temperature data for the GTA, which may not be representative of other regions.
+   - Other factors that may impact electricity price and demand, such as economic conditions or policy changes, are not included in the dataset.
 
 ### EDA for data
 
