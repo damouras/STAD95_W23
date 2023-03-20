@@ -369,79 +369,55 @@ document.write(`
 <p>Sources
 Variables
 References</p>
-<p>Copy from Summer:</p>
-<p>Price: predicting next few hours
-Demand: longer time frame</p>
-<p>Source: <a class="reference external" href="https://www.ieso.ca/en/">Independent Electricity System Operator (IESO)</a>
-(add description)</p>
+<ol class="arabic simple">
+<li><p>Data source:</p>
 <ul class="simple">
-<li><p>final_data.csv (n = 9144)</p>
-<ul>
-<li><p>Date (9144)</p></li>
-<li><p>Price (9144)</p></li>
-<li><p>1_hour_pred (9127)</p></li>
-<li><p>2_hour_pred (9127)</p></li>
-<li><p>3_hour_pred (9127)</p></li>
-<li><p>Market Demand (9144)</p></li>
-<li><p>Ontario Demand (9144)</p></li>
-<li><p>1_lag_pred (9126): prediction from one hour ago</p></li>
-<li><p>2_lag_pred (9125): prediction from two hour ago</p></li>
-<li><p>3_lag_pred (9124): prediction from three hour ago</p></li>
+<li><p>Hourly electricity price and demand data: Ontario’s Independent Electricity System Operator (IESO) website (<a class="reference external" href="https://www.ieso.ca/en/Power-Data/Data-Directory">https://www.ieso.ca/en/Power-Data/Data-Directory</a>)</p></li>
+<li><p>Weather data: Environment and Climate Change Canada website (<a class="reference external" href="https://climate.weather.gc.ca">https://climate.weather.gc.ca</a>)</p></li>
 </ul>
 </li>
-<li><p>5minutes.csv (n = 840)</p>
-<ul>
-<li><p>Price</p></li>
-<li><p>Demand</p></li>
-<li><p>Supply</p></li>
+<li><p>Time period:</p>
+<ul class="simple">
+<li><p>Data was collected for the years 2020 to 2022.</p></li>
 </ul>
 </li>
-<li><p>PUB_demand_202*.csv (n = 8761)</p>
-<ul>
-<li><p>Date</p></li>
-<li><p>Hour</p></li>
-<li><p>Market Demand</p></li>
-<li><p>Ontario Demand</p></li>
+<li><p>Variables:</p>
+<ul class="simple">
+<li><p>Hourly electricity price: The cost of electricity in Ontario for each hour.</p></li>
+<li><p>Hourly electricity demand: The amount of electricity demanded by consumers in Ontario for each hour.</p></li>
+<li><p>Daily electricity price: The average of hourly prices for each day.</p></li>
+<li><p>Daily electricity demand: The sum of hourly demands for each day.</p></li>
+<li><p>Weather data: The average temperature in the Greater Toronto Area (GTA) for each day.</p></li>
 </ul>
 </li>
-<li><p>hourlay_data_202*.csv (n = 8761)</p>
-<ul>
-<li><p>Date</p></li>
-<li><p>Hour</p></li>
-<li><p>HOEP</p></li>
-<li><p>Hour 1 predispatch</p></li>
-<li><p>Hour 2 predispatch</p></li>
-<li><p>Hour 3 predispatch</p></li>
-<li><p>OR 10 min sync</p></li>
-<li><p>OR 10 min non-sync</p></li>
-<li><p>OR 30 min</p></li>
+<li><p>Data processing:</p>
+<ul class="simple">
+<li><p>Hourly electricity price and demand data were collected from the IESO website.</p></li>
+<li><p>Daily electricity price was calculated as the average of hourly prices for each day.</p></li>
+<li><p>Daily electricity demand was calculated as the sum of hourly demands for each day.</p></li>
+<li><p>Weather data was collected from the Environment and Climate Change Canada website.</p></li>
+<li><p>The average temperature for each day was extracted from weather stations in the GTA whose postal code started with “M”.</p></li>
 </ul>
 </li>
-<li><p>generation_fuel_type_multiday.xml (n = 140)</p>
-<ul>
-<li><p>Supply_BIOFUEL</p></li>
-<li><p>Supply_GAS</p></li>
-<li><p>Supply_HYDRO</p></li>
-<li><p>Supply_NUCLEAR</p></li>
-<li><p>Supply_SOLAR</p></li>
-<li><p>Supply_WIND</p></li>
+<li><p>Data size:</p>
+<ul class="simple">
+<li><p>The data consists of daily electricity price and demand data for each hour from 2020 to 2022, resulting in 1096 data points for each variable.</p></li>
+<li><p>The weather data consists of daily average temperature data for the same time period.</p></li>
 </ul>
 </li>
-<li><p>ontario_demand_multiday.xml</p>
-<ul>
-<li><p>Demand_5_Minute (n = 1729)</p></li>
-<li><p>Demand_Actual (n = 140)</p></li>
-<li><p>Demand_Projected (n = 140)</p></li>
+<li><p>Data format:</p>
+<ul class="simple">
+<li><p>The electricity price and demand data are presented in CSV format, with columns for date and time, price, and demand.</p></li>
+<li><p>The weather data is presented in CSV format, with columns for date and average temperature.</p></li>
 </ul>
 </li>
-<li><p>price_multiday.xml</p>
-<ul>
-<li><p>Price_HOEP (n = 140): Hourly Ontario energy price</p></li>
-<li><p>Price_HOEP_Projected (n = 140): Projected hourly Ontario energy price</p></li>
-<li><p>Price_MCP (n = 1729): Market clearing price</p></li>
+<li><p>Data limitations:</p>
+<ul class="simple">
+<li><p>The data only includes electricity price and demand data for Ontario, and temperature data for the GTA, which may not be representative of other regions.</p></li>
+<li><p>Other factors that may impact electricity price and demand, such as economic conditions or policy changes, are not included in the dataset.</p></li>
 </ul>
 </li>
-</ul>
+</ol>
 <section id="eda-for-data">
 <h2>EDA for data<a class="headerlink" href="#eda-for-data" title="Permalink to this headline">#</a></h2>
 <p>Describe characteristics of demand &amp; price series</p>
