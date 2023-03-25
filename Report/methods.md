@@ -352,4 +352,10 @@ The attention mechanism is applied multiple times in the Transformer model, in a
 
 The model is implemented using the <code>PyTorch</code> library in <code>Python</code>.
 
+In control theory, the general state space model (or representation) has the following form:
+
+$$x'(t) = \mathbf{A}x(t) + \mathbf{B}u(t)$$
+$$y(t) = \mathbf{C}x(t) + \mathbf{D}u(t)$$
+
+where $u(t)$ is the input, $x(t)$ is the latent variable, and $y(t)$ is the output that we want to find.
 
