@@ -379,3 +379,9 @@ Let the initial state be $x_{-1} = 0$. Then by using the previous recurrent rela
 $$x_0 = \overline{\mathbf{B}} u_0 \quad \quad x_1 = \overline{\mathbf{AB}} u_0 + \overline{\mathbf{B}} u_1 \quad \quad x_2 = \overline{\mathbf{A}}^2 \overline{\mathbf{B}} u_0 + \overline{\mathbf{AB}} u_1 + \overline{\mathbf{B}} u_2 \quad ...$$
 
 $$y_0 = \overline{\mathbf{CB}} u_0 \quad \quad y_1 = \overline{\mathbf{CAB}} u_0 + \overline{\mathbf{CB}} u_1 \quad \quad y_2 = \overline{\mathbf{C}}\overline{\mathbf{A}}^2 \overline{\mathbf{B}} u_0 + \overline{\mathbf{CAB}} u_1 + \overline{\mathbf{CB}} u_2 \quad ...$$
+
+This expression can be vectorized into a convolution with an explicit formula for the convolution kernel:
+
+$$y_k = \overline{\mathbf{C}} \overline{\mathbf{A}}^k \overline{\mathbf{B}} u_0 + \overline{\mathbf{C}} \overline{\mathbf{A}}^{k-1} \overline{\mathbf{B}} u_1 + ... + \overline{\mathbf{CAB}} u_{k - 1} + \overline{\mathbf{CB}} u_k$$
+
+$$\leftrightarrow$$
