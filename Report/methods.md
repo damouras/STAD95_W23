@@ -388,7 +388,7 @@ $$\Leftrightarrow \mathbf{y} = \overline{\mathbf{K}} \ast \mathbf{u}$$
 
 where $\overline{\mathbf{K}} \in \mathbb{R}^L = (\overline{\mathbf{CB}}, \overline{\mathbf{CAB}}, ..., \overline{\mathbf{CA}}^{L - 1}\overline{\mathbf{B}})$. We call $\overline{\mathbf{K}}$ the **SSM convolution kernel** or filter.
 
-We can use FFT and inverse FFT to compute the convolution. The runtime complexity of this algorithm is $\mathcal{O} (n \log n)$. 
+We can use FFT and inverse FFT to compute the convolution. The runtime complexity of FFT/Inverse FFT is $\mathcal{O} (n \log n)$. 
 
 **What is the problem with the previous model?**
 
@@ -398,7 +398,7 @@ A DPLR state space model can be written as $(\mathbf{\Lambda} - \mathbf{PQ}^{\as
 
 1. Instead of computing $\overline{\mathbf{K}}$ directly, we compute its spectrum by evaluating its $\underline{\textbf{truncated generating function}}$. This now involves a matrix inverse instead of power.
 2. We show that the diagonal matrix case is equivalent to the computation of a $\underline{\textbf{Cauchy kernel}}$ $\frac{1}{\omega_j - \zeta_k}$.
-3. We show the low rank term can now be corrected by applying the $\underline{\textbf{Woodbury identity}}$ which reduces $(\mathbf{\Lambda} + \mathbf{PQ}^{\ast})^{-1}$
+3. We show the low rank term can now be corrected by applying the $\underline{\textbf{Woodbury identity}}$ which reduces $(\mathbf{\Lambda} + \mathbf{PQ}^{\ast})^{-1}$ in terms of $\mathbf{\Lambda}^{-1}$
 
 
 
