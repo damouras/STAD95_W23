@@ -396,11 +396,7 @@ Note that the discrete SSM is highly inefficient since it involves repeated matr
 
 A DPLR state space model can be written as $(\Lambda - \mathbf{PQ}^{\ast})$ for some diagonal matrix $\Lambda$ and matrices $\mathbf{P}, \mathbf{Q}, \mathbf{B}, \mathbf{C} \in \mathbb{C}^{N \times 1}$ ($\mathbf{Q}^{\ast}$ is a conjugate transpose of $\mathbf{Q}$). We assume without loss of generality that the rank is 1, i.e. these matrices are vectors. Under this DPLR assumption, S4 overcomes the speed bottleneck in 3 steps:
 
-$$
-\begin{enumerate}
-\item 1
-\end{enumerate}
-$$
+1. Hello
 
 
 
