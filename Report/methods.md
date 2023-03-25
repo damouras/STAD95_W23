@@ -388,4 +388,4 @@ $$\Leftrightarrow \mathbf{y} = \overline{\mathbf{K}} \ast \mathbf{u}$$
 
 where $\overline{\mathbf{K}} \in \mathbb{R}^L = (\overline{\mathbf{CB}}, \overline{\mathbf{CAB}}, ..., \overline{\mathbf{CA}}^{L - 1}\overline{\mathbf{B}})$. We call $\overline{\mathbf{K}}$ the **SSM convolution kernel** or filter.
 
-Note that we can use FFT and inverse FFT to compute the convolution. The runtime complexity of this algorithm is $\mathcal(O)(n \log n)$
+Note that we can use FFT and inverse FFT to compute the convolution. The runtime complexity of this algorithm is $\mathcal{O}(n \log n)$
