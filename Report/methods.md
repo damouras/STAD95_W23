@@ -388,15 +388,13 @@ $$\Leftrightarrow \mathbf{y} = \overline{\mathbf{K}} \ast \mathbf{u}$$
 
 where $\overline{\mathbf{K}} \in \mathbb{R}^L = (\overline{\mathbf{CB}}, \overline{\mathbf{CAB}}, ..., \overline{\mathbf{CA}}^{L - 1}\overline{\mathbf{B}})$. We call $\overline{\mathbf{K}}$ the **SSM convolution kernel** or filter.
 
-Note that we can use FFT and inverse FFT to compute the convolution. The runtime complexity of this algorithm is $\mathcal{O} (n \log n)$. The author suggests to use a special structure of the matrix $\mathbf{A}$, called **HiPPO matrix**, which would allow the algorithm to be more efficient and accurate:
+We can use FFT and inverse FFT to compute the convolution. The runtime complexity of this algorithm is $\mathcal{O} (n \log n)$. 
 
-$$
-\mathbf{A}_{nk}=
-\begin{cases}
-(2n + 1)^{1/2} (2k + 1)^{1/2}, & \text{if } n > k\\
-n + 1, & \text{if }n = k\\
-0, & \text{if }n < k
-\end{cases}
-$$
+**What is the problem with the previous model?**
+
+Note that the discrete SSM is highly inefficient since it involves repeated matrix multiplication of A. To overcome this problem, S4 enforces a special structure for matrix A (diagonal plus low rank or DPLR).
+
+A DPLR state space model can be written as $(\Lambda - \mathbf{PQ}^{\ast})$ for some diagonal matrix $\Lambda$ and matrices $\mathbf{P}, \mathbf{Q}, \mathbf{B}, \mathbf{C} \in \mathbb{C}^{N \times 1}$ ($\mathbf{Q}^{\ast}$ is a conjugate transpose of $\mathbf{Q}$.
+
 
 
