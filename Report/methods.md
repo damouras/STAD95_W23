@@ -394,7 +394,7 @@ We can use FFT and inverse FFT to compute the convolution. The runtime complexit
 
 Note that the discrete SSM is highly inefficient since it involves repeated matrix multiplication of A. To overcome this problem, S4 enforces a special structure for matrix A (diagonal plus low rank or DPLR).
 
-A DPLR state space model can be written as $(\mathbf{\Lambda} - \mathbf{PQ}^{\ast})$ for some diagonal matrix $\mathbf{\Lambda}$ and matrices $\mathbf{P}, \mathbf{Q}, \mathbf{B}, \mathbf{C} \in \mathbb{C}^{N \times 1}$ ($\mathbf{Q}^{\ast}$ is a conjugate transpose of $\mathbf{Q}$). We assume without loss of generality that the rank is 1, i.e. these matrices are vectors. Under this DPLR assumption, S4 overcomes the speed bottleneck in 3 steps:
+A DPLR state space model can be written as $(\mathbf{\Lambda} - \mathbf{PQ}^{\ast})$ for some diagonal matrix $\mathbf{\Lambda}$ and matrices $\mathbf{P}, \mathbf{Q}, \mathbf{B}, \mathbf{C} \in \mathbb{C}^{N \times 1}$ ($\mathbf{Q}^{\ast}$ is the conjugate transpose of $\mathbf{Q}$). We assume without loss of generality that the rank is 1, i.e. these matrices are vectors. Under this DPLR assumption, S4 overcomes the speed bottleneck in 3 steps:
 
 1. Instead of computing $\overline{\mathbf{K}}$ directly, we compute its spectrum by evaluating its $\underline{\textbf{truncated generating function}}$. This now involves a matrix inverse instead of power.
 2. We show that the diagonal matrix case is equivalent to the computation of a $\underline{\textbf{Cauchy kernel}}$ $\frac{1}{\omega_j - \zeta_k}$.
