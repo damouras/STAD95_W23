@@ -362,5 +362,14 @@ where $u(t)$ is the input, $x(t)$ is the latent variable, and $y(t)$ is the outp
 
 For implementation of state space model, we need to discretize the input function $u(t)$ into $u_1, u_2, ...$ instead. Let $\Delta$ denote the step size where $u_k = u(k \Delta)$. Define another variables $\overline{\mathbf{A}}, \overline{\mathbf{B}}$, and $\overline{\mathbf{C}}$ as follow:
 
-$$\overline{\mathbf{A}} = (I - \Delta/2 \cdot \mathbf{A})^{-1}$$
+$$\overline{\mathbf{A}} = (\mathfb{I} - \Delta/2 \cdot \mathbf{A})^{-1} (\mathbf{I} + \Delta / 2 \cdot \mathbf{A})$$
 
+$$\overline{\mathbf{B}} = (\mathbf{I} - \Delta/2 \cdot A) ^{-1} \Delta \mathbf{B}$$
+
+$$\overline{\mathbf{C}} = \mathbf{C}$$
+
+With these new matrices defined, the model now looks similar to an RNN (recurrent neural network) with the recurrent relation:
+
+$$x_k = \overline{\mathbf{A}} x_{k-1} + \overline{\mathbf{B}} u_k$$
+
+$$y_k = \overline{\mathbf{C}} x_k$$
