@@ -355,7 +355,8 @@ The model is implemented using the <code>PyTorch</code> library in <code>Python<
 In control theory, the general state space model (or representation) has the following form:
 
 $$x'(t) = \mathbf{A}x(t) + \mathbf{B}u(t)$$
+
 $$y(t) = \mathbf{C}x(t) + \mathbf{D}u(t)$$
 
-where $u(t)$ is the input, $x(t)$ is the latent variable, and $y(t)$ is the output that we want to find.
+where $u(t)$ is the input, $x(t)$ is the latent variable, and $y(t)$ is the output that we want to find. Here, $\mathbf{A}$, $\mathbf{B}$, $\mathbf{C}$, and $\mathbf{D}$ are learnable parameters that would be computed using gradient descent. In the paper, the author omits $\mathbf{D}$ since it is easy to be implemented (using a skip connection).
 
