@@ -393,9 +393,9 @@ Note that we can use FFT and inverse FFT to compute the convolution. The runtime
 $$
 \mathbf{A}_{nk}=
 \begin{cases}
-x(n), & \text{if } n < k\\
+(2n + 1)^{1/2} (2k + 1)^{1/2}, & \text{if } n > k\\
 n + 1, & \text{if }n = k\\
-0, & \text{if }n > k
+0, & \text{if }n < k
 \end{cases}
 $$
 
