@@ -396,7 +396,9 @@ Note that the discrete SSM is highly inefficient since it involves repeated matr
 
 A DPLR state space model can be written as $(\Lambda - \mathbf{PQ}^{\ast})$ for some diagonal matrix $\Lambda$ and matrices $\mathbf{P}, \mathbf{Q}, \mathbf{B}, \mathbf{C} \in \mathbb{C}^{N \times 1}$ ($\mathbf{Q}^{\ast}$ is a conjugate transpose of $\mathbf{Q}$). We assume without loss of generality that the rank is 1, i.e. these matrices are vectors. Under this DPLR assumption, S4 overcomes the speed bottleneck in 3 steps:
 
-1. Instead of computing $\overline{\mathbf{K}}$ directly, we compute its spectrum by evaluating $\underline{\textbf{Hello}}$
+1. Instead of computing $\overline{\mathbf{K}}$ directly, we compute its spectrum by evaluating its $\underline{\textbf{truncated generating function}}$. This now involves a matrix inverse instead of power.
+2. We show that the diagonal matrix case is equivalent to the computation of a $\underline{\textbf{Cauchy kernel}}}$ $\frac{1}{\omega_j - \zeta_k}$.
+3. We show the low rank term can now be corrected by applying the $\underline{\textbf{Woodbury identity}}$ which reduces $(\Lambda + \mathbf{PQ}^{\ast})^{-1}$
 
 
 
