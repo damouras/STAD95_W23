@@ -400,5 +400,6 @@ A DPLR state space model can be written as $(\mathbf{\Lambda} - \mathbf{PQ}^{\as
 2. We show that the diagonal matrix case is equivalent to the computation of a $\underline{\textbf{Cauchy kernel}}$ $\frac{1}{\omega_j - \zeta_k}$.
 3. We show the low rank term can now be corrected by applying the $\underline{\textbf{Woodbury identity}}$ which reduces $(\mathbf{\Lambda} + \mathbf{PQ}^{\ast})^{-1}$ in terms of $\mathbf{\Lambda}^{-1}$.
 
+![alt text](https://github.com/damouras/STAD95_W23/blob/main/Report/S4.png?raw=true)
 
 
