@@ -384,4 +384,4 @@ This expression can be vectorized into a convolution with an explicit formula fo
 
 $$y_k = \overline{\mathbf{C}} \overline{\mathbf{A}}^k \overline{\mathbf{B}} u_0 + \overline{\mathbf{C}} \overline{\mathbf{A}}^{k-1} \overline{\mathbf{B}} u_1 + ... + \overline{\mathbf{CAB}} u_{k - 1} + \overline{\mathbf{CB}} u_k$$
 
-$$\leftrightarrow$$
+$$\Leftrightarrow \mathbf{y} = \overline{\mathbf{K}} \ast \mathbf{u}$$
