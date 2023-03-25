@@ -376,4 +376,4 @@ $$y_k = \overline{\mathbf{C}} x_k$$
 
 Let the initial state be $x_{-1} = 0$. Then by using the previous recurrent relation, we obtain:
 
-$$\vdot$$
+$$x_0 = \overline{\mathbf{B}} u_0 \quad ...$$
