@@ -30,12 +30,6 @@ $$\mathbf{y}_t = \mathbf{\Phi}_1 \mathbf{y}_{t - 1} + ... + \mathbf{\Phi}_p \mat
 
 where:
 
-$$\mathbf{y}_t = \begin{bmatrix}
-y_{1, t} \\
-y_{2, t} \\
-\vdots \\
-y_{k, t}
-\end{bmatrix}$$
 ``` math
 \mathbf{y}_t = \begin{bmatrix}
 y_{1, t} \\
