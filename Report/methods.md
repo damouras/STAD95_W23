@@ -385,3 +385,5 @@ This expression can be vectorized into a convolution with an explicit formula fo
 $$y_k = \overline{\mathbf{C}} \overline{\mathbf{A}}^k \overline{\mathbf{B}} u_0 + \overline{\mathbf{C}} \overline{\mathbf{A}}^{k-1} \overline{\mathbf{B}} u_1 + ... + \overline{\mathbf{CAB}} u_{k - 1} + \overline{\mathbf{CB}} u_k$$
 
 $$\Leftrightarrow \mathbf{y} = \overline{\mathbf{K}} \ast \mathbf{u}$$
+
+where $\overline{\mathbf{K}} \in \mathbb{R}^L = (\overline{\mathbf{CB}}, \overline{\mathbf{CAB}}, ..., \overline{\mathbf{CA}}^{L - 1}\overline{\mathbf{B}})$. We call $\overline{\mathbf{K}}$ the **SSM convolution kernel** or filter.
