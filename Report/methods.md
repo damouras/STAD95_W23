@@ -360,3 +360,5 @@ $$y(t) = \mathbf{C}x(t) + \mathbf{D}u(t)$$
 
 where $u(t)$ is the input, $x(t)$ is the latent variable, and $y(t)$ is the output that we want to find. Here, $\mathbf{A}$, $\mathbf{B}$, $\mathbf{C}$, and $\mathbf{D}$ are learnable parameters that would be computed using gradient descent. In the paper, the author omits $\mathbf{D}$ since it is easy to be implemented (using a skip connection).
 
+For implementation of state space model, we need to discretize the input function $u(t)$ into $u_1, u_2, ...$ instead. Let $\Delta$ denote the step size
+
