@@ -393,9 +393,9 @@ Note that we can use FFT and inverse FFT to compute the convolution. The runtime
 $$
 \mathbf{A}_{nk}=
 \begin{cases}
-x(n),\\
-n + 1\\
-0
+x(n), n < k\\
+n + 1, n = k\\
+0, n > k
 \end{cases}
 $$
 
