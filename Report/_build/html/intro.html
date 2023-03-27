@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Introduction &#8212; Electricity Demand Forecasting</title>
   
@@ -44,7 +44,6 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -66,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Data Description" href="data.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -162,9 +161,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="methods.html">Methodology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analysis.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="results.html">Results</a></li>
-<li class="toctree-l1"><a class="reference internal" href="discussion.html">Discussion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="discussion.html">Conclusion</a></li>
 </ul>
 
     </div>
@@ -361,13 +359,10 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
-<ul class="simple">
-<li><p>Problem Context: modern electricity markets, demand/price forecasting</p></li>
-<li><p>Overview of project</p></li>
-<li><p>Brief summary of key results</p></li>
-</ul>
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h1>
 <p>This is a short overview of the major components and steps in building a Jupyter Book. See the other pages in this guide for more in-depth information.</p>
+<p>Electricity is an essential requirement for modern society and plays a crucial role in driving societal progress. Over the last few decades, the power industry has undergone a process of deregulation in many countries, with electricity becoming a tradable commodity in the market. With the emergence of this new market structure, there has been an increasing demand for accurate and reliable forecasting methods across various time scales, such as hourly, daily, and long-term. Consequently, the development of such forecasting methods has become a significant research area in the field. On the other hand, energy demand forecast is crucial for electricity storage and cost optimization, and it allows grid operators to plan for and manage the supply of electricity in order to the needs of consumers while ensuring system stability.</p>
+<p>Our project intends to explore several solutions for Ontario energy demand and price forecasting using statistical models, classical machine learning models, and deep learning models. We develop a dataset consist of daily energy price, energy demand, and average temperature for the span of 3 years from 2020 - 2022. The energy price and demand data are collected from the Independent Electricity System Operator (IESO) website, and the weather data is collected from the Environment and Climate Change Canada website (see the Data part for the details). For the statistical and machine learning models, we use the first 2 years in the dataset as the training data, and keep the last year as the test data. For the deep learning models, we keep the last year data (2022) as the test set, and for the data from 2020 - 2021, we take first 70% of the data to be the training set, and the latter 30% to be the validation set. The performance of the proposed models is evaluated on the test set, using 3 commonly used error metrics for regression/time series models: Mean Squared Error (MSE), Mean Absolute Error (MAE), and Mean Absolute Percentage Error (MAPE). We use both <code>R</code> and <code>Python</code> programming language for this project, with <code>Jupyter Notebook/Google Colab</code> as the main IDE. We can write <code>R</code> code in <code>Python</code> environment using <code>rpy2</code> package.</p>
 <div class="toctree-wrapper compound">
 </div>
 </section>

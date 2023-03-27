@@ -30,78 +30,61 @@ $$\mathbf{y}_t = \mathbf{\Phi}_1 \mathbf{y}_{t - 1} + ... + \mathbf{\Phi}_p \mat
 
 where:
 
-$$\mathbf{y}_t = \begin{bmatrix}
-y_{1, t} \\
-y_{2, t} \\
-\vdots \\
-y_{k, t}
-\end{bmatrix}$$
-``` math
+$$
 \mathbf{y}_t = \begin{bmatrix}
 y_{1, t} \\
 y_{2, t} \\
 \vdots \\
 y_{k, t}
-\end{bmatrix},
-
-\quad
-
+\end{bmatrix}, \quad
 \mathcal{E}_t = \begin{bmatrix}
 \epsilon_{1, t} \\
 \epsilon_{2, t} \\
 \vdots \\
 \epsilon_{k, t}
 \end{bmatrix}
-
 \quad \forall t,
-
 \quad
-
 \mathbf{\Phi}_i = \begin{bmatrix}
 \phi_{i:1, 1} & \phi_{i:1, 2} &\ldots & \phi_{i:1, k} \\ 
 \phi_{i:2, 1} & \phi_{i:2, 2} &\ldots & \phi_{i:2, k} \\
 \vdots & \vdots & \ddots & \vdots \\
 \phi_{i:k, 1} & \phi_{i:k, 2} & \ldots & \phi_{i:k, k}
 \end{bmatrix} 
-
 \quad \forall i = 1, ..., p
-```
+$$
 
 Moreover, note that any VAR($p$) model can be expressed as a special VAR($1$) model:
 
 $$\mathbf{y}_t = \mathbf{\Phi}_1 \mathbf{y}_{t - 1} + ... + \mathbf{\Phi}_p \mathbf{y}_{t - p} + \mathcal{E}_t$$
 
-``` math
+$$
 \begin{bmatrix}
 \mathbf{y}_{t} \\
 \mathbf{y}_{t - 1} \\
 \vdots \\
 \mathbf{y}_{t - p + 1}
 \end{bmatrix} =
-
 \begin{bmatrix}
 \mathbf{\Phi}_{1} & \mathbf{\Phi}_{2} &\ldots & \mathbf{\Phi}_{p} \\ 
 \mathbf{I} & \mathbf{0} &\ldots & \mathbf{0} \\
 \mathbf{0} & \mathbf{I} &\ldots & \vdots \\
 \vdots & \vdots & \ddots & \mathbf{0}
 \end{bmatrix} 
-
 \begin{bmatrix}
 \mathbf{y}_{t - 1} \\
 \mathbf{y}_{t - 2} \\
 \vdots \\
 \mathbf{y}_{t - p}
 \end{bmatrix}
-
 +
-
 \begin{bmatrix}
 \mathcal{E}_t \\
 \mathbf{0} \\
 \vdots \\
 \mathbf{0}
 \end{bmatrix}
-```
+$$
 
 ### Regression with ARIMA errors
 
@@ -113,7 +96,7 @@ $$y_t = \beta_0 + \beta_1 x_{1, t} + ... + \beta_k x_{k, t} + \epsilon_t$$
 
 where $y_t$ is a linear function of the $k$ predictor variables $(x_{1, t},..., x_{k, t})$, and $\epsilon_t$ is usually assumed to be an uncorrelated error term (i.e white noise). 
 
-For time series, we can also allow the errors from a regression to contain autocorrelation. Instead of using $\epsilon_t$, we can use $\eta_t$. The error series $\eta_t$ is assumed to follow some ARIMA models:
+For time series, we can also allow the errors from a regression to contain autocorrelation. Instead of using the independent and identically distributed white noise $\epsilon_t$, we can use $\eta_t$. The error series $\eta_t$ is assumed to follow some ARIMA models:
 
 $$y_t = \beta_0 + \beta_1 x_{1, t} + ... + \beta_k x_{k, t} + \eta_t$$
 
@@ -203,7 +186,7 @@ When using gradient boosting for regression, the weak learners are regression tr
 ![url-to-image](https://docs.aws.amazon.com/images/sagemaker/latest/dg/images/xgboost_illustration.png)
 
 
-## Gaussian process
+### Gaussian process
 
 The implement of the Gaussian process regression model for time series in <code>Python</code> is supported by the <code>scikit-learn</code> package, together with the <code>RegressorChain</code> module also from <code>scikit-learn</code>. For the choice of kernel, we use <code>DotProduct() + WhiteKernel()</code>.
 
@@ -250,15 +233,15 @@ Note that the vector $\mathbf{k}$ is a vector with entries $k_i = \frac{1}{\alph
 
 The implement of FFT for time series prediction in <code>Python</code> is from the <code>darts</code> package.
 
-Let $x_1, x_2, ..., x_N$ be a sequence of length $N$. We define the Fast Fourier transform $y_k$ of length $N$ as:
+Let $x_1, x_2, ..., x_N$ be a sequence of length $N$. We define the discrete Fourier transform (DFT) $y_k$ of length $N$ as:
 
 $$y_k = \sum^{N - 1}_{n = 0} e^{-2 \pi j \frac{kn}{N}} x_n$$
 
-The inverse FFT is defined as follow:
+The inverse Fourier transform is defined as follow:
 
 $$x_n = \frac{1}{N} \sum^{N - 1}_{k = 0} e^{2 \pi j \frac{kn}{N}} y_k$$
 
-With the assumption that the time series is periodic, we can use the FFT to extrapolate the time series, which is equivalent to making prediction. The module <code>FFT</code> in the <code>darts</code> package allows us to choose how many frequencies to keep in order to forecast the time series.
+Note that FFT is a faster version of DFT using divide-and-conquer algorithm, developed by Cooley and Tukey (1965) ([source](https://www.ams.org/journals/mcom/1965-19-090/S0025-5718-1965-0178586-1/S0025-5718-1965-0178586-1.pdf)). With the assumption that the time series is periodic, we can use the FFT to extrapolate the time series, which is equivalent to making prediction. The module <code>FFT</code> in the <code>darts</code> package allows us to choose how many frequencies to keep in order to forecast the time series.
 
 ### Singular spectrum analysis
 
@@ -268,7 +251,7 @@ We consider a time series $\mathbf{y_T} = (y_1, ..., y_T)$. Fix $L$ such that $L
 
 First, we need to compute the trajectory matrix $\mathbf{X} = [X_1, ..., X_K]$ as follow:
 
-```math
+$$
 \mathbf{X} = (x_{ij})_{i, j = 1}^{L, K} = \begin{bmatrix}
 y_1 & y_2 & y_3 & y_4 &\ldots & y_{K} \\ 
 y_2 & y_3 & y_4 & y_5 &\ldots & y_{K + 1} \\
@@ -276,7 +259,7 @@ y_3 & y_4 & y_5 & y_6 &\ldots & y_{K + 2} \\
 \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
 y_{L} & y_{L + 1} & y_{L + 2} & y_{L + 3} & \ldots & y_{T} \\ 
 \end{bmatrix}
-```
+$$
 
 Note that the trajectory matrix $\mathbf{X}$ is a Hankel matrix, which means that all the elements along the diagonal $i + j = const$ are equal. 
 
@@ -339,8 +322,7 @@ The model is implemented using the <code>PyTorch</code> library in <code>Python<
 
 Transformer is a type of neural network architecture that is used for sequential data, such as NLP tasks or time series data. The model is known for its ability to efficiently handle long-term dependencies and parallelizable computation. The underlying core of Transformer model is the **self-attention mechanism**, which allows the model to weigh the importance of different parts of the input when making predictions. Furthermore, the model has an encoder-decoder architecture, where the encoder is responsible for processing the input sequence and the decoder is mainly responsible for producing the output sequence.
 
-The attention mechanism can be mathematically represented as:
-$$Attention(Q, K, V) = softmax(\frac{QK^{\top}}{\sqrt{}d_k})V$$
+The attention mechanism can be mathematically represented as: $Attention(Q, K, V) = softmax(\frac{QK^{\top}}{\sqrt{}d_k})V$
 
 where $Q$, $K$, and $V$ are matrices representing the query, key, and value respectively. $d_k$ is the dimension of the key.
 
@@ -351,5 +333,55 @@ The attention mechanism is applied multiple times in the Transformer model, in a
 ### Structured state space model (S4)
 
 The model is implemented using the <code>PyTorch</code> library in <code>Python</code>.
+
+In control theory, the general state space model (or representation) has the following form:
+
+$$x'(t) = \mathbf{A}x(t) + \mathbf{B}u(t)$$
+
+$$y(t) = \mathbf{C}x(t) + \mathbf{D}u(t)$$
+
+where $u(t)$ is the input, $x(t)$ is the latent variable, and $y(t)$ is the output that we want to find. Here, $\mathbf{A}$, $\mathbf{B}$, $\mathbf{C}$, and $\mathbf{D}$ are learnable parameters that would be computed using gradient descent. In the paper, the author omits $\mathbf{D}$ since it is easy to be implemented (using a skip connection).
+
+For implementation of state space model, we need to discretize the input function $u(t)$ into $u_1, u_2, ...$ instead. Let $\Delta$ denote the step size where $u_k = u(k \Delta)$. Define another variables $\overline{\mathbf{A}}, \overline{\mathbf{B}}$, and $\overline{\mathbf{C}}$ as follow:
+
+$$\overline{\mathbf{A}} = (\mathbf{I} - \Delta/2 \cdot \mathbf{A})^{-1} (\mathbf{I} + \Delta / 2 \cdot \mathbf{A})$$
+
+$$\overline{\mathbf{B}} = (\mathbf{I} - \Delta/2 \cdot \mathbf{A}) ^{-1} \Delta \mathbf{B}$$
+
+$$\overline{\mathbf{C}} = \mathbf{C}$$
+
+With these new matrices defined, the model now looks similar to an RNN (recurrent neural network) with the recurrent relation:
+
+$$x_k = \overline{\mathbf{A}} x_{k-1} + \overline{\mathbf{B}} u_k$$
+
+$$y_k = \overline{\mathbf{C}} x_k$$
+
+Let the initial state be $x_{-1} = 0$. Then by using the previous recurrent relation, we obtain:
+
+$$x_0 = \overline{\mathbf{B}} u_0 \quad \quad x_1 = \overline{\mathbf{AB}} u_0 + \overline{\mathbf{B}} u_1 \quad \quad x_2 = \overline{\mathbf{A}}^2 \overline{\mathbf{B}} u_0 + \overline{\mathbf{AB}} u_1 + \overline{\mathbf{B}} u_2 \quad ...$$
+
+$$y_0 = \overline{\mathbf{CB}} u_0 \quad \quad y_1 = \overline{\mathbf{CAB}} u_0 + \overline{\mathbf{CB}} u_1 \quad \quad y_2 = \overline{\mathbf{C}}\overline{\mathbf{A}}^2 \overline{\mathbf{B}} u_0 + \overline{\mathbf{CAB}} u_1 + \overline{\mathbf{CB}} u_2 \quad ...$$
+
+This expression can be vectorized into a convolution with an explicit formula for the convolution kernel:
+
+$$y_k = \overline{\mathbf{C}} \overline{\mathbf{A}}^k \overline{\mathbf{B}} u_0 + \overline{\mathbf{C}} \overline{\mathbf{A}}^{k-1} \overline{\mathbf{B}} u_1 + ... + \overline{\mathbf{CAB}} u_{k - 1} + \overline{\mathbf{CB}} u_k$$
+
+$$\Leftrightarrow \mathbf{y} = \overline{\mathbf{K}} \ast \mathbf{u}$$
+
+where $\overline{\mathbf{K}} \in \mathbb{R}^L = (\overline{\mathbf{CB}}, \overline{\mathbf{CAB}}, ..., \overline{\mathbf{CA}}^{L - 1}\overline{\mathbf{B}})$. We call $\overline{\mathbf{K}}$ the **SSM convolution kernel** or filter.
+
+We can use FFT and inverse FFT to compute the convolution. The runtime complexity of FFT/Inverse FFT is $\mathcal{O} (n \log n)$. 
+
+**What is the problem with the previous model?**
+
+Note that the discrete SSM is highly inefficient since it involves repeated matrix multiplication of A. To overcome this problem, S4 enforces a special structure for matrix A (diagonal plus low rank or DPLR).
+
+A DPLR state space model can be written as $(\mathbf{\Lambda} - \mathbf{PQ}^{\ast})$ for some diagonal matrix $\mathbf{\Lambda}$ and matrices $\mathbf{P}, \mathbf{Q}, \mathbf{B}, \mathbf{C} \in \mathbb{C}^{N \times 1}$ ($\mathbf{Q}^{\ast}$ is the conjugate transpose of $\mathbf{Q}$). We assume without loss of generality that the rank is 1, i.e. these matrices are vectors. Under this DPLR assumption, S4 overcomes the speed bottleneck in 3 steps:
+
+1. Instead of computing $\overline{\mathbf{K}}$ directly, we compute its spectrum by evaluating its $\underline{\textbf{truncated generating function}}$. This now involves a matrix inverse instead of power.
+2. We show that the diagonal matrix case is equivalent to the computation of a $\underline{\textbf{Cauchy kernel}}$ $\frac{1}{\omega_j - \zeta_k}$.
+3. We show the low rank term can now be corrected by applying the $\underline{\textbf{Woodbury identity}}$ which reduces $(\mathbf{\Lambda} + \mathbf{PQ}^{\ast})^{-1}$ in terms of $\mathbf{\Lambda}^{-1}$.
+
+![alt text](https://github.com/damouras/STAD95_W23/blob/main/Report/S4.png?raw=true)
 
 

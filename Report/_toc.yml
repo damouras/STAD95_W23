@@ -9,6 +9,5 @@ chapters:
   - file: EDA
   - file: EDApy
 - file: methods
-- file: analysis
 - file: results
 - file: discussion

@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>EDA &#8212; Electricity Demand Forecasting</title>
   
@@ -44,7 +44,6 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -67,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Methodology" href="methods.html" />
     <link rel="prev" title="Exploratory Data Analysis" href="EDA.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -163,9 +162,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="methods.html">Methodology</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analysis.html">Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="results.html">Results</a></li>
-<li class="toctree-l1"><a class="reference internal" href="discussion.html">Discussion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="discussion.html">Conclusion</a></li>
 </ul>
 
     </div>
@@ -374,29 +372,6 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="eda">
-<<<<<<< Updated upstream
-<h1>EDA<a class="headerlink" href="#eda" title="Permalink to this heading">#</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">datetime</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.8/site-packages/pandas/core/computation/expressions.py:20: UserWarning: Pandas requires version &#39;2.7.3&#39; or newer of &#39;numexpr&#39; (version &#39;2.7.1&#39; currently installed).
-  from pandas.core.computation.check import NUMEXPR_INSTALLED
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-=======
 <h1>EDA<a class="headerlink" href="#eda" title="Permalink to this headline">#</a></h1>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -404,7 +379,6 @@ document.write(`
 <span class="collapsed">Show code cell source</span>
 <span class="expanded">Hide code cell source</span>
 </summary>
->>>>>>> Stashed changes
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_dir</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()[:</span><span class="o">-</span><span class="mi">6</span><span class="p">]</span><span class="o">+</span> <span class="s1">&#39;Lance/&#39;</span>
 </pre></div>
@@ -705,7 +679,7 @@ dtype: int64
 </div>
 </div>
 <section id="plots-for-price">
-<h2>Plots for price<a class="headerlink" href="#plots-for-price" title="Permalink to this heading">#</a></h2>
+<h2>Plots for price<a class="headerlink" href="#plots-for-price" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;price&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">boxplot</span><span class="p">()</span>
@@ -734,7 +708,7 @@ dtype: int64
 </div>
 </section>
 <section id="plots-for-demand">
-<h2>Plots for demand<a class="headerlink" href="#plots-for-demand" title="Permalink to this heading">#</a></h2>
+<h2>Plots for demand<a class="headerlink" href="#plots-for-demand" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;demand&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">boxplot</span><span class="p">()</span>
@@ -763,7 +737,7 @@ dtype: int64
 </div>
 </section>
 <section id="plots-for-temperture">
-<h2>Plots for temperture<a class="headerlink" href="#plots-for-temperture" title="Permalink to this heading">#</a></h2>
+<h2>Plots for temperture<a class="headerlink" href="#plots-for-temperture" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;avg_temp&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">boxplot</span><span class="p">()</span>

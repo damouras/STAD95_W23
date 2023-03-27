@@ -30,72 +30,61 @@ $$\mathbf{y}_t = \mathbf{\Phi}_1 \mathbf{y}_{t - 1} + ... + \mathbf{\Phi}_p \mat
 
 where:
 
-``` math
+$$
 \mathbf{y}_t = \begin{bmatrix}
 y_{1, t} \\
 y_{2, t} \\
 \vdots \\
 y_{k, t}
-\end{bmatrix},
-
-\quad
-
+\end{bmatrix}, \quad
 \mathcal{E}_t = \begin{bmatrix}
 \epsilon_{1, t} \\
 \epsilon_{2, t} \\
 \vdots \\
 \epsilon_{k, t}
 \end{bmatrix}
-
 \quad \forall t,
-
 \quad
-
 \mathbf{\Phi}_i = \begin{bmatrix}
 \phi_{i:1, 1} & \phi_{i:1, 2} &\ldots & \phi_{i:1, k} \\ 
 \phi_{i:2, 1} & \phi_{i:2, 2} &\ldots & \phi_{i:2, k} \\
 \vdots & \vdots & \ddots & \vdots \\
 \phi_{i:k, 1} & \phi_{i:k, 2} & \ldots & \phi_{i:k, k}
 \end{bmatrix} 
-
 \quad \forall i = 1, ..., p
-```
+$$
 
 Moreover, note that any VAR($p$) model can be expressed as a special VAR($1$) model:
 
 $$\mathbf{y}_t = \mathbf{\Phi}_1 \mathbf{y}_{t - 1} + ... + \mathbf{\Phi}_p \mathbf{y}_{t - p} + \mathcal{E}_t$$
 
-``` math
+$$
 \begin{bmatrix}
 \mathbf{y}_{t} \\
 \mathbf{y}_{t - 1} \\
 \vdots \\
 \mathbf{y}_{t - p + 1}
 \end{bmatrix} =
-
 \begin{bmatrix}
 \mathbf{\Phi}_{1} & \mathbf{\Phi}_{2} &\ldots & \mathbf{\Phi}_{p} \\ 
 \mathbf{I} & \mathbf{0} &\ldots & \mathbf{0} \\
 \mathbf{0} & \mathbf{I} &\ldots & \vdots \\
 \vdots & \vdots & \ddots & \mathbf{0}
 \end{bmatrix} 
-
 \begin{bmatrix}
 \mathbf{y}_{t - 1} \\
 \mathbf{y}_{t - 2} \\
 \vdots \\
 \mathbf{y}_{t - p}
 \end{bmatrix}
-
 +
-
 \begin{bmatrix}
 \mathcal{E}_t \\
 \mathbf{0} \\
 \vdots \\
 \mathbf{0}
 \end{bmatrix}
-```
+$$
 
 ### Regression with ARIMA errors
 
@@ -197,7 +186,7 @@ When using gradient boosting for regression, the weak learners are regression tr
 ![url-to-image](https://docs.aws.amazon.com/images/sagemaker/latest/dg/images/xgboost_illustration.png)
 
 
-## Gaussian process
+### Gaussian process
 
 The implement of the Gaussian process regression model for time series in <code>Python</code> is supported by the <code>scikit-learn</code> package, together with the <code>RegressorChain</code> module also from <code>scikit-learn</code>. For the choice of kernel, we use <code>DotProduct() + WhiteKernel()</code>.
 
@@ -262,7 +251,7 @@ We consider a time series $\mathbf{y_T} = (y_1, ..., y_T)$. Fix $L$ such that $L
 
 First, we need to compute the trajectory matrix $\mathbf{X} = [X_1, ..., X_K]$ as follow:
 
-```math
+$$
 \mathbf{X} = (x_{ij})_{i, j = 1}^{L, K} = \begin{bmatrix}
 y_1 & y_2 & y_3 & y_4 &\ldots & y_{K} \\ 
 y_2 & y_3 & y_4 & y_5 &\ldots & y_{K + 1} \\
@@ -270,7 +259,7 @@ y_3 & y_4 & y_5 & y_6 &\ldots & y_{K + 2} \\
 \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
 y_{L} & y_{L + 1} & y_{L + 2} & y_{L + 3} & \ldots & y_{T} \\ 
 \end{bmatrix}
-```
+$$
 
 Note that the trajectory matrix $\mathbf{X}$ is a Hankel matrix, which means that all the elements along the diagonal $i + j = const$ are equal. 
 
@@ -333,8 +322,7 @@ The model is implemented using the <code>PyTorch</code> library in <code>Python<
 
 Transformer is a type of neural network architecture that is used for sequential data, such as NLP tasks or time series data. The model is known for its ability to efficiently handle long-term dependencies and parallelizable computation. The underlying core of Transformer model is the **self-attention mechanism**, which allows the model to weigh the importance of different parts of the input when making predictions. Furthermore, the model has an encoder-decoder architecture, where the encoder is responsible for processing the input sequence and the decoder is mainly responsible for producing the output sequence.
 
-The attention mechanism can be mathematically represented as:
-$$Attention(Q, K, V) = softmax(\frac{QK^{\top}}{\sqrt{}d_k})V$$
+The attention mechanism can be mathematically represented as: $Attention(Q, K, V) = softmax(\frac{QK^{\top}}{\sqrt{}d_k})V$
 
 where $Q$, $K$, and $V$ are matrices representing the query, key, and value respectively. $d_k$ is the dimension of the key.
 
