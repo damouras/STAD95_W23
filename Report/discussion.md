@@ -16,5 +16,5 @@ One of the biggest challenges for this project is the computing power. We use <c
 not be the most optimal way of implementation. Consequently, we have to reduce the data granularity from hourly scale to daily scale. 
 
 For the deep learning models, we might tune the hyperparameters more carefully in order to improve the accuracy of these models. Otherwise, as mentioned before,
-we can also include other relevant features to our dataset, such as other weather factors, or the energy demand at the sub-regional level. There are many other worth
-mentioned models that we have not tried, including neural ODE (ODE-RNN), or particle filter (Note that at the time of the project, there is no reliable implementation of particle filter for time series prediction). 
+we can also include other relevant features in our dataset, such as other weather factors, or the energy demand at the sub-regional level. There are many other worth
+mentioned models that we have not tried, including neural ODE (ODE-RNN, [see here](https://github.com/YuliaRubanova/latent_ode)), Bayesian matrix factorization ([see here](https://github.com/xinychen/transdim)), particle filter (Note that at the time of the project, there is no reliable implementation of particle filter for time series prediction), etc. 
