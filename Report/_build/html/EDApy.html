@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>EDA &#8212; Electricity Demand Forecasting</title>
   
@@ -44,6 +44,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -66,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Methodology" href="methods.html" />
     <link rel="prev" title="Exploratory Data Analysis" href="EDA.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -334,9 +335,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -352,16 +351,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plots-for-price">Plots for price</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plots-for-demand">Plots for demand</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plots-for-temperture">Plots for temperture</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -372,46 +361,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="eda">
-<h1>EDA<a class="headerlink" href="#eda" title="Permalink to this headline">#</a></h1>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_dir</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()[:</span><span class="o">-</span><span class="mi">6</span><span class="p">]</span><span class="o">+</span> <span class="s1">&#39;Lance/&#39;</span>
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_dir</span><span class="o">+</span><span class="s1">&#39;final_daily.csv&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="s1">&#39;price&#39;</span><span class="p">,</span><span class="s1">&#39;demand&#39;</span><span class="p">,</span><span class="s1">&#39;avg_temp&#39;</span><span class="p">]]</span>
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
+<h1>EDA<a class="headerlink" href="#eda" title="Permalink to this heading">#</a></h1>
+<p>We begin our analysis by examining the variables collected for this study: date, price, demand, and average temperature. Date is a categorical variable that represents the date of the observation, while the other variables are continuous and measured in units of dollars/MWh, MWh, and degrees Celsius, respectively.</p>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
@@ -477,24 +429,7 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1096, 4)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 1096 entries, 0 to 1095
@@ -511,28 +446,8 @@ memory usage: 34.4+ KB
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>date        0
-price       0
-demand      0
-avg_temp    0
-dtype: int64
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
+<p>Looking at the summary statistics of the variables, we find that there are no missing values in the data. However, the price variable has some extreme values, with some daily prices reaching as high as 126 dollars/MWh and even negative values. These outliers could be due to factors such as sudden changes in supply or demand, or errors in the measurement or recording of the data. It will be important to examine these outliers in more detail to determine their impact on our analysis.</p>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
@@ -610,161 +525,41 @@ dtype: int64
 </table>
 </div></div></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Correlation</span>
-<span class="n">df</span><span class="p">[[</span><span class="s1">&#39;price&#39;</span><span class="p">,</span><span class="s1">&#39;demand&#39;</span><span class="p">,</span><span class="s1">&#39;avg_temp&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>price</th>
-      <th>demand</th>
-      <th>avg_temp</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>price</th>
-      <td>1.000000</td>
-      <td>0.483849</td>
-      <td>-0.033090</td>
-    </tr>
-    <tr>
-      <th>demand</th>
-      <td>0.483849</td>
-      <td>1.000000</td>
-      <td>-0.093239</td>
-    </tr>
-    <tr>
-      <th>avg_temp</th>
-      <td>-0.033090</td>
-      <td>-0.093239</td>
-      <td>1.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Heat map</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;price&#39;</span><span class="p">,</span><span class="s1">&#39;demand&#39;</span><span class="p">,</span><span class="s1">&#39;avg_temp&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">(),</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">,</span><span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<p>Next, we examine the correlations between the variables. We find that there is a moderate positive correlation between price and demand (r = 0.48), indicating that higher demand tends to drive up the price of electricity. However, the correlation between price and temperature is weak and negative (r = -0.033), suggesting that higher temperatures do not necessarily lead to higher prices. Similarly, the correlation between temperature and demand is also weak and negative (r = -0.093), suggesting that the effect of temperature on demand is relatively small.</p>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
 </pre></div>
 </div>
-<img alt="_images/9bb7493800892a71f07cf477277869dfe0bc7ad61f27298f2c5f748578581365.png" src="_images/9bb7493800892a71f07cf477277869dfe0bc7ad61f27298f2c5f748578581365.png" />
+<img alt="_images/ecc088bdd9f087431c941bd2394251c6dfb7bbf27467993a1d17840a9cdac500.png" src="_images/ecc088bdd9f087431c941bd2394251c6dfb7bbf27467993a1d17840a9cdac500.png" />
 </div>
 </div>
-<section id="plots-for-price">
-<h2>Plots for price<a class="headerlink" href="#plots-for-price" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;price&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">boxplot</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
+<p>Histograms of price, demand, and temperature reveal interesting distribution patterns. The shapes of demand and temperature are similar to a normal distribution, while the price distribution is heavily skewed to the right, with a large number of observations having prices less than 20 dollars/MWh and gradually decreasing as the price increases. This suggests that electricity prices are generally low, with occasional spikes due to various factors.</p>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Temperature Hist&#39;)
 </pre></div>
 </div>
-<img alt="_images/59c62328cccf740fdbb5b2dddbef1921c6237024f3bd341486f753b71b45b754.png" src="_images/59c62328cccf740fdbb5b2dddbef1921c6237024f3bd341486f753b71b45b754.png" />
+<img alt="_images/08f0899f713e518f500377a0ee91c30ee1efa7dcbbe3e68033506d3550f2c89a.png" src="_images/08f0899f713e518f500377a0ee91c30ee1efa7dcbbe3e68033506d3550f2c89a.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;price&#39;</span><span class="p">]])</span>
-</pre></div>
-</div>
-</div>
+<p>To explore the seasonal patterns in the data, we plot the average daily price, demand, and temperature over time, as well as their autocorrelation functions (ACF). We observe that both demand and temperature exhibit strong annual trends, with peaks occurring in the summer months (June to September) and troughs in the winter months (December to February). This is likely due to the increased use of air conditioning during hot summer months and heating during cold winter months. In contrast, the price of electricity does not show a clear annual trend but rather an increasing trend over time. The price appears to be more volatile, with occasional spikes occurring throughout the year. These visualizations allow us to identify any non-linear relationships or interactions between the variables that may not be apparent from simple correlation analysis or ACF plots.</p>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff419f33970&gt;]
-</pre></div>
-</div>
-<img alt="_images/9b48b45b35de45ce2369abf7b00c75bfb2bbfff693832815921fbe9c451ae43a.png" src="_images/9b48b45b35de45ce2369abf7b00c75bfb2bbfff693832815921fbe9c451ae43a.png" />
+<img alt="_images/4be3110735aafdf290d5a7ad98ffa132637573075fdfa611ece4da2ead748857.png" src="_images/4be3110735aafdf290d5a7ad98ffa132637573075fdfa611ece4da2ead748857.png" />
 </div>
 </div>
-</section>
-<section id="plots-for-demand">
-<h2>Plots for demand<a class="headerlink" href="#plots-for-demand" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;demand&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">boxplot</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
-</pre></div>
-</div>
-<img alt="_images/9db6c1ed7ebbe590bd98bed3491c0af2f18ec6d20909f3488ee976e830bb57cd.png" src="_images/9db6c1ed7ebbe590bd98bed3491c0af2f18ec6d20909f3488ee976e830bb57cd.png" />
+<img alt="_images/ab896effe6bb446cd67b77a0eba7584f277f9547f85d7083dcc5499bc82440a0.png" src="_images/ab896effe6bb446cd67b77a0eba7584f277f9547f85d7083dcc5499bc82440a0.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;demand&#39;</span><span class="p">]])</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff41a152340&gt;]
-</pre></div>
-</div>
-<img alt="_images/55b918fb05b7eb2e564507a51d175302bbac4af04abf2df8a811c67da19dc1b8.png" src="_images/55b918fb05b7eb2e564507a51d175302bbac4af04abf2df8a811c67da19dc1b8.png" />
+<img alt="_images/576d64cd82d0ad5f642b47fcc0d5ca030a4a0bf20dd49233400739f6eb19c1b5.png" src="_images/576d64cd82d0ad5f642b47fcc0d5ca030a4a0bf20dd49233400739f6eb19c1b5.png" />
 </div>
 </div>
-</section>
-<section id="plots-for-temperture">
-<h2>Plots for temperture<a class="headerlink" href="#plots-for-temperture" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;avg_temp&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">boxplot</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
-</pre></div>
-</div>
-<img alt="_images/ffbfde4baa2c022223f5d150aa61af17cb7e91f3310f37cb979153f2f62bb321.png" src="_images/ffbfde4baa2c022223f5d150aa61af17cb7e91f3310f37cb979153f2f62bb321.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;avg_temp&#39;</span><span class="p">]])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff41a434ca0&gt;]
-</pre></div>
-</div>
-<img alt="_images/257252447bba7c14ef351cc5b27c7e7f7dc9a7176c1060a9b9ab2bc04f1a7da1.png" src="_images/257252447bba7c14ef351cc5b27c7e7f7dc9a7176c1060a9b9ab2bc04f1a7da1.png" />
-</div>
-</div>
-</section>
+<p>Overall, these exploratory data analysis techniques provide us with a better understanding of the patterns and relationships in our data and help us identify potential issues or trends that may need to be addressed in our subsequent analysis. The presence of annual trends in demand and temperature, the skewed distribution of electricity prices, and the increasing trend in price all provide valuable insights for the selection and development of appropriate forecasting models.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -819,22 +614,6 @@ dtype: int64
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plots-for-price">Plots for price</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plots-for-demand">Plots for demand</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plots-for-temperture">Plots for temperture</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
