@@ -2,7 +2,7 @@
 
 ## Overview of the model
 
-### [SARIMA](Models/SARIMA.ipynb)
+### [SARIMA](../Models/SARIMA.ipynb)
 
 The implement of SARIMA in <code>Python</code> is supported by the <code>pmdarima</code> as well as the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>forecast</code> package. We perform model selection using the AIC (Akaike Information Criterion); in particular, we take the model with the lowest AIC value.
 
