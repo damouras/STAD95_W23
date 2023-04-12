@@ -86,7 +86,7 @@ $$
 \end{bmatrix}
 $$
 
-### Regression with ARIMA errors
+### [Regression with ARIMA errors](../Models/SARIMA_2xreg.ipynb)
 
 The implement of regression with ARIMA errors in <code>R</code> is supported by the <code>forecast</code> package.
 
@@ -106,7 +106,7 @@ $$(1 - \phi_1 B)(1 - B)\eta_t = (1 + \theta_1 B)\epsilon_t$$
 
 Here, $B$ denotes the backshift operator, and $\epsilon_t$ is a white noise series.
 
-### Exponential smoothing
+### [Exponential smoothing](../Models/ets.ipynb)
 The implement of exponential smoothing in <code>Python</code> is supported by the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>forecast</code> package using the <code>ets</code> function.
 
 The prediction of the exponential smoothing model can be expressed as:
@@ -117,7 +117,7 @@ where $0 \leq \alpha \leq 1$ is the smoothing parameter. We can also write the f
 
 $$\hat{y}_{t+1|t} = \alpha y_t + (1 - \alpha) \hat{y}_{t|t-1}$$
 
-### Kalman filter
+### [Kalman filter](../Models/kalman_filter.ipynb) ([Simple version](../Models/kalman_filter_simple.ipynb))
 
 We implement two version of Kalman filter in <code>Python</code>. The simple version is an implementation from scratch using <code>Numpy</code>, and the advanced version using the class <code>KalmanForecaster</code> from the <code>darts</code> package (which uses N4SID algorithm, which is also supported by [Matlab](https://www.mathworks.com/help/ident/ref/n4sid.html)).
 
@@ -165,7 +165,7 @@ $$\mathbf{m}_k = \mathbf{m}^{-}_k + \mathbf{K}_k (\mathbf{y}_k - \mathbf{H}_k \m
 
 $$\mathbf{P}_k = \mathbf{P}^{-}_k - \mathbf{K}_k \mathbf{S}_k \mathbf{K}_k^{\top}$$
 
-### Dynamic factor
+### [Dynamic factor](../Models/dynamic_factor.ipynb)
 
 The implement of the dynamic factor model in <code>Python</code> is supported by the <code>statsmodels</code> package.
 
@@ -175,7 +175,7 @@ $$y_t = \mu_t + \mathbf{\Lambda_t} \mathbf{f_t} + e_t$$
 
 where $\mathbf{f_t}$ is the static factor vector, $e_t$ is the idiosyncratic disturbances, and $\mathbf{\Lambda_t}$ is the factor loading matrix. Each factor in the dynamic factor model (i.e each $f_{jt}$, where $j = 1, ..., q$) is modelled as an autoregressive (AR) stationary process.
 
-### XGBoost
+### [XGBoost](../Models/xgboost.ipynb)
 
 The implement of the XGBoost model for time series regression in <code>Python</code> is supported by the <code>xgboost</code> package, together with the <code>RegressorChain</code> module from the <code>scikit-learn</code> package.
 
@@ -186,7 +186,7 @@ When using gradient boosting for regression, the weak learners are regression tr
 ![url-to-image](https://docs.aws.amazon.com/images/sagemaker/latest/dg/images/xgboost_illustration.png)
 
 
-### Gaussian process
+### [Gaussian process](../Models/gaussian_process.ipynb)
 
 The implement of the Gaussian process regression model for time series in <code>Python</code> is supported by the <code>scikit-learn</code> package, together with the <code>RegressorChain</code> module also from <code>scikit-learn</code>. For the choice of kernel, we use <code>DotProduct() + WhiteKernel()</code>.
 
@@ -229,7 +229,7 @@ $$c = \frac{1}{\alpha} k(\mathbf{x}^{(N + 1)}, \mathbf{x}^{(N + 1)}) + \sigma^2$
 Note that the vector $\mathbf{k}$ is a vector with entries $k_i = \frac{1}{\alpha} k(\mathbf{x}^{(i)}, \mathbf{x}^{(N + 1)})$. Hence, $\mathbf{k}$ is a function of the new test input $\mathbf{x}^{(N + 1)}$.
 
 
-### Fast Fourier transform
+### [Fast Fourier transform](../Models/fft.ipynb)
 
 The implement of FFT for time series prediction in <code>Python</code> is from the <code>darts</code> package.
 
@@ -243,7 +243,7 @@ $$x_n = \frac{1}{N} \sum^{N - 1}_{k = 0} e^{2 \pi j \frac{kn}{N}} y_k$$
 
 Note that FFT is a faster version of DFT using divide-and-conquer algorithm, developed by Cooley and Tukey (1965) ([source](https://www.ams.org/journals/mcom/1965-19-090/S0025-5718-1965-0178586-1/S0025-5718-1965-0178586-1.pdf)). With the assumption that the time series is periodic, we can use the FFT to extrapolate the time series, which is equivalent to making prediction. The module <code>FFT</code> in the <code>darts</code> package allows us to choose how many frequencies to keep in order to forecast the time series.
 
-### Singular spectrum analysis
+### [Singular spectrum analysis](../Models/SSA.ipynb)
 
 The model is implemented using the <code>ssa</code> package in <code>R</code>.
 
@@ -297,7 +297,7 @@ $$y_n = \sum^{L - 1}_{k = 1} a_k y_{n - k}$$
 
 Hence, we can make prediction by using this recurrent relation.
 
-### Long short-term memory (LSTM)
+### [Long short-term memory (LSTM)](../Models/lstm.ipynb)
 
 The model is implemented using the <code>PyTorch</code> library in <code>Python</code>.
 
@@ -316,7 +316,7 @@ $$ h_t = o_t \cdot \tanh(c_t)$$
 where $i_t$ is the input gate, $o_t$ is the output gate, $f_t$ is the forget gate, $c_t$ is the memory cell, and $h_t$ is the hidden state. We denote $\sigma$ as the sigmoid function, which is defined as $\sigma(x) = \frac{1}{1 + e^{-x}}$.
 
 
-### Transformer 
+### [Transformer](../Models/transformer.ipynb)
 
 The model is implemented using the <code>PyTorch</code> library in <code>Python</code>.
 
@@ -330,7 +330,7 @@ The attention mechanism is applied multiple times in the Transformer model, in a
 
 
 
-### Structured state space model (S4)
+### [Structured state space model (S4)](../Models/S4.ipynb)
 
 The model is implemented using the <code>PyTorch</code> library in <code>Python</code>.
 
