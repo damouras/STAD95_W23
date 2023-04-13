@@ -160,7 +160,6 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="data.html">Data Description</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="EDA.html">Exploratory Data Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="EDApy.html">EDA</a></li>
 </ul>
 </li>
@@ -361,19 +360,19 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-the-model">Overview of the model</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sarima">SARIMA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sarima"><span class="xref myst">SARIMA</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-autoregressive-var">Vector autoregressive (VAR)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-with-arima-errors">Regression with ARIMA errors</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exponential-smoothing">Exponential smoothing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kalman-filter">Kalman filter</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-factor">Dynamic factor</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xgboost">XGBoost</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-process">Gaussian process</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-fourier-transform">Fast Fourier transform</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#singular-spectrum-analysis">Singular spectrum analysis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#long-short-term-memory-lstm">Long short-term memory (LSTM)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformer">Transformer</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#structured-state-space-model-s4">Structured state space model (S4)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-with-arima-errors"><span class="xref myst">Regression with ARIMA errors</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exponential-smoothing"><span class="xref myst">Exponential smoothing</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kalman-filter-simple-version"><span class="xref myst">Kalman filter</span> (<span class="xref myst">Simple version</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-factor"><span class="xref myst">Dynamic factor</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xgboost"><span class="xref myst">XGBoost</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-process"><span class="xref myst">Gaussian process</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-fourier-transform"><span class="xref myst">Fast Fourier transform</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#singular-spectrum-analysis"><span class="xref myst">Singular spectrum analysis</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#long-short-term-memory-lstm"><span class="xref myst">Long short-term memory (LSTM)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformer"><span class="xref myst">Transformer</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#structured-state-space-model-s4"><span class="xref myst">Structured state space model (S4)</span></a></li>
 </ul>
 </li>
 </ul>
@@ -392,7 +391,7 @@ document.write(`
 <section id="overview-of-the-model">
 <h2>Overview of the model<a class="headerlink" href="#overview-of-the-model" title="Permalink to this heading">#</a></h2>
 <section id="sarima">
-<h3>SARIMA<a class="headerlink" href="#sarima" title="Permalink to this heading">#</a></h3>
+<h3><span class="xref myst">SARIMA</span><a class="headerlink" href="#sarima" title="Permalink to this heading">#</a></h3>
 <p>The implement of SARIMA in <code>Python</code> is supported by the <code>pmdarima</code> as well as the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>forecast</code> package. We perform model selection using the AIC (Akaike Information Criterion); in particular, we take the model with the lowest AIC value.</p>
 <p>SARIMA is the abbreviation for Seasonal Autoregressive Integrated Moving Average model. To introduce the SARIMA model, we will give some overview about the canonical autoregressive (AR) model and moving average (MA) model.</p>
 <p>An autoregressive of order <span class="math notranslate nohighlight">\(p\)</span>, denotes AR(<span class="math notranslate nohighlight">\(p\)</span>), can be written as:</p>
@@ -468,7 +467,7 @@ y_{k, t}
 \end{split}\]</div>
 </section>
 <section id="regression-with-arima-errors">
-<h3>Regression with ARIMA errors<a class="headerlink" href="#regression-with-arima-errors" title="Permalink to this heading">#</a></h3>
+<h3><span class="xref myst">Regression with ARIMA errors</span><a class="headerlink" href="#regression-with-arima-errors" title="Permalink to this heading">#</a></h3>
 <p>The implement of regression with ARIMA errors in <code>R</code> is supported by the <code>forecast</code> package.</p>
 <p>Often, when we use linear regression (with respect to time), we consider regression models of the form:</p>
 <div class="math notranslate nohighlight">
@@ -483,7 +482,7 @@ y_{k, t}
 <p>Here, <span class="math notranslate nohighlight">\(B\)</span> denotes the backshift operator, and <span class="math notranslate nohighlight">\(\epsilon_t\)</span> is a white noise series.</p>
 </section>
 <section id="exponential-smoothing">
-<h3>Exponential smoothing<a class="headerlink" href="#exponential-smoothing" title="Permalink to this heading">#</a></h3>
+<h3><span class="xref myst">Exponential smoothing</span><a class="headerlink" href="#exponential-smoothing" title="Permalink to this heading">#</a></h3>
 <p>The implement of exponential smoothing in <code>Python</code> is supported by the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>forecast</code> package using the <code>ets</code> function.</p>
 <p>The prediction of the exponential smoothing model can be expressed as:</p>
 <div class="math notranslate nohighlight">
@@ -492,8 +491,8 @@ y_{k, t}
 <div class="math notranslate nohighlight">
 \[\hat{y}_{t+1|t} = \alpha y_t + (1 - \alpha) \hat{y}_{t|t-1}\]</div>
 </section>
-<section id="kalman-filter">
-<h3>Kalman filter<a class="headerlink" href="#kalman-filter" title="Permalink to this heading">#</a></h3>
+<section id="kalman-filter-simple-version">
+<h3><span class="xref myst">Kalman filter</span> (<span class="xref myst">Simple version</span>)<a class="headerlink" href="#kalman-filter-simple-version" title="Permalink to this heading">#</a></h3>
 <p>We implement two version of Kalman filter in <code>Python</code>. The simple version is an implementation from scratch using <code>Numpy</code>, and the advanced version using the class <code>KalmanForecaster</code> from the <code>darts</code> package (which uses N4SID algorithm, which is also supported by <a class="reference external" href="https://www.mathworks.com/help/ident/ref/n4sid.html">Matlab</a>).</p>
 <p>Let’s define <span class="math notranslate nohighlight">\(\mathbf{x}_1, \mathbf{x}_2, ..., \mathbf{x}_T\)</span> to be the states and <span class="math notranslate nohighlight">\(\mathbf{y}_1, \mathbf{y}_2, ..., \mathbf{y}_T\)</span> to be the measurements. Generally, state space models have the following form:</p>
 <div class="math notranslate nohighlight">
@@ -536,7 +535,7 @@ y_{k, t}
 \[\mathbf{P}_k = \mathbf{P}^{-}_k - \mathbf{K}_k \mathbf{S}_k \mathbf{K}_k^{\top}\]</div>
 </section>
 <section id="dynamic-factor">
-<h3>Dynamic factor<a class="headerlink" href="#dynamic-factor" title="Permalink to this heading">#</a></h3>
+<h3><span class="xref myst">Dynamic factor</span><a class="headerlink" href="#dynamic-factor" title="Permalink to this heading">#</a></h3>
 <p>The implement of the dynamic factor model in <code>Python</code> is supported by the <code>statsmodels</code> package.</p>
 <p>The dynamic factor can be written as:</p>
 <div class="math notranslate nohighlight">
@@ -544,14 +543,14 @@ y_{k, t}
 <p>where <span class="math notranslate nohighlight">\(\mathbf{f_t}\)</span> is the static factor vector, <span class="math notranslate nohighlight">\(e_t\)</span> is the idiosyncratic disturbances, and <span class="math notranslate nohighlight">\(\mathbf{\Lambda_t}\)</span> is the factor loading matrix. Each factor in the dynamic factor model (i.e each <span class="math notranslate nohighlight">\(f_{jt}\)</span>, where <span class="math notranslate nohighlight">\(j = 1, ..., q\)</span>) is modelled as an autoregressive (AR) stationary process.</p>
 </section>
 <section id="xgboost">
-<h3>XGBoost<a class="headerlink" href="#xgboost" title="Permalink to this heading">#</a></h3>
+<h3><span class="xref myst">XGBoost</span><a class="headerlink" href="#xgboost" title="Permalink to this heading">#</a></h3>
 <p>The implement of the XGBoost model for time series regression in <code>Python</code> is supported by the <code>xgboost</code> package, together with the <code>RegressorChain</code> module from the <code>scikit-learn</code> package.</p>
 <p>XGBoost is a supervised learning algorithm that can be used for both regression and classification. It attempts to predict the target variable by combining the estimates of a set of simpler and weaker models.</p>
 <p>When using gradient boosting for regression, the weak learners are regression trees, and each regression tree maps an input data point to one of its leafs that contains a continuous score. XGBoost minimizes an objective function that combines a convex loss function (based on the difference between the predicted and target outputs) and a penalty term for model complexity (in other words, the regression tree functions). The training proceeds iteratively, adding new trees that predict the residuals or errors of prior trees. These trees are then combined with previous trees to make the final prediction. It’s called gradient boosting because it uses a gradient descent algorithm to minimize the loss when adding new models.</p>
 <p><img alt="url-to-image" src="https://docs.aws.amazon.com/images/sagemaker/latest/dg/images/xgboost_illustration.png" /></p>
 </section>
 <section id="gaussian-process">
-<h3>Gaussian process<a class="headerlink" href="#gaussian-process" title="Permalink to this heading">#</a></h3>
+<h3><span class="xref myst">Gaussian process</span><a class="headerlink" href="#gaussian-process" title="Permalink to this heading">#</a></h3>
 <p>The implement of the Gaussian process regression model for time series in <code>Python</code> is supported by the <code>scikit-learn</code> package, together with the <code>RegressorChain</code> module also from <code>scikit-learn</code>. For the choice of kernel, we use <code>DotProduct() + WhiteKernel()</code>.</p>
 <p>A Gaussian process is a probability distribution over functions <span class="math notranslate nohighlight">\(\hat{y}(\mathbf{x})\)</span> such that for any set of values of <span class="math notranslate nohighlight">\(\hat{y}(\mathbf{x})\)</span> evaluated at an arbitrary set of points <span class="math notranslate nohighlight">\(\mathbf{x}^{(1)}, \mathbf{x}^{(2)}, ...\)</span> is jointly Gaussian. Recall that a linear model can be written in a form:</p>
 <div class="math notranslate nohighlight">
@@ -585,7 +584,7 @@ y_{k, t}
 <p>Note that the vector <span class="math notranslate nohighlight">\(\mathbf{k}\)</span> is a vector with entries <span class="math notranslate nohighlight">\(k_i = \frac{1}{\alpha} k(\mathbf{x}^{(i)}, \mathbf{x}^{(N + 1)})\)</span>. Hence, <span class="math notranslate nohighlight">\(\mathbf{k}\)</span> is a function of the new test input <span class="math notranslate nohighlight">\(\mathbf{x}^{(N + 1)}\)</span>.</p>
 </section>
 <section id="fast-fourier-transform">
-<h3>Fast Fourier transform<a class="headerlink" href="#fast-fourier-transform" title="Permalink to this heading">#</a></h3>
+<h3><span class="xref myst">Fast Fourier transform</span><a class="headerlink" href="#fast-fourier-transform" title="Permalink to this heading">#</a></h3>
 <p>The implement of FFT for time series prediction in <code>Python</code> is from the <code>darts</code> package.</p>
 <p>Let <span class="math notranslate nohighlight">\(x_1, x_2, ..., x_N\)</span> be a sequence of length <span class="math notranslate nohighlight">\(N\)</span>. We define the discrete Fourier transform (DFT) <span class="math notranslate nohighlight">\(y_k\)</span> of length <span class="math notranslate nohighlight">\(N\)</span> as:</p>
 <div class="math notranslate nohighlight">
@@ -596,7 +595,7 @@ y_{k, t}
 <p>Note that FFT is a faster version of DFT using divide-and-conquer algorithm, developed by Cooley and Tukey (1965) (<a class="reference external" href="https://www.ams.org/journals/mcom/1965-19-090/S0025-5718-1965-0178586-1/S0025-5718-1965-0178586-1.pdf">source</a>). With the assumption that the time series is periodic, we can use the FFT to extrapolate the time series, which is equivalent to making prediction. The module <code>FFT</code> in the <code>darts</code> package allows us to choose how many frequencies to keep in order to forecast the time series.</p>
 </section>
 <section id="singular-spectrum-analysis">
-<h3>Singular spectrum analysis<a class="headerlink" href="#singular-spectrum-analysis" title="Permalink to this heading">#</a></h3>
+<h3><span class="xref myst">Singular spectrum analysis</span><a class="headerlink" href="#singular-spectrum-analysis" title="Permalink to this heading">#</a></h3>
 <p>The model is implemented using the <code>ssa</code> package in <code>R</code>.</p>
 <p>We consider a time series <span class="math notranslate nohighlight">\(\mathbf{y_T} = (y_1, ..., y_T)\)</span>. Fix <span class="math notranslate nohighlight">\(L\)</span> such that <span class="math notranslate nohighlight">\(L &lt; \frac{T}{2}\)</span>, the window length, and let <span class="math notranslate nohighlight">\(K = T - L + 1\)</span>.</p>
 <p>First, we need to compute the trajectory matrix <span class="math notranslate nohighlight">\(\mathbf{X} = [X_1, ..., X_K]\)</span> as follow:</p>
@@ -636,7 +635,7 @@ y_{L} &amp; y_{L + 1} &amp; y_{L + 2} &amp; y_{L + 3} &amp; \ldots &amp; y_{T} \
 <p>Hence, we can make prediction by using this recurrent relation.</p>
 </section>
 <section id="long-short-term-memory-lstm">
-<h3>Long short-term memory (LSTM)<a class="headerlink" href="#long-short-term-memory-lstm" title="Permalink to this heading">#</a></h3>
+<h3><span class="xref myst">Long short-term memory (LSTM)</span><a class="headerlink" href="#long-short-term-memory-lstm" title="Permalink to this heading">#</a></h3>
 <p>The model is implemented using the <code>PyTorch</code> library in <code>Python</code>.</p>
 <p>Long short-term memory (LSTM) is a type of neural network that is explicitly designed to avoid the long-term dependency problem. LSTM uses three gates (input, forget and output gates) to control the flow of information. Each gate is implemented as a sigmoid layer that receives the input and the previous hidden state, and produces a value between 0 and 1. The update equations are as follows:</p>
 <div class="math notranslate nohighlight">
@@ -652,7 +651,7 @@ y_{L} &amp; y_{L + 1} &amp; y_{L + 2} &amp; y_{L + 3} &amp; \ldots &amp; y_{T} \
 <p>where <span class="math notranslate nohighlight">\(i_t\)</span> is the input gate, <span class="math notranslate nohighlight">\(o_t\)</span> is the output gate, <span class="math notranslate nohighlight">\(f_t\)</span> is the forget gate, <span class="math notranslate nohighlight">\(c_t\)</span> is the memory cell, and <span class="math notranslate nohighlight">\(h_t\)</span> is the hidden state. We denote <span class="math notranslate nohighlight">\(\sigma\)</span> as the sigmoid function, which is defined as <span class="math notranslate nohighlight">\(\sigma(x) = \frac{1}{1 + e^{-x}}\)</span>.</p>
 </section>
 <section id="transformer">
-<h3>Transformer<a class="headerlink" href="#transformer" title="Permalink to this heading">#</a></h3>
+<h3><span class="xref myst">Transformer</span><a class="headerlink" href="#transformer" title="Permalink to this heading">#</a></h3>
 <p>The model is implemented using the <code>PyTorch</code> library in <code>Python</code>.</p>
 <p>Transformer is a type of neural network architecture that is used for sequential data, such as NLP tasks or time series data. The model is known for its ability to efficiently handle long-term dependencies and parallelizable computation. The underlying core of Transformer model is the <strong>self-attention mechanism</strong>, which allows the model to weigh the importance of different parts of the input when making predictions. Furthermore, the model has an encoder-decoder architecture, where the encoder is responsible for processing the input sequence and the decoder is mainly responsible for producing the output sequence.</p>
 <p>The attention mechanism can be mathematically represented as: <span class="math notranslate nohighlight">\(Attention(Q, K, V) = softmax(\frac{QK^{\top}}{\sqrt{}d_k})V\)</span></p>
@@ -660,7 +659,7 @@ y_{L} &amp; y_{L + 1} &amp; y_{L + 2} &amp; y_{L + 3} &amp; \ldots &amp; y_{T} \
 <p>The attention mechanism is applied multiple times in the Transformer model, in a multi-head attention mechanism, where multiple sets of queries, keys, and values are used. The output of the multi-head attention is then concatenated and passed through a linear layer.</p>
 </section>
 <section id="structured-state-space-model-s4">
-<h3>Structured state space model (S4)<a class="headerlink" href="#structured-state-space-model-s4" title="Permalink to this heading">#</a></h3>
+<h3><span class="xref myst">Structured state space model (S4)</span><a class="headerlink" href="#structured-state-space-model-s4" title="Permalink to this heading">#</a></h3>
 <p>The model is implemented using the <code>PyTorch</code> library in <code>Python</code>.</p>
 <p>In control theory, the general state space model (or representation) has the following form:</p>
 <div class="math notranslate nohighlight">
@@ -767,19 +766,19 @@ y_{L} &amp; y_{L + 1} &amp; y_{L + 2} &amp; y_{L + 3} &amp; \ldots &amp; y_{T} \
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview-of-the-model">Overview of the model</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sarima">SARIMA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sarima"><span class="xref myst">SARIMA</span></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-autoregressive-var">Vector autoregressive (VAR)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-with-arima-errors">Regression with ARIMA errors</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exponential-smoothing">Exponential smoothing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kalman-filter">Kalman filter</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-factor">Dynamic factor</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xgboost">XGBoost</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-process">Gaussian process</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-fourier-transform">Fast Fourier transform</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#singular-spectrum-analysis">Singular spectrum analysis</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#long-short-term-memory-lstm">Long short-term memory (LSTM)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformer">Transformer</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#structured-state-space-model-s4">Structured state space model (S4)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-with-arima-errors"><span class="xref myst">Regression with ARIMA errors</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exponential-smoothing"><span class="xref myst">Exponential smoothing</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kalman-filter-simple-version"><span class="xref myst">Kalman filter</span> (<span class="xref myst">Simple version</span>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-factor"><span class="xref myst">Dynamic factor</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xgboost"><span class="xref myst">XGBoost</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-process"><span class="xref myst">Gaussian process</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-fourier-transform"><span class="xref myst">Fast Fourier transform</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#singular-spectrum-analysis"><span class="xref myst">Singular spectrum analysis</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#long-short-term-memory-lstm"><span class="xref myst">Long short-term memory (LSTM)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformer"><span class="xref myst">Transformer</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#structured-state-space-model-s4"><span class="xref myst">Structured state space model (S4)</span></a></li>
 </ul>
 </li>
 </ul>

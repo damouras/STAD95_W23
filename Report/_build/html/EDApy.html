@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Methodology" href="methods.html" />
-    <link rel="prev" title="Exploratory Data Analysis" href="EDA.html" />
+    <link rel="prev" title="Data Description" href="data.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -158,7 +158,6 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="data.html">Data Description</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="EDA.html">Exploratory Data Analysis</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">EDA</a></li>
 </ul>
 </li>
@@ -534,6 +533,20 @@ memory usage: 34.4+ KB
 <img alt="_images/ecc088bdd9f087431c941bd2394251c6dfb7bbf27467993a1d17840a9cdac500.png" src="_images/ecc088bdd9f087431c941bd2394251c6dfb7bbf27467993a1d17840a9cdac500.png" />
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">correlate</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]),</span> <span class="n">v</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;avg_temp&#39;</span><span class="p">]))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">corr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[194233.4786581]
+</pre></div>
+</div>
+</div>
+</div>
 <p>Histograms of price, demand, and temperature reveal interesting distribution patterns. The shapes of demand and temperature are similar to a normal distribution, while the price distribution is heavily skewed to the right, with a large number of observations having prices less than 20 dollars/MWh and gradually decreasing as the price increases. This suggests that electricity prices are generally low, with occasional spikes due to various factors.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -591,12 +604,12 @@ memory usage: 34.4+ KB
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="EDA.html"
+       href="data.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Exploratory Data Analysis</p>
+        <p class="prev-next-title">Data Description</p>
       </div>
     </a>
     <a class="right-next"
