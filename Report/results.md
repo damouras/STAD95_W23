@@ -1,10 +1,5 @@
 # Results
 
-Include table with metrics for each series and model.
-
-Compare with other performance metrics from the literature (with referneces)
-
-
 We tested several time series models, including Exponential Smoothing State Space Model (ETS), Seasonal Autoregressive Integrated
 Moving Average (SARIMA), and Singular Spectrum Analysis (SSA), to predict the price and demand for electricity in Ontario. The 
 data from 2020 and 2021 was used for training the models, while the 2023 data served as the test set. We employed one-step ahead 
@@ -48,12 +43,12 @@ weather data and using appropriate data transformations can enhance the predicti
 
 On the other hand, among the machine learning and deep learning models, Gaussian process performs very well and almost matches the
 performance of the SARIMA model. Other state space models, such as both versions of Kalman filter, dynamic factor model, and
-exponential smoothing also have very low error which is closed to that of SARIMA. The neural network models, such as LSTM, Transformer,
-and structured state space model (S4) does not work as well as other machine learning models or statistical models in this case. However, it is
+exponential smoothing also have very low error which closes to that of SARIMA. The neural network models, such as LSTM, Transformer,
+and structured state space model (S4) do not work as well as other machine learning models or statistical models in this case. However, it is
 noticeable that as we add more series to the model (such as combining the demand and average temperature series together with the price series), 
-the error of these models (MSE, MAE, MAPE) are reduced. One implication is that deep learning models might perform well when the dataset
+the error of these models (MSE, MAE, MAPE) is reduced. One implication is that deep learning models might perform well when the dataset
 contains many different series, from which the model can use its large capacity to learn the correlation between these series and make 
-prediction accordingly.
+predictions accordingly.
 
 In summary, our results show that the SARIMA model with weather as an external regressor outperforms the other models in 
 predicting both price and demand for electricity in Ontario. These findings highlight the importance of model selection and 
