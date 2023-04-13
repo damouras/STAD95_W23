@@ -40,7 +40,7 @@ References
    - Other factors that may impact electricity price and demand, such as economic conditions or policy changes, are not included in the dataset.
 
 8. Process files:
-   - Prepare price and demand([here](../Data/1. Data preparing.ipynb))
+   - Prepare price and demand([here](../Data/1a.data_preparing.ipynb))
    - Prepare weather data ([here](../Data/1b.data_prep_weather.ipynb))
    - Final process ([here](../Data/1c.process_weather_data.ipynb))
    
