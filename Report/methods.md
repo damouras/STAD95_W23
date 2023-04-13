@@ -1,5 +1,6 @@
 # Methodology
 
+In this section, we will give some details about the model that we implemented. Click the header to see the Jupyter Notebook file that contains the model.
 ## Overview of the model
 
 ### [SARIMA](../Models/SARIMA.ipynb)
