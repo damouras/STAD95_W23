@@ -4,11 +4,11 @@
 
 ### [SARIMA](../Models/SARIMA.ipynb)
 
-The implement of SARIMA in <code>Python</code> is supported by the <code>pmdarima</code> as well as the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>forecast</code> package. We perform model selection using the AIC (Akaike Information Criterion); in particular, we take the model with the lowest AIC value.
+The implementation of SARIMA in <code>Python</code> is supported by the <code>pmdarima</code> as well as the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>forecast</code> package. We perform model selection using the AIC (Akaike Information Criterion); in particular, we take the model with the lowest AIC value.
 
 SARIMA is the abbreviation for Seasonal Autoregressive Integrated Moving Average model. To introduce the SARIMA model, we will give some overview about the canonical autoregressive (AR) model and moving average (MA) model.
 
-An autoregressive of order $p$, denotes AR($p$), can be written as:
+An autoregressive of order $p$, denoted AR($p$), can be written as:
 
 $$y_t = c + \phi_1 y_{t-1} +\phi_2 y_{t-2} + ... + \phi_p y_{t - p} + \epsilon_t$$
 
@@ -96,7 +96,7 @@ $$y_t = \beta_0 + \beta_1 x_{1, t} + ... + \beta_k x_{k, t} + \epsilon_t$$
 
 where $y_t$ is a linear function of the $k$ predictor variables $(x_{1, t},..., x_{k, t})$, and $\epsilon_t$ is usually assumed to be an uncorrelated error term (i.e white noise). 
 
-For time series, we can also allow the errors from a regression to contain autocorrelation. Instead of using the independent and identically distributed white noise $\epsilon_t$, we can use $\eta_t$. The error series $\eta_t$ is assumed to follow some ARIMA models:
+For time series, we can also allow the errors from a regression to contain autocorrelation. Instead of using the independent and identically distributed white noise $\epsilon_t$, we can use $\eta_t$. The error series $\eta_t$ is assumed to follow some ARIMA model:
 
 $$y_t = \beta_0 + \beta_1 x_{1, t} + ... + \beta_k x_{k, t} + \eta_t$$
 
@@ -107,7 +107,7 @@ $$(1 - \phi_1 B)(1 - B)\eta_t = (1 + \theta_1 B)\epsilon_t$$
 Here, $B$ denotes the backshift operator, and $\epsilon_t$ is a white noise series.
 
 ### [Exponential smoothing](../Models/ets.ipynb)
-The implement of exponential smoothing in <code>Python</code> is supported by the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>forecast</code> package using the <code>ets</code> function.
+The implementation of exponential smoothing in <code>Python</code> is supported by the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>forecast</code> package using the <code>ets</code> function.
 
 The prediction of the exponential smoothing model can be expressed as:
 
@@ -119,7 +119,7 @@ $$\hat{y}_{t+1|t} = \alpha y_t + (1 - \alpha) \hat{y}_{t|t-1}$$
 
 ### [Kalman filter](../Models/kalman_filter.ipynb) ([Simple version](../Models/kalman_filter_simple.ipynb))
 
-We implement two version of Kalman filter in <code>Python</code>. The simple version is an implementation from scratch using <code>Numpy</code>, and the advanced version using the class <code>KalmanForecaster</code> from the <code>darts</code> package (which uses N4SID algorithm, which is also supported by [Matlab](https://www.mathworks.com/help/ident/ref/n4sid.html)).
+We implement two versions of the Kalman filter in <code>Python</code>. The simple version is an implementation from scratch using <code>Numpy</code>, and the advanced version using the class <code>KalmanForecaster</code> from the <code>darts</code> package (which uses N4SID algorithm, which is also supported by [Matlab](https://www.mathworks.com/help/ident/ref/n4sid.html)).
 
 Let's define $\mathbf{x}_1, \mathbf{x}_2, ..., \mathbf{x}_T$ to be the states and $\mathbf{y}_1, \mathbf{y}_2, ..., \mathbf{y}_T$ to be the measurements. Generally, state space models have the following form:
 
@@ -235,11 +235,11 @@ The implement of FFT for time series prediction in <code>Python</code> is from t
 
 Let $x_1, x_2, ..., x_N$ be a sequence of length $N$. We define the discrete Fourier transform (DFT) $y_k$ of length $N$ as:
 
-$$y_k = \sum^{N - 1}_{n = 0} e^{-2 \pi j \frac{kn}{N}} x_n$$
+$$y_k = \sum^{N - 1}_{n = 0} x_n e^{-2 \pi j \frac{kn}{N}}$$
 
 The inverse Fourier transform is defined as follow:
 
-$$x_n = \frac{1}{N} \sum^{N - 1}_{k = 0} e^{2 \pi j \frac{kn}{N}} y_k$$
+$$x_n = \frac{1}{N} \sum^{N - 1}_{k = 0} y_k e^{2 \pi j \frac{kn}{N}}$$
 
 Note that FFT is a faster version of DFT using divide-and-conquer algorithm, developed by Cooley and Tukey (1965) ([source](https://www.ams.org/journals/mcom/1965-19-090/S0025-5718-1965-0178586-1/S0025-5718-1965-0178586-1.pdf)). With the assumption that the time series is periodic, we can use the FFT to extrapolate the time series, which is equivalent to making prediction. The module <code>FFT</code> in the <code>darts</code> package allows us to choose how many frequencies to keep in order to forecast the time series.
 
