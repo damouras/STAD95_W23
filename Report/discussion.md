@@ -1,11 +1,5 @@
 # Conclusion
 
-Describe what you learned from this exercise 
-
--  What things work well
--  What were the challenges
--  What can be done to further improve accuracy 
-
 Through this project, we have learned several important aspects of predicting electricity price and demand using various 
 statistical, machine learning, and deep learning models. The results illustrate the importance of careful feature engineering, 
 model selection, and the incorporation of relevant external information into the model. Besides, we have explored some 
