@@ -236,11 +236,13 @@ The implement of FFT for time series prediction in <code>Python</code> is from t
 
 Let $x_1, x_2, ..., x_N$ be a sequence of length $N$. We define the discrete Fourier transform (DFT) $y_k$ of length $N$ as:
 
-$$y_k = \sum^{N - 1}_{n = 0} x_n e^{-2 \pi j \frac{kn}{N}}$$
+$$y_k = \sum^{N - 1}_{n = 0} x_n e^{-2 \pi i \frac{kn}{N}}$$
 
 The inverse Fourier transform is defined as follow:
 
-$$x_n = \frac{1}{N} \sum^{N - 1}_{k = 0} y_k e^{2 \pi j \frac{kn}{N}}$$
+$$x_n = \frac{1}{N} \sum^{N - 1}_{k = 0} y_k e^{2 \pi i \frac{kn}{N}}$$
+
+where $i = \sqrt{-1}$.
 
 Note that FFT is a faster version of DFT using divide-and-conquer algorithm, developed by Cooley and Tukey (1965) ([source](https://www.ams.org/journals/mcom/1965-19-090/S0025-5718-1965-0178586-1/S0025-5718-1965-0178586-1.pdf)). With the assumption that the time series is periodic, we can use the FFT to extrapolate the time series, which is equivalent to making prediction. The module <code>FFT</code> in the <code>darts</code> package allows us to choose how many frequencies to keep in order to forecast the time series.
 
