@@ -20,7 +20,7 @@ References
    - Daily electricity demand: The sum of hourly demands for each day.
    - Weather data: The average temperature in the Greater Toronto Area (GTA) for each day.
     
-4. [Data processing](../Data/1. Data preparing.ipynb):
+4. Data processing:
    - Hourly electricity price and demand data were collected from the IESO website.
    - Daily electricity price was calculated as the average of hourly prices for each day.
    - Daily electricity demand was calculated as the sum of hourly demands for each day.
@@ -41,6 +41,9 @@ References
 
 8. Process files:
    - Prepare price and demand([here](../Data/1. Data preparing.ipynb))
+   - Prepare weather data ([here](../Data/1b.data_prep_weather.ipynb))
+   - Final process ([here](../Data/1c.process_weather_data.ipynb))
+   
 ### EDA for data
 
 Describe characteristics of demand & price series
