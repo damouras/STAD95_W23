@@ -274,7 +274,7 @@ Next, we will reconstruct the time series from the SVD that we obtain above. We 
 
 $$\mathbf{X} = \mathbf{X}_{I_1} + ... + \mathbf{X}_{I_m}$$
 
-Next, we need to perform diagonal averaging, or Hankelization, in order to transfer each matrix $\mathbf{X_I}$ into a time series, which is an additive component of the initial time series $\mathbf{y_T}$. Suppose we have a matrix $\mathbf{Z}$, and we denote each entries of $z_{ij}$. Then, the $k$-th element of the time series will be obtained by averaging $z_{ij}$ over all $i, j$ such that $i + j = k + 2$. This procedure will produce a Hankel matrix $\mathcal{H}\mathbf{Z}$. (For example, see [link](https://www.mathworks.com/matlabcentral/cody/problems/3094-hankelize-a-matrix))
+Next, we need to perform diagonal averaging, or Hankelization, in order to transfer each matrix $\mathbf{X_I}$ into a time series, which is an additive component of the initial time series $\mathbf{y_T}$. Suppose we have a matrix $\mathbf{Z}$, and we denote each entries of $z_{ij}$. Then, the $k$-th element of the time series will be obtained by averaging $z_{ij}$ over all $i, j$ such that $i + j = k + 2$. This procedure will produce a Hankel matrix $\mathcal{H}\mathbf{Z}$. For example, see [link](https://www.mathworks.com/matlabcentral/cody/problems/3094-hankelize-a-matrix).
 
 By applying Hankelization to all matrices $\mathbf{X_{I_1}}, ..., \mathbf{X_{I_m}}$, we obtain another expansion:
 
