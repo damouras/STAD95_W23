@@ -1,14 +1,15 @@
 # Methodology
 
+In this section, we will give some details about the model that we implemented. Click the header to see the Jupyter Notebook file that contains the model.
 ## Overview of the model
 
 ### [SARIMA](../Models/SARIMA.ipynb)
 
-The implement of SARIMA in <code>Python</code> is supported by the <code>pmdarima</code> as well as the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>forecast</code> package. We perform model selection using the AIC (Akaike Information Criterion); in particular, we take the model with the lowest AIC value.
+The implementation of SARIMA in <code>Python</code> is supported by the <code>pmdarima</code> as well as the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>forecast</code> package. We perform model selection using the AIC (Akaike Information Criterion); in particular, we take the model with the lowest AIC value.
 
 SARIMA is the abbreviation for Seasonal Autoregressive Integrated Moving Average model. To introduce the SARIMA model, we will give some overview about the canonical autoregressive (AR) model and moving average (MA) model.
 
-An autoregressive of order $p$, denotes AR($p$), can be written as:
+An autoregressive of order $p$, denoted AR($p$), can be written as:
 
 $$y_t = c + \phi_1 y_{t-1} +\phi_2 y_{t-2} + ... + \phi_p y_{t - p} + \epsilon_t$$
 
@@ -96,7 +97,7 @@ $$y_t = \beta_0 + \beta_1 x_{1, t} + ... + \beta_k x_{k, t} + \epsilon_t$$
 
 where $y_t$ is a linear function of the $k$ predictor variables $(x_{1, t},..., x_{k, t})$, and $\epsilon_t$ is usually assumed to be an uncorrelated error term (i.e white noise). 
 
-For time series, we can also allow the errors from a regression to contain autocorrelation. Instead of using the independent and identically distributed white noise $\epsilon_t$, we can use $\eta_t$. The error series $\eta_t$ is assumed to follow some ARIMA models:
+For time series, we can also allow the errors from a regression to contain autocorrelation. Instead of using the independent and identically distributed white noise $\epsilon_t$, we can use $\eta_t$. The error series $\eta_t$ is assumed to follow some ARIMA model:
 
 $$y_t = \beta_0 + \beta_1 x_{1, t} + ... + \beta_k x_{k, t} + \eta_t$$
 
@@ -107,7 +108,7 @@ $$(1 - \phi_1 B)(1 - B)\eta_t = (1 + \theta_1 B)\epsilon_t$$
 Here, $B$ denotes the backshift operator, and $\epsilon_t$ is a white noise series.
 
 ### [Exponential smoothing](../Models/ets.ipynb)
-The implement of exponential smoothing in <code>Python</code> is supported by the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>forecast</code> package using the <code>ets</code> function.
+The implementation of exponential smoothing in <code>Python</code> is supported by the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>forecast</code> package using the <code>ets</code> function.
 
 The prediction of the exponential smoothing model can be expressed as:
 
@@ -119,7 +120,7 @@ $$\hat{y}_{t+1|t} = \alpha y_t + (1 - \alpha) \hat{y}_{t|t-1}$$
 
 ### [Kalman filter](../Models/kalman_filter.ipynb) ([Simple version](../Models/kalman_filter_simple.ipynb))
 
-We implement two version of Kalman filter in <code>Python</code>. The simple version is an implementation from scratch using <code>Numpy</code>, and the advanced version using the class <code>KalmanForecaster</code> from the <code>darts</code> package (which uses N4SID algorithm, which is also supported by [Matlab](https://www.mathworks.com/help/ident/ref/n4sid.html)).
+We implement two versions of the Kalman filter in <code>Python</code>. The simple version is an implementation from scratch using <code>Numpy</code>, and the advanced version using the class <code>KalmanForecaster</code> from the <code>darts</code> package (which uses N4SID algorithm, which is also supported by [Matlab](https://www.mathworks.com/help/ident/ref/n4sid.html)).
 
 Let's define $\mathbf{x}_1, \mathbf{x}_2, ..., \mathbf{x}_T$ to be the states and $\mathbf{y}_1, \mathbf{y}_2, ..., \mathbf{y}_T$ to be the measurements. Generally, state space models have the following form:
 
@@ -173,7 +174,9 @@ The dynamic factor can be written as:
 
 $$y_t = \mu_t + \mathbf{\Lambda_t} \mathbf{f_t} + e_t$$
 
-where $\mathbf{f_t}$ is the static factor vector, $e_t$ is the idiosyncratic disturbances, and $\mathbf{\Lambda_t}$ is the factor loading matrix. Each factor in the dynamic factor model (i.e each $f_{jt}$, where $j = 1, ..., q$) is modelled as an autoregressive (AR) stationary process.
+$$\phi(B) \mathbf{f_t} = \eta_t$$
+
+where $\mathbf{f_t}$ is the static factor vector, $e_t$ is the idiosyncratic disturbances, $\eta_t$ is the white noise, and $\mathbf{\Lambda_t}$ is the factor loading matrix. Each factor in the dynamic factor model (i.e each $f_{jt}$, where $j = 1, ..., q$) is modelled as an autoregressive (AR) stationary process. The parameters of the model, including the factor loading matrix $\Lambda_t$, the covariance matrix of $\mathbf{f_t}$, and the variance of $e_t$ are estimated using maximum likelihood estimation.
 
 ### [XGBoost](../Models/xgboost.ipynb)
 
@@ -196,7 +199,7 @@ $$y | \mathbf{x} \sim N(\hat{y}(\mathbf{x}), \sigma^2)$$
 
 $$\hat{y}(\mathbf{x}) = \mathbf{w}^{\top} \psi(\mathbf{x})$$
 
-where $\phi(\mathbf{x}): \mathbb{R}^D \rightarrow \mathbb{R}^M$ is the feature map. In the multivariate case, where $N$ samples are given, we can write:
+where $\psi(\mathbf{x}): \mathbb{R}^D \rightarrow \mathbb{R}^M$ is the feature map. In the multivariate case, where $N$ samples are given, we can write:
 
 $$\mathbf{y} | \hat{\mathbf{y}} \sim N(\hat{\mathbf{y}}, \sigma^2 I)$$
 
@@ -235,11 +238,13 @@ The implement of FFT for time series prediction in <code>Python</code> is from t
 
 Let $x_1, x_2, ..., x_N$ be a sequence of length $N$. We define the discrete Fourier transform (DFT) $y_k$ of length $N$ as:
 
-$$y_k = \sum^{N - 1}_{n = 0} e^{-2 \pi j \frac{kn}{N}} x_n$$
+$$y_k = \sum^{N - 1}_{n = 0} x_n e^{-2 \pi i \frac{kn}{N}}$$
 
 The inverse Fourier transform is defined as follow:
 
-$$x_n = \frac{1}{N} \sum^{N - 1}_{k = 0} e^{2 \pi j \frac{kn}{N}} y_k$$
+$$x_n = \frac{1}{N} \sum^{N - 1}_{k = 0} y_k e^{2 \pi i \frac{kn}{N}}$$
+
+where $i = \sqrt{-1}$.
 
 Note that FFT is a faster version of DFT using divide-and-conquer algorithm, developed by Cooley and Tukey (1965) ([source](https://www.ams.org/journals/mcom/1965-19-090/S0025-5718-1965-0178586-1/S0025-5718-1965-0178586-1.pdf)). With the assumption that the time series is periodic, we can use the FFT to extrapolate the time series, which is equivalent to making prediction. The module <code>FFT</code> in the <code>darts</code> package allows us to choose how many frequencies to keep in order to forecast the time series.
 
@@ -269,9 +274,7 @@ Next, we will reconstruct the time series from the SVD that we obtain above. We 
 
 $$\mathbf{X} = \mathbf{X}_{I_1} + ... + \mathbf{X}_{I_m}$$
 
-Next, we need to perform diagonal averaging, or Hankelization, in order to transfer each matrix $\mathbf{X_I}$ into a time series, which is an additive component of the initial time series $\mathbf{y_T}$. Suppose we have a matrix $\mathbf{Z}$, and we denote each entries of $z_{ij}$. Then, the $k$-th element of the time series will be obtained by averaging $z_{ij}$ over all $i, j$ such that $i + j = k + 2$. This procedure will produce a Hankel matrix $\mathcal{H}\mathbf{Z}$. 
-
-(For example, see [link](https://www.mathworks.com/matlabcentral/cody/problems/3094-hankelize-a-matrix))
+Next, we need to perform diagonal averaging, or Hankelization, in order to transfer each matrix $\mathbf{X_I}$ into a time series, which is an additive component of the initial time series $\mathbf{y_T}$. Suppose we have a matrix $\mathbf{Z}$, and we denote each entries of $z_{ij}$. Then, the $k$-th element of the time series will be obtained by averaging $z_{ij}$ over all $i, j$ such that $i + j = k + 2$. This procedure will produce a Hankel matrix $\mathcal{H}\mathbf{Z}$. (For example, see [link](https://www.mathworks.com/matlabcentral/cody/problems/3094-hankelize-a-matrix))
 
 By applying Hankelization to all matrices $\mathbf{X_{I_1}}, ..., \mathbf{X_{I_m}}$, we obtain another expansion:
 
@@ -374,7 +377,7 @@ We can use FFT and inverse FFT to compute the convolution. The runtime complexit
 
 **What is the problem with the previous model?**
 
-Note that the discrete SSM is highly inefficient since it involves repeated matrix multiplication of A. To overcome this problem, S4 enforces a special structure for matrix A (diagonal plus low rank or DPLR).
+Note that the discrete SSM is highly inefficient since it involves repeated matrix multiplication of $\mathbf{A}$. To overcome this problem, S4 enforces a special structure for matrix $\mathbf{A}$ (diagonal plus low rank or DPLR).
 
 A DPLR state space model can be written as $(\mathbf{\Lambda} - \mathbf{PQ}^{\ast})$ for some diagonal matrix $\mathbf{\Lambda}$ and matrices $\mathbf{P}, \mathbf{Q}, \mathbf{B}, \mathbf{C} \in \mathbb{C}^{N \times 1}$ ($\mathbf{Q}^{\ast}$ is the conjugate transpose of $\mathbf{Q}$). We assume without loss of generality that the rank is 1, i.e. these matrices are vectors. Under this DPLR assumption, S4 overcomes the speed bottleneck in 3 steps:
 

@@ -388,13 +388,14 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="methodology">
 <h1>Methodology<a class="headerlink" href="#methodology" title="Permalink to this heading">#</a></h1>
+<p>In this section, we will give some details about the model that we implemented. Click the header to see the Jupyter Notebook file that contains the model.</p>
 <section id="overview-of-the-model">
 <h2>Overview of the model<a class="headerlink" href="#overview-of-the-model" title="Permalink to this heading">#</a></h2>
 <section id="sarima">
 <h3><span class="xref myst">SARIMA</span><a class="headerlink" href="#sarima" title="Permalink to this heading">#</a></h3>
-<p>The implement of SARIMA in <code>Python</code> is supported by the <code>pmdarima</code> as well as the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>forecast</code> package. We perform model selection using the AIC (Akaike Information Criterion); in particular, we take the model with the lowest AIC value.</p>
+<p>The implementation of SARIMA in <code>Python</code> is supported by the <code>pmdarima</code> as well as the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>forecast</code> package. We perform model selection using the AIC (Akaike Information Criterion); in particular, we take the model with the lowest AIC value.</p>
 <p>SARIMA is the abbreviation for Seasonal Autoregressive Integrated Moving Average model. To introduce the SARIMA model, we will give some overview about the canonical autoregressive (AR) model and moving average (MA) model.</p>
-<p>An autoregressive of order <span class="math notranslate nohighlight">\(p\)</span>, denotes AR(<span class="math notranslate nohighlight">\(p\)</span>), can be written as:</p>
+<p>An autoregressive of order <span class="math notranslate nohighlight">\(p\)</span>, denoted AR(<span class="math notranslate nohighlight">\(p\)</span>), can be written as:</p>
 <div class="math notranslate nohighlight">
 \[y_t = c + \phi_1 y_{t-1} +\phi_2 y_{t-2} + ... + \phi_p y_{t - p} + \epsilon_t\]</div>
 <p>where <span class="math notranslate nohighlight">\(\epsilon_t\)</span> is the white noise. This is like a multiple regression but with lagged values of <span class="math notranslate nohighlight">\(y_t\)</span> as the predictors.</p>
@@ -473,7 +474,7 @@ y_{k, t}
 <div class="math notranslate nohighlight">
 \[y_t = \beta_0 + \beta_1 x_{1, t} + ... + \beta_k x_{k, t} + \epsilon_t\]</div>
 <p>where <span class="math notranslate nohighlight">\(y_t\)</span> is a linear function of the <span class="math notranslate nohighlight">\(k\)</span> predictor variables <span class="math notranslate nohighlight">\((x_{1, t},..., x_{k, t})\)</span>, and <span class="math notranslate nohighlight">\(\epsilon_t\)</span> is usually assumed to be an uncorrelated error term (i.e white noise).</p>
-<p>For time series, we can also allow the errors from a regression to contain autocorrelation. Instead of using the independent and identically distributed white noise <span class="math notranslate nohighlight">\(\epsilon_t\)</span>, we can use <span class="math notranslate nohighlight">\(\eta_t\)</span>. The error series <span class="math notranslate nohighlight">\(\eta_t\)</span> is assumed to follow some ARIMA models:</p>
+<p>For time series, we can also allow the errors from a regression to contain autocorrelation. Instead of using the independent and identically distributed white noise <span class="math notranslate nohighlight">\(\epsilon_t\)</span>, we can use <span class="math notranslate nohighlight">\(\eta_t\)</span>. The error series <span class="math notranslate nohighlight">\(\eta_t\)</span> is assumed to follow some ARIMA model:</p>
 <div class="math notranslate nohighlight">
 \[y_t = \beta_0 + \beta_1 x_{1, t} + ... + \beta_k x_{k, t} + \eta_t\]</div>
 <p>For example, if <span class="math notranslate nohighlight">\(\eta_t \sim\)</span> ARIMA(1, 1, 1), then we can write:</p>
@@ -483,7 +484,7 @@ y_{k, t}
 </section>
 <section id="exponential-smoothing">
 <h3><span class="xref myst">Exponential smoothing</span><a class="headerlink" href="#exponential-smoothing" title="Permalink to this heading">#</a></h3>
-<p>The implement of exponential smoothing in <code>Python</code> is supported by the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>forecast</code> package using the <code>ets</code> function.</p>
+<p>The implementation of exponential smoothing in <code>Python</code> is supported by the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>forecast</code> package using the <code>ets</code> function.</p>
 <p>The prediction of the exponential smoothing model can be expressed as:</p>
 <div class="math notranslate nohighlight">
 \[\hat{y}_{t+1|t} = \alpha y_t + \alpha (1 - \alpha) y_{t-1} + \alpha (1 - \alpha)^2 y_{t-2} + ... \]</div>
@@ -493,7 +494,7 @@ y_{k, t}
 </section>
 <section id="kalman-filter-simple-version">
 <h3><span class="xref myst">Kalman filter</span> (<span class="xref myst">Simple version</span>)<a class="headerlink" href="#kalman-filter-simple-version" title="Permalink to this heading">#</a></h3>
-<p>We implement two version of Kalman filter in <code>Python</code>. The simple version is an implementation from scratch using <code>Numpy</code>, and the advanced version using the class <code>KalmanForecaster</code> from the <code>darts</code> package (which uses N4SID algorithm, which is also supported by <a class="reference external" href="https://www.mathworks.com/help/ident/ref/n4sid.html">Matlab</a>).</p>
+<p>We implement two versions of the Kalman filter in <code>Python</code>. The simple version is an implementation from scratch using <code>Numpy</code>, and the advanced version using the class <code>KalmanForecaster</code> from the <code>darts</code> package (which uses N4SID algorithm, which is also supported by <a class="reference external" href="https://www.mathworks.com/help/ident/ref/n4sid.html">Matlab</a>).</p>
 <p>Let’s define <span class="math notranslate nohighlight">\(\mathbf{x}_1, \mathbf{x}_2, ..., \mathbf{x}_T\)</span> to be the states and <span class="math notranslate nohighlight">\(\mathbf{y}_1, \mathbf{y}_2, ..., \mathbf{y}_T\)</span> to be the measurements. Generally, state space models have the following form:</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{x}_k \sim p(\mathbf{x_k} | \mathbf{x}_{k-1})\]</div>
@@ -540,7 +541,9 @@ y_{k, t}
 <p>The dynamic factor can be written as:</p>
 <div class="math notranslate nohighlight">
 \[y_t = \mu_t + \mathbf{\Lambda_t} \mathbf{f_t} + e_t\]</div>
-<p>where <span class="math notranslate nohighlight">\(\mathbf{f_t}\)</span> is the static factor vector, <span class="math notranslate nohighlight">\(e_t\)</span> is the idiosyncratic disturbances, and <span class="math notranslate nohighlight">\(\mathbf{\Lambda_t}\)</span> is the factor loading matrix. Each factor in the dynamic factor model (i.e each <span class="math notranslate nohighlight">\(f_{jt}\)</span>, where <span class="math notranslate nohighlight">\(j = 1, ..., q\)</span>) is modelled as an autoregressive (AR) stationary process.</p>
+<div class="math notranslate nohighlight">
+\[\phi(B) \mathbf{f_t} = \eta_t\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{f_t}\)</span> is the static factor vector, <span class="math notranslate nohighlight">\(e_t\)</span> is the idiosyncratic disturbances, <span class="math notranslate nohighlight">\(\eta_t\)</span> is the white noise, and <span class="math notranslate nohighlight">\(\mathbf{\Lambda_t}\)</span> is the factor loading matrix. Each factor in the dynamic factor model (i.e each <span class="math notranslate nohighlight">\(f_{jt}\)</span>, where <span class="math notranslate nohighlight">\(j = 1, ..., q\)</span>) is modelled as an autoregressive (AR) stationary process. The parameters of the model, including the factor loading matrix <span class="math notranslate nohighlight">\(\Lambda_t\)</span>, the covariance matrix of <span class="math notranslate nohighlight">\(\mathbf{f_t}\)</span>, and the variance of <span class="math notranslate nohighlight">\(e_t\)</span> are estimated using maximum likelihood estimation.</p>
 </section>
 <section id="xgboost">
 <h3><span class="xref myst">XGBoost</span><a class="headerlink" href="#xgboost" title="Permalink to this heading">#</a></h3>
@@ -557,7 +560,7 @@ y_{k, t}
 \[y | \mathbf{x} \sim N(\hat{y}(\mathbf{x}), \sigma^2)\]</div>
 <div class="math notranslate nohighlight">
 \[\hat{y}(\mathbf{x}) = \mathbf{w}^{\top} \psi(\mathbf{x})\]</div>
-<p>where <span class="math notranslate nohighlight">\(\phi(\mathbf{x}): \mathbb{R}^D \rightarrow \mathbb{R}^M\)</span> is the feature map. In the multivariate case, where <span class="math notranslate nohighlight">\(N\)</span> samples are given, we can write:</p>
+<p>where <span class="math notranslate nohighlight">\(\psi(\mathbf{x}): \mathbb{R}^D \rightarrow \mathbb{R}^M\)</span> is the feature map. In the multivariate case, where <span class="math notranslate nohighlight">\(N\)</span> samples are given, we can write:</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{y} | \hat{\mathbf{y}} \sim N(\hat{\mathbf{y}}, \sigma^2 I)\]</div>
 <p>Since <span class="math notranslate nohighlight">\(\hat{\mathbf{y}}\)</span> is a (zero-mean) Gaussian process, we have: <span class="math notranslate nohighlight">\(\hat{\mathbf{y}} \sim N(0, \mathbf{K})\)</span>. Therefore, the marginal of <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> is given by:</p>
@@ -588,10 +591,11 @@ y_{k, t}
 <p>The implement of FFT for time series prediction in <code>Python</code> is from the <code>darts</code> package.</p>
 <p>Let <span class="math notranslate nohighlight">\(x_1, x_2, ..., x_N\)</span> be a sequence of length <span class="math notranslate nohighlight">\(N\)</span>. We define the discrete Fourier transform (DFT) <span class="math notranslate nohighlight">\(y_k\)</span> of length <span class="math notranslate nohighlight">\(N\)</span> as:</p>
 <div class="math notranslate nohighlight">
-\[y_k = \sum^{N - 1}_{n = 0} e^{-2 \pi j \frac{kn}{N}} x_n\]</div>
+\[y_k = \sum^{N - 1}_{n = 0} x_n e^{-2 \pi i \frac{kn}{N}}\]</div>
 <p>The inverse Fourier transform is defined as follow:</p>
 <div class="math notranslate nohighlight">
-\[x_n = \frac{1}{N} \sum^{N - 1}_{k = 0} e^{2 \pi j \frac{kn}{N}} y_k\]</div>
+\[x_n = \frac{1}{N} \sum^{N - 1}_{k = 0} y_k e^{2 \pi i \frac{kn}{N}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(i = \sqrt{-1}\)</span>.</p>
 <p>Note that FFT is a faster version of DFT using divide-and-conquer algorithm, developed by Cooley and Tukey (1965) (<a class="reference external" href="https://www.ams.org/journals/mcom/1965-19-090/S0025-5718-1965-0178586-1/S0025-5718-1965-0178586-1.pdf">source</a>). With the assumption that the time series is periodic, we can use the FFT to extrapolate the time series, which is equivalent to making prediction. The module <code>FFT</code> in the <code>darts</code> package allows us to choose how many frequencies to keep in order to forecast the time series.</p>
 </section>
 <section id="singular-spectrum-analysis">
@@ -614,8 +618,7 @@ y_{L} &amp; y_{L + 1} &amp; y_{L + 2} &amp; y_{L + 3} &amp; \ldots &amp; y_{T} \
 <p>Next, we will reconstruct the time series from the SVD that we obtain above. We would divide the set of indices <span class="math notranslate nohighlight">\(\{1, ..., L\}\)</span> into m disjoint partitions <span class="math notranslate nohighlight">\(I_1, ..., I_m\)</span>. Let <span class="math notranslate nohighlight">\(I = \{i_1, ..., i_p\}\)</span>. Then the matrix <span class="math notranslate nohighlight">\(\mathbf{X_I}\)</span> corresponding to group <span class="math notranslate nohighlight">\(I\)</span> is defined as <span class="math notranslate nohighlight">\(\mathbf{X_I} = \mathbf{X_{i_1}} + ... + \mathbf{X_{i_p}}\)</span>. Computing this quantity for each group <span class="math notranslate nohighlight">\(I_1, ..., I_m\)</span> as constructed above, we have:</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{X} = \mathbf{X}_{I_1} + ... + \mathbf{X}_{I_m}\]</div>
-<p>Next, we need to perform diagonal averaging, or Hankelization, in order to transfer each matrix <span class="math notranslate nohighlight">\(\mathbf{X_I}\)</span> into a time series, which is an additive component of the initial time series <span class="math notranslate nohighlight">\(\mathbf{y_T}\)</span>. Suppose we have a matrix <span class="math notranslate nohighlight">\(\mathbf{Z}\)</span>, and we denote each entries of <span class="math notranslate nohighlight">\(z_{ij}\)</span>. Then, the <span class="math notranslate nohighlight">\(k\)</span>-th element of the time series will be obtained by averaging <span class="math notranslate nohighlight">\(z_{ij}\)</span> over all <span class="math notranslate nohighlight">\(i, j\)</span> such that <span class="math notranslate nohighlight">\(i + j = k + 2\)</span>. This procedure will produce a Hankel matrix <span class="math notranslate nohighlight">\(\mathcal{H}\mathbf{Z}\)</span>.</p>
-<p>(For example, see <a class="reference external" href="https://www.mathworks.com/matlabcentral/cody/problems/3094-hankelize-a-matrix">link</a>)</p>
+<p>Next, we need to perform diagonal averaging, or Hankelization, in order to transfer each matrix <span class="math notranslate nohighlight">\(\mathbf{X_I}\)</span> into a time series, which is an additive component of the initial time series <span class="math notranslate nohighlight">\(\mathbf{y_T}\)</span>. Suppose we have a matrix <span class="math notranslate nohighlight">\(\mathbf{Z}\)</span>, and we denote each entries of <span class="math notranslate nohighlight">\(z_{ij}\)</span>. Then, the <span class="math notranslate nohighlight">\(k\)</span>-th element of the time series will be obtained by averaging <span class="math notranslate nohighlight">\(z_{ij}\)</span> over all <span class="math notranslate nohighlight">\(i, j\)</span> such that <span class="math notranslate nohighlight">\(i + j = k + 2\)</span>. This procedure will produce a Hankel matrix <span class="math notranslate nohighlight">\(\mathcal{H}\mathbf{Z}\)</span>. (For example, see <a class="reference external" href="https://www.mathworks.com/matlabcentral/cody/problems/3094-hankelize-a-matrix">link</a>)</p>
 <p>By applying Hankelization to all matrices <span class="math notranslate nohighlight">\(\mathbf{X_{I_1}}, ..., \mathbf{X_{I_m}}\)</span>, we obtain another expansion:</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{X} = \tilde{\mathbf{X}}_{I_1} + ... + \tilde{\mathbf{X}}_{I_m}\]</div>
@@ -692,7 +695,7 @@ y_{L} &amp; y_{L + 1} &amp; y_{L + 2} &amp; y_{L + 3} &amp; \ldots &amp; y_{T} \
 <p>where <span class="math notranslate nohighlight">\(\overline{\mathbf{K}} \in \mathbb{R}^L = (\overline{\mathbf{CB}}, \overline{\mathbf{CAB}}, ..., \overline{\mathbf{CA}}^{L - 1}\overline{\mathbf{B}})\)</span>. We call <span class="math notranslate nohighlight">\(\overline{\mathbf{K}}\)</span> the <strong>SSM convolution kernel</strong> or filter.</p>
 <p>We can use FFT and inverse FFT to compute the convolution. The runtime complexity of FFT/Inverse FFT is <span class="math notranslate nohighlight">\(\mathcal{O} (n \log n)\)</span>.</p>
 <p><strong>What is the problem with the previous model?</strong></p>
-<p>Note that the discrete SSM is highly inefficient since it involves repeated matrix multiplication of A. To overcome this problem, S4 enforces a special structure for matrix A (diagonal plus low rank or DPLR).</p>
+<p>Note that the discrete SSM is highly inefficient since it involves repeated matrix multiplication of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>. To overcome this problem, S4 enforces a special structure for matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> (diagonal plus low rank or DPLR).</p>
 <p>A DPLR state space model can be written as <span class="math notranslate nohighlight">\((\mathbf{\Lambda} - \mathbf{PQ}^{\ast})\)</span> for some diagonal matrix <span class="math notranslate nohighlight">\(\mathbf{\Lambda}\)</span> and matrices <span class="math notranslate nohighlight">\(\mathbf{P}, \mathbf{Q}, \mathbf{B}, \mathbf{C} \in \mathbb{C}^{N \times 1}\)</span> (<span class="math notranslate nohighlight">\(\mathbf{Q}^{\ast}\)</span> is the conjugate transpose of <span class="math notranslate nohighlight">\(\mathbf{Q}\)</span>). We assume without loss of generality that the rank is 1, i.e. these matrices are vectors. Under this DPLR assumption, S4 overcomes the speed bottleneck in 3 steps:</p>
 <ol class="arabic simple">
 <li><p>Instead of computing <span class="math notranslate nohighlight">\(\overline{\mathbf{K}}\)</span> directly, we compute its spectrum by evaluating its <span class="math notranslate nohighlight">\(\underline{\textbf{truncated generating function}}\)</span>. This now involves a matrix inverse instead of power.</p></li>

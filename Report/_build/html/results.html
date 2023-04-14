@@ -158,7 +158,6 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="data.html">Data Description</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="EDA.html">Exploratory Data Analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="EDApy.html">EDA</a></li>
 </ul>
 </li>
@@ -362,8 +361,6 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="results">
 <h1>Results<a class="headerlink" href="#results" title="Permalink to this heading">#</a></h1>
-<p>Include table with metrics for each series and model.</p>
-<p>Compare with other performance metrics from the literature (with referneces)</p>
 <p>We tested several time series models, including Exponential Smoothing State Space Model (ETS), Seasonal Autoregressive Integrated
 Moving Average (SARIMA), and Singular Spectrum Analysis (SSA), to predict the price and demand for electricity in Ontario. The
 data from 2020 and 2021 was used for training the models, while the 2023 data served as the test set. We employed one-step ahead
@@ -375,9 +372,9 @@ including the original price or demand data, and log-transformed versions.</p>
 <tr class="row-odd"><th class="head"><p>Model</p></th>
 <th class="head"><p>Price_MAE</p></th>
 <th class="head"><p>Price_MSE</p></th>
+<th class="head"><p>Price_MAPE</p></th>
 <th class="head"><p>Demand_MAE</p></th>
 <th class="head"><p>Demand_MSE</p></th>
-<th class="head"><p>Price_MAPE</p></th>
 <th class="head"><p>Demand_MAPE</p></th>
 </tr>
 </thead>
@@ -385,161 +382,161 @@ including the original price or demand data, and log-transformed versions.</p>
 <tr class="row-even"><td><p>Constant</p></td>
 <td><p>27.85</p></td>
 <td><p>1192.81</p></td>
+<td><p>0.56</p></td>
 <td><p>34098.96</p></td>
 <td><p>1623311682.00</p></td>
-<td><p>0.56</p></td>
 <td><p>0.08913415</p></td>
 </tr>
 <tr class="row-odd"><td><p>ETS</p></td>
 <td><p>12.93</p></td>
 <td><p>281.03</p></td>
+<td><p>0.3399</p></td>
 <td><p>15270.60</p></td>
 <td><p>414561058.00</p></td>
-<td><p>0.3399</p></td>
 <td><p>0.04089591</p></td>
 </tr>
 <tr class="row-even"><td><p>ETS_log</p></td>
 <td><p>13.23</p></td>
 <td><p>286.88</p></td>
+<td><p>0.3144</p></td>
 <td><p>15270.61</p></td>
 <td><p>414561272.00</p></td>
-<td><p>0.3144</p></td>
 <td><p>0.04089592</p></td>
 </tr>
 <tr class="row-odd"><td><p>SARIMA</p></td>
 <td><p>12.50</p></td>
 <td><p>268.12</p></td>
+<td><p>0.3274</p></td>
 <td><p>14317.14</p></td>
 <td><p>326372945.00</p></td>
-<td><p>0.3274</p></td>
 <td><p>0.03829565</p></td>
 </tr>
 <tr class="row-even"><td><p>SARIMA_weather</p></td>
 <td><p>12.49</p></td>
 <td><p>268.07</p></td>
+<td><p>0.3268</p></td>
 <td><p>14324.77</p></td>
 <td><p>326427076.00</p></td>
-<td><p>0.3268</p></td>
 <td><p>0.03843157</p></td>
 </tr>
 <tr class="row-odd"><td><p>SARIMA_log</p></td>
 <td><p>12.65</p></td>
 <td><p>272.33</p></td>
+<td><p>0.3002</p></td>
 <td><p>14370.43</p></td>
 <td><p>328902644.00</p></td>
-<td><p>0.3002</p></td>
 <td><p>0.03841707</p></td>
 </tr>
 <tr class="row-even"><td><p>SARIMA_weather_log</p></td>
 <td><p>12.63</p></td>
 <td><p>273.08</p></td>
+<td><p>0.2999</p></td>
 <td><p>14438.61</p></td>
 <td><p>330403616.00</p></td>
-<td><p>0.2999</p></td>
 <td><p>0.03859608</p></td>
 </tr>
 <tr class="row-odd"><td><p>SARIMA_2_xreg</p></td>
 <td><p>12.49</p></td>
 <td><p>268.32</p></td>
+<td><p>0.3268</p></td>
 <td><p>14369.06</p></td>
 <td><p>327475674.00</p></td>
-<td><p>0.3268</p></td>
 <td><p>0.03843157</p></td>
 </tr>
 <tr class="row-even"><td><p>SSA</p></td>
 <td><p>21.20</p></td>
 <td><p>707.93</p></td>
+<td><p>0.64</p></td>
 <td><p>35370.02</p></td>
 <td><p>1839698615.00</p></td>
-<td><p>0.64</p></td>
 <td><p>0.06180689</p></td>
 </tr>
 <tr class="row-odd"><td><p>SSA_log</p></td>
 <td><p>23.97</p></td>
 <td><p>903.02</p></td>
+<td><p>0.46</p></td>
 <td><p>35387.91</p></td>
 <td><p>1838608713.00</p></td>
-<td><p>0.46</p></td>
 <td><p>0.09078513</p></td>
 </tr>
 <tr class="row-even"><td><p>Kalman filter (simple)</p></td>
 <td><p>12.94</p></td>
 <td><p>280.92</p></td>
+<td><p>0.34</p></td>
 <td><p>19236.02</p></td>
 <td><p>1108128912.54</p></td>
-<td><p>0.34</p></td>
 <td><p>0.05357406444</p></td>
 </tr>
 <tr class="row-odd"><td><p>Kalman forecaster</p></td>
 <td><p>13.08</p></td>
 <td><p>286.66</p></td>
+<td><p>0.34</p></td>
 <td><p>17641.76</p></td>
 <td><p>512782421.67</p></td>
-<td><p>0.34</p></td>
 <td><p>0.04739837037</p></td>
 </tr>
 <tr class="row-even"><td><p>Dynamic factor</p></td>
 <td><p>13.31</p></td>
 <td><p>301.65</p></td>
+<td><p>0.38</p></td>
 <td><p>14874.44</p></td>
 <td><p>388028400.16</p></td>
-<td><p>0.38</p></td>
 <td><p>0.04001733041</p></td>
 </tr>
 <tr class="row-odd"><td><p>Transformer</p></td>
 <td><p>19.28</p></td>
 <td><p>600.66</p></td>
+<td><p>0.57</p></td>
 <td><p>17509.55</p></td>
 <td><p>489325704.16</p></td>
-<td><p>0.57</p></td>
 <td><p>0.04769337162</p></td>
 </tr>
 <tr class="row-even"><td><p>ETS (Python)</p></td>
 <td><p>12.95</p></td>
 <td><p>281.01</p></td>
+<td><p>0.33</p></td>
 <td><p>15270.60</p></td>
 <td><p>414561050.30</p></td>
-<td><p>0.33</p></td>
 <td><p>0.04100255746</p></td>
 </tr>
 <tr class="row-odd"><td><p>Fast Fourier Transform</p></td>
 <td><p>32.71</p></td>
 <td><p>1527.91</p></td>
+<td><p>0.91</p></td>
 <td><p>29343.31</p></td>
 <td><p>1240550013.47</p></td>
-<td><p>0.91</p></td>
 <td><p>0.09738732874</p></td>
 </tr>
 <tr class="row-even"><td><p>XGBoost</p></td>
 <td><p>17.93</p></td>
 <td><p>568.41</p></td>
+<td><p>0.47</p></td>
 <td><p>15339.24</p></td>
 <td><p>419687148.36</p></td>
-<td><p>0.47</p></td>
 <td><p>0.04041825596</p></td>
 </tr>
 <tr class="row-odd"><td><p>Gaussian Process</p></td>
 <td><p>12.84</p></td>
 <td><p>274.91</p></td>
+<td><p>0.34</p></td>
 <td><p>14334.84</p></td>
 <td><p>329325202.30</p></td>
-<td><p>0.34</p></td>
 <td><p>0.03825991559</p></td>
 </tr>
 <tr class="row-even"><td><p>LSTM</p></td>
 <td><p>22.72</p></td>
 <td><p>800.78</p></td>
+<td><p>0.67</p></td>
 <td><p>23636.19</p></td>
 <td><p>845069403.35</p></td>
-<td><p>0.67</p></td>
 <td><p>0.0633824304</p></td>
 </tr>
 <tr class="row-odd"><td><p>Structure State Space</p></td>
 <td><p>30.04</p></td>
 <td><p>1342.67</p></td>
+<td><p>0.85</p></td>
 <td><p>34469.24</p></td>
 <td><p>1741656924.36</p></td>
-<td><p>0.85</p></td>
 <td><p>0.09769348272</p></td>
 </tr>
 </tbody>
@@ -554,12 +551,12 @@ with the SARIMA_weather model yielding the lowest error values. These findings s
 weather data and using appropriate data transformations can enhance the predictive capabilities of time series models.</p>
 <p>On the other hand, among the machine learning and deep learning models, Gaussian process performs very well and almost matches the
 performance of the SARIMA model. Other state space models, such as both versions of Kalman filter, dynamic factor model, and
-exponential smoothing also have very low error which is closed to that of SARIMA. The neural network models, such as LSTM, Transformer,
-and structured state space model (S4) does not work as well as other machine learning models or statistical models in this case. However, it is
+exponential smoothing also have very low error which closes to that of SARIMA. The neural network models, such as LSTM, Transformer,
+and structured state space model (S4) do not work as well as other machine learning models or statistical models in this case. However, it is
 noticeable that as we add more series to the model (such as combining the demand and average temperature series together with the price series),
-the error of these models (MSE, MAE, MAPE) are reduced. One implication is that deep learning models might perform well when the dataset
+the error of these models (MSE, MAE, MAPE) is reduced. One implication is that deep learning models might perform well when the dataset
 contains many different series, from which the model can use its large capacity to learn the correlation between these series and make
-prediction accordingly.</p>
+predictions accordingly.</p>
 <p>In summary, our results show that the SARIMA model with weather as an external regressor outperforms the other models in
 predicting both price and demand for electricity in Ontario. These findings highlight the importance of model selection and
 incorporating relevant external factors when forecasting electricity prices and demand.</p>

@@ -1,14 +1,12 @@
 # Data Description
 
-
-Sources
-Variables
-References
+We analyzed electricity price, demand, and weather data in Ontario from 2020 to 2022, using variables such as hourly and daily 
+electricity prices and demand, and daily average temperature data for the Greater Toronto Area (GTA). The data was collected from
+reliable sources, processed, and cleaned, while considering several data limitations during the analysis.
 
 1. Data source:
    - Hourly electricity price and demand data: Ontario's Independent Electricity System Operator (IESO) website (https://www.ieso.ca/en/Power-Data/Data-Directory)
    - Weather data: Environment and Climate Change Canada website (https://climate.weather.gc.ca)
-
 
 2. Time period:
    - Data was collected for the years 2020 to 2022.
@@ -40,11 +38,7 @@ References
    - Other factors that may impact electricity price and demand, such as economic conditions or policy changes, are not included in the dataset.
 
 8. Process files:
-   - Prepare price and demand([here](../Data/1a.data_preparing.ipynb))
-   - Prepare weather data ([here](../Data/1b.data_prep_weather.ipynb))
-   - Final process ([here](../Data/1c.process_weather_data.ipynb))
-   
-### EDA for data
-
-Describe characteristics of demand & price series
-
+   - [Prepare price and demand](../Data/1a.data_preparing.ipynb)
+   - [Prepare weather data](../Data/1b.data_prep_weather.ipynb)
+   - [Data cleaning and calculating](../Data/1c.process_weather_data.ipynb)
+  

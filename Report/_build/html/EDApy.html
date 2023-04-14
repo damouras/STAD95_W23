@@ -428,24 +428,7 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 1096 entries, 0 to 1095
-Data columns (total 4 columns):
- #   Column    Non-Null Count  Dtype  
----  ------    --------------  -----  
- 0   date      1096 non-null   object 
- 1   price     1096 non-null   float64
- 2   demand    1096 non-null   int64  
- 3   avg_temp  1096 non-null   float64
-dtypes: float64(2), int64(1), object(1)
-memory usage: 34.4+ KB
-</pre></div>
-</div>
-</div>
-</div>
-<p>Looking at the summary statistics of the variables, we find that there are no missing values in the data. However, the price variable has some extreme values, with some daily prices reaching as high as 126 dollars/MWh and even negative values. These outliers could be due to factors such as sudden changes in supply or demand, or errors in the measurement or recording of the data. It will be important to examine these outliers in more detail to determine their impact on our analysis.</p>
+<p>Looking at the summary statistics of the variables, we find that there are no missing values in the data. However, the price variable has some extreme values, with some daily prices reaching as high as 126 dollars/MWh and even negative values. These outliers could be due to factors such as sudden changes in supply or demand, or errors in the measurement or recording of the data.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
@@ -524,27 +507,11 @@ memory usage: 34.4+ KB
 </table>
 </div></div></div>
 </div>
-<p>Next, we examine the correlations between the variables. We find that there is a moderate positive correlation between price and demand (r = 0.48), indicating that higher demand tends to drive up the price of electricity. However, the correlation between price and temperature is weak and negative (r = -0.033), suggesting that higher temperatures do not necessarily lead to higher prices. Similarly, the correlation between temperature and demand is also weak and negative (r = -0.093), suggesting that the effect of temperature on demand is relatively small.</p>
+<p>Next, we examine the cross-correlations between the variables. We find that there is a strong positive cross-correlation between price and demand, with a peak at lag 0 of almost 0.9, indicating that higher demand tends to drive up the price of electricity concurrently. The cross-correlations between price and temperature also show a strong positive relationship, peaking at lag 0 with a value of 0.9. In other lags, both price-demand and price-temperature cross-correlations remain high, at around 0.85.</p>
+<p>As for the relationship between demand and temperature, the cross-correlation is also high but occurs at different lags, with values around 0.95. This suggests that the effect of temperature on demand is relatively strong, but the relationship is not as immediate as it is for price and demand or price and temperature.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
-</pre></div>
-</div>
-<img alt="_images/ecc088bdd9f087431c941bd2394251c6dfb7bbf27467993a1d17840a9cdac500.png" src="_images/ecc088bdd9f087431c941bd2394251c6dfb7bbf27467993a1d17840a9cdac500.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">correlate</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]),</span> <span class="n">v</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;avg_temp&#39;</span><span class="p">]))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">corr</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[194233.4786581]
-</pre></div>
-</div>
+<img alt="_images/5b1ce1b352711dd6e5ef70a1d1e4f93d9fca9ebfc68368dbd15dd428e146a737.png" src="_images/5b1ce1b352711dd6e5ef70a1d1e4f93d9fca9ebfc68368dbd15dd428e146a737.png" />
 </div>
 </div>
 <p>Histograms of price, demand, and temperature reveal interesting distribution patterns. The shapes of demand and temperature are similar to a normal distribution, while the price distribution is heavily skewed to the right, with a large number of observations having prices less than 20 dollars/MWh and gradually decreasing as the price increases. This suggests that electricity prices are generally low, with occasional spikes due to various factors.</p>
@@ -556,7 +523,7 @@ memory usage: 34.4+ KB
 <img alt="_images/08f0899f713e518f500377a0ee91c30ee1efa7dcbbe3e68033506d3550f2c89a.png" src="_images/08f0899f713e518f500377a0ee91c30ee1efa7dcbbe3e68033506d3550f2c89a.png" />
 </div>
 </div>
-<p>To explore the seasonal patterns in the data, we plot the average daily price, demand, and temperature over time, as well as their autocorrelation functions (ACF). We observe that both demand and temperature exhibit strong annual trends, with peaks occurring in the summer months (June to September) and troughs in the winter months (December to February). This is likely due to the increased use of air conditioning during hot summer months and heating during cold winter months. In contrast, the price of electricity does not show a clear annual trend but rather an increasing trend over time. The price appears to be more volatile, with occasional spikes occurring throughout the year. These visualizations allow us to identify any non-linear relationships or interactions between the variables that may not be apparent from simple correlation analysis or ACF plots.</p>
+<p>To explore the seasonal patterns in the data, we plot the average daily price, demand, and temperature over time, as well as their autocorrelation functions (ACF). We observe that both demand and temperature exhibit strong annual trends. Demand is high during both summer months (June to September) due to increased use of air conditioning and winter months (December to February) because of heating. Temperature, on the other hand, peaks in the summer months and troughs in the winter months. In contrast, the price of electricity does not display a clear annual trend but rather an increasing trend over time. The price appears to be more volatile, with occasional spikes occurring throughout the year.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <img alt="_images/4be3110735aafdf290d5a7ad98ffa132637573075fdfa611ece4da2ead748857.png" src="_images/4be3110735aafdf290d5a7ad98ffa132637573075fdfa611ece4da2ead748857.png" />
