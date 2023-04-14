@@ -1,0 +1,726 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Electricity Demand Forecasting</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Models/fft';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../data.html">Data Description</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../EDApy.html">EDA</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../methods.html">Methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../results.html">Results</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../discussion.html">Conclusion</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/damouras/STAD95_W23" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/damouras/STAD95_W23/issues/new?title=Issue%20on%20page%20%2FModels/fft.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Models/fft.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install darts
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: darts in /usr/local/lib/python3.9/dist-packages (0.23.1)
+Requirement already satisfied: pytorch-lightning&gt;=1.5.0 in /usr/local/lib/python3.9/dist-packages (from darts) (2.0.0)
+Requirement already satisfied: catboost&gt;=1.0.6 in /usr/local/lib/python3.9/dist-packages (from darts) (1.1.1)
+Requirement already satisfied: xarray&gt;=0.17.0 in /usr/local/lib/python3.9/dist-packages (from darts) (2022.12.0)
+Requirement already satisfied: torch&gt;=1.8.0 in /usr/local/lib/python3.9/dist-packages (from darts) (1.13.1+cu116)
+Requirement already satisfied: statsforecast&gt;=1.0.0 in /usr/local/lib/python3.9/dist-packages (from darts) (1.5.0)
+Requirement already satisfied: statsmodels&gt;=0.13.0 in /usr/local/lib/python3.9/dist-packages (from darts) (0.13.5)
+Requirement already satisfied: prophet&gt;=1.1.1 in /usr/local/lib/python3.9/dist-packages (from darts) (1.1.2)
+Requirement already satisfied: lightgbm&gt;=3.2.0 in /usr/local/lib/python3.9/dist-packages (from darts) (3.3.5)
+Requirement already satisfied: tbats&gt;=1.1.0 in /usr/local/lib/python3.9/dist-packages (from darts) (1.1.2)
+Requirement already satisfied: xgboost&gt;=1.6.0 in /usr/local/lib/python3.9/dist-packages (from darts) (1.7.4)
+Requirement already satisfied: nfoursid&gt;=1.0.0 in /usr/local/lib/python3.9/dist-packages (from darts) (1.0.1)
+Requirement already satisfied: pmdarima&gt;=1.8.0 in /usr/local/lib/python3.9/dist-packages (from darts) (2.0.3)
+Requirement already satisfied: tqdm&gt;=4.60.0 in /usr/local/lib/python3.9/dist-packages (from darts) (4.65.0)
+Requirement already satisfied: shap&gt;=0.40.0 in /usr/local/lib/python3.9/dist-packages (from darts) (0.41.0)
+Requirement already satisfied: requests&gt;=2.22.0 in /usr/local/lib/python3.9/dist-packages (from darts) (2.27.1)
+Requirement already satisfied: matplotlib&gt;=3.3.0 in /usr/local/lib/python3.9/dist-packages (from darts) (3.7.1)
+Requirement already satisfied: holidays&gt;=0.11.1 in /usr/local/lib/python3.9/dist-packages (from darts) (0.21.13)
+Requirement already satisfied: pyod&gt;=0.9.5 in /usr/local/lib/python3.9/dist-packages (from darts) (1.0.8)
+Requirement already satisfied: scipy&gt;=1.3.2 in /usr/local/lib/python3.9/dist-packages (from darts) (1.10.1)
+Requirement already satisfied: joblib&gt;=0.16.0 in /usr/local/lib/python3.9/dist-packages (from darts) (1.1.1)
+Requirement already satisfied: numpy&gt;=1.19.0 in /usr/local/lib/python3.9/dist-packages (from darts) (1.22.4)
+Requirement already satisfied: scikit-learn&gt;=1.0.1 in /usr/local/lib/python3.9/dist-packages (from darts) (1.2.2)
+Requirement already satisfied: pandas&gt;=1.0.5 in /usr/local/lib/python3.9/dist-packages (from darts) (1.4.4)
+Requirement already satisfied: plotly in /usr/local/lib/python3.9/dist-packages (from catboost&gt;=1.0.6-&gt;darts) (5.5.0)
+Requirement already satisfied: graphviz in /usr/local/lib/python3.9/dist-packages (from catboost&gt;=1.0.6-&gt;darts) (0.10.1)
+Requirement already satisfied: six in /usr/local/lib/python3.9/dist-packages (from catboost&gt;=1.0.6-&gt;darts) (1.15.0)
+Requirement already satisfied: python-dateutil in /usr/local/lib/python3.9/dist-packages (from holidays&gt;=0.11.1-&gt;darts) (2.8.2)
+Requirement already satisfied: convertdate&gt;=2.3.0 in /usr/local/lib/python3.9/dist-packages (from holidays&gt;=0.11.1-&gt;darts) (2.4.0)
+Requirement already satisfied: korean-lunar-calendar in /usr/local/lib/python3.9/dist-packages (from holidays&gt;=0.11.1-&gt;darts) (0.3.1)
+Requirement already satisfied: hijri-converter in /usr/local/lib/python3.9/dist-packages (from holidays&gt;=0.11.1-&gt;darts) (2.2.4)
+Requirement already satisfied: PyMeeus in /usr/local/lib/python3.9/dist-packages (from holidays&gt;=0.11.1-&gt;darts) (0.5.12)
+Requirement already satisfied: wheel in /usr/local/lib/python3.9/dist-packages (from lightgbm&gt;=3.2.0-&gt;darts) (0.40.0)
+Requirement already satisfied: packaging&gt;=20.0 in /usr/local/lib/python3.9/dist-packages (from matplotlib&gt;=3.3.0-&gt;darts) (23.0)
+Requirement already satisfied: pyparsing&gt;=2.3.1 in /usr/local/lib/python3.9/dist-packages (from matplotlib&gt;=3.3.0-&gt;darts) (3.0.9)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /usr/local/lib/python3.9/dist-packages (from matplotlib&gt;=3.3.0-&gt;darts) (4.39.0)
+Requirement already satisfied: importlib-resources&gt;=3.2.0 in /usr/local/lib/python3.9/dist-packages (from matplotlib&gt;=3.3.0-&gt;darts) (5.12.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /usr/local/lib/python3.9/dist-packages (from matplotlib&gt;=3.3.0-&gt;darts) (1.4.4)
+Requirement already satisfied: pillow&gt;=6.2.0 in /usr/local/lib/python3.9/dist-packages (from matplotlib&gt;=3.3.0-&gt;darts) (8.4.0)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /usr/local/lib/python3.9/dist-packages (from matplotlib&gt;=3.3.0-&gt;darts) (1.0.7)
+Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.9/dist-packages (from matplotlib&gt;=3.3.0-&gt;darts) (0.11.0)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.9/dist-packages (from pandas&gt;=1.0.5-&gt;darts) (2022.7.1)
+Requirement already satisfied: setuptools!=50.0.0,&gt;=38.6.0 in /usr/local/lib/python3.9/dist-packages (from pmdarima&gt;=1.8.0-&gt;darts) (63.4.3)
+Requirement already satisfied: Cython!=0.29.18,!=0.29.31,&gt;=0.29 in /usr/local/lib/python3.9/dist-packages (from pmdarima&gt;=1.8.0-&gt;darts) (0.29.33)
+Requirement already satisfied: urllib3 in /usr/local/lib/python3.9/dist-packages (from pmdarima&gt;=1.8.0-&gt;darts) (1.26.15)
+Requirement already satisfied: LunarCalendar&gt;=0.0.9 in /usr/local/lib/python3.9/dist-packages (from prophet&gt;=1.1.1-&gt;darts) (0.0.9)
+Requirement already satisfied: cmdstanpy&gt;=1.0.4 in /usr/local/lib/python3.9/dist-packages (from prophet&gt;=1.1.1-&gt;darts) (1.1.0)
+Requirement already satisfied: numba&gt;=0.51 in /usr/local/lib/python3.9/dist-packages (from pyod&gt;=0.9.5-&gt;darts) (0.56.4)
+Requirement already satisfied: fsspec[http]&gt;2021.06.0 in /usr/local/lib/python3.9/dist-packages (from pytorch-lightning&gt;=1.5.0-&gt;darts) (2023.3.0)
+Requirement already satisfied: lightning-utilities&gt;=0.7.0 in /usr/local/lib/python3.9/dist-packages (from pytorch-lightning&gt;=1.5.0-&gt;darts) (0.8.0)
+Requirement already satisfied: PyYAML&gt;=5.4 in /usr/local/lib/python3.9/dist-packages (from pytorch-lightning&gt;=1.5.0-&gt;darts) (6.0)
+Requirement already satisfied: typing-extensions&gt;=4.0.0 in /usr/local/lib/python3.9/dist-packages (from pytorch-lightning&gt;=1.5.0-&gt;darts) (4.5.0)
+Requirement already satisfied: torchmetrics&gt;=0.7.0 in /usr/local/lib/python3.9/dist-packages (from pytorch-lightning&gt;=1.5.0-&gt;darts) (0.11.4)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.9/dist-packages (from requests&gt;=2.22.0-&gt;darts) (2022.12.7)
+Requirement already satisfied: charset-normalizer~=2.0.0 in /usr/local/lib/python3.9/dist-packages (from requests&gt;=2.22.0-&gt;darts) (2.0.12)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/local/lib/python3.9/dist-packages (from requests&gt;=2.22.0-&gt;darts) (3.4)
+Requirement already satisfied: threadpoolctl&gt;=2.0.0 in /usr/local/lib/python3.9/dist-packages (from scikit-learn&gt;=1.0.1-&gt;darts) (3.1.0)
+Requirement already satisfied: slicer==0.0.7 in /usr/local/lib/python3.9/dist-packages (from shap&gt;=0.40.0-&gt;darts) (0.0.7)
+Requirement already satisfied: cloudpickle in /usr/local/lib/python3.9/dist-packages (from shap&gt;=0.40.0-&gt;darts) (2.2.1)
+Requirement already satisfied: plotly-resampler in /usr/local/lib/python3.9/dist-packages (from statsforecast&gt;=1.0.0-&gt;darts) (0.8.3.2)
+Requirement already satisfied: fugue&gt;=0.8.1 in /usr/local/lib/python3.9/dist-packages (from statsforecast&gt;=1.0.0-&gt;darts) (0.8.1)
+Requirement already satisfied: patsy&gt;=0.5.2 in /usr/local/lib/python3.9/dist-packages (from statsmodels&gt;=0.13.0-&gt;darts) (0.5.3)
+Requirement already satisfied: aiohttp!=4.0.0a0,!=4.0.0a1 in /usr/local/lib/python3.9/dist-packages (from fsspec[http]&gt;2021.06.0-&gt;pytorch-lightning&gt;=1.5.0-&gt;darts) (3.8.4)
+Requirement already satisfied: adagio&gt;=0.2.4 in /usr/local/lib/python3.9/dist-packages (from fugue&gt;=0.8.1-&gt;statsforecast&gt;=1.0.0-&gt;darts) (0.2.4)
+Requirement already satisfied: triad&gt;=0.8.1 in /usr/local/lib/python3.9/dist-packages (from fugue&gt;=0.8.1-&gt;statsforecast&gt;=1.0.0-&gt;darts) (0.8.4)
+Requirement already satisfied: qpd&gt;=0.4.0 in /usr/local/lib/python3.9/dist-packages (from fugue&gt;=0.8.1-&gt;statsforecast&gt;=1.0.0-&gt;darts) (0.4.0)
+Requirement already satisfied: fugue-sql-antlr&gt;=0.1.5 in /usr/local/lib/python3.9/dist-packages (from fugue&gt;=0.8.1-&gt;statsforecast&gt;=1.0.0-&gt;darts) (0.1.5)
+Requirement already satisfied: jinja2 in /usr/local/lib/python3.9/dist-packages (from fugue&gt;=0.8.1-&gt;statsforecast&gt;=1.0.0-&gt;darts) (3.1.2)
+Requirement already satisfied: sqlglot in /usr/local/lib/python3.9/dist-packages (from fugue&gt;=0.8.1-&gt;statsforecast&gt;=1.0.0-&gt;darts) (11.4.1)
+Requirement already satisfied: pyarrow&gt;=0.15.1 in /usr/local/lib/python3.9/dist-packages (from fugue&gt;=0.8.1-&gt;statsforecast&gt;=1.0.0-&gt;darts) (9.0.0)
+Requirement already satisfied: sqlalchemy in /usr/local/lib/python3.9/dist-packages (from fugue&gt;=0.8.1-&gt;statsforecast&gt;=1.0.0-&gt;darts) (1.4.46)
+Requirement already satisfied: zipp&gt;=3.1.0 in /usr/local/lib/python3.9/dist-packages (from importlib-resources&gt;=3.2.0-&gt;matplotlib&gt;=3.3.0-&gt;darts) (3.15.0)
+Requirement already satisfied: ephem&gt;=3.7.5.3 in /usr/local/lib/python3.9/dist-packages (from LunarCalendar&gt;=0.0.9-&gt;prophet&gt;=1.1.1-&gt;darts) (4.1.4)
+Requirement already satisfied: llvmlite&lt;0.40,&gt;=0.39.0dev0 in /usr/local/lib/python3.9/dist-packages (from numba&gt;=0.51-&gt;pyod&gt;=0.9.5-&gt;darts) (0.39.1)
+Requirement already satisfied: tenacity&gt;=6.2.0 in /usr/local/lib/python3.9/dist-packages (from plotly-&gt;catboost&gt;=1.0.6-&gt;darts) (8.2.2)
+Requirement already satisfied: dash&lt;3.0.0,&gt;=2.2.0 in /usr/local/lib/python3.9/dist-packages (from plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (2.9.1)
+Requirement already satisfied: orjson&lt;4.0.0,&gt;=3.8.0 in /usr/local/lib/python3.9/dist-packages (from plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (3.8.7)
+Requirement already satisfied: trace-updater&gt;=0.0.8 in /usr/local/lib/python3.9/dist-packages (from plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (0.0.9)
+Requirement already satisfied: jupyter-dash&gt;=0.4.2 in /usr/local/lib/python3.9/dist-packages (from plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (0.4.2)
+Requirement already satisfied: aiosignal&gt;=1.1.2 in /usr/local/lib/python3.9/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;fsspec[http]&gt;2021.06.0-&gt;pytorch-lightning&gt;=1.5.0-&gt;darts) (1.3.1)
+Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /usr/local/lib/python3.9/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;fsspec[http]&gt;2021.06.0-&gt;pytorch-lightning&gt;=1.5.0-&gt;darts) (6.0.4)
+Requirement already satisfied: frozenlist&gt;=1.1.1 in /usr/local/lib/python3.9/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;fsspec[http]&gt;2021.06.0-&gt;pytorch-lightning&gt;=1.5.0-&gt;darts) (1.3.3)
+Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /usr/local/lib/python3.9/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;fsspec[http]&gt;2021.06.0-&gt;pytorch-lightning&gt;=1.5.0-&gt;darts) (1.8.2)
+Requirement already satisfied: attrs&gt;=17.3.0 in /usr/local/lib/python3.9/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;fsspec[http]&gt;2021.06.0-&gt;pytorch-lightning&gt;=1.5.0-&gt;darts) (22.2.0)
+Requirement already satisfied: async-timeout&lt;5.0,&gt;=4.0.0a3 in /usr/local/lib/python3.9/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1-&gt;fsspec[http]&gt;2021.06.0-&gt;pytorch-lightning&gt;=1.5.0-&gt;darts) (4.0.2)
+Requirement already satisfied: dash-html-components==2.0.0 in /usr/local/lib/python3.9/dist-packages (from dash&lt;3.0.0,&gt;=2.2.0-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (2.0.0)
+Requirement already satisfied: dash-core-components==2.0.0 in /usr/local/lib/python3.9/dist-packages (from dash&lt;3.0.0,&gt;=2.2.0-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (2.0.0)
+Requirement already satisfied: Flask&gt;=1.0.4 in /usr/local/lib/python3.9/dist-packages (from dash&lt;3.0.0,&gt;=2.2.0-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (2.2.3)
+Requirement already satisfied: dash-table==5.0.0 in /usr/local/lib/python3.9/dist-packages (from dash&lt;3.0.0,&gt;=2.2.0-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (5.0.0)
+Requirement already satisfied: antlr4-python3-runtime&lt;4.12,&gt;=4.11.1 in /usr/local/lib/python3.9/dist-packages (from fugue-sql-antlr&gt;=0.1.5-&gt;fugue&gt;=0.8.1-&gt;statsforecast&gt;=1.0.0-&gt;darts) (4.11.1)
+Requirement already satisfied: ipykernel in /usr/local/lib/python3.9/dist-packages (from jupyter-dash&gt;=0.4.2-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (5.3.4)
+Requirement already satisfied: retrying in /usr/local/lib/python3.9/dist-packages (from jupyter-dash&gt;=0.4.2-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (1.3.4)
+Requirement already satisfied: nest-asyncio in /usr/local/lib/python3.9/dist-packages (from jupyter-dash&gt;=0.4.2-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (1.5.6)
+Requirement already satisfied: ipython in /usr/local/lib/python3.9/dist-packages (from jupyter-dash&gt;=0.4.2-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (7.9.0)
+Requirement already satisfied: ansi2html in /usr/local/lib/python3.9/dist-packages (from jupyter-dash&gt;=0.4.2-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (1.8.0)
+Requirement already satisfied: fs in /usr/local/lib/python3.9/dist-packages (from triad&gt;=0.8.1-&gt;fugue&gt;=0.8.1-&gt;statsforecast&gt;=1.0.0-&gt;darts) (2.4.16)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/local/lib/python3.9/dist-packages (from jinja2-&gt;fugue&gt;=0.8.1-&gt;statsforecast&gt;=1.0.0-&gt;darts) (2.1.2)
+Requirement already satisfied: greenlet!=0.4.17 in /usr/local/lib/python3.9/dist-packages (from sqlalchemy-&gt;fugue&gt;=0.8.1-&gt;statsforecast&gt;=1.0.0-&gt;darts) (2.0.2)
+Requirement already satisfied: click&gt;=8.0 in /usr/local/lib/python3.9/dist-packages (from Flask&gt;=1.0.4-&gt;dash&lt;3.0.0,&gt;=2.2.0-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (8.1.3)
+Requirement already satisfied: itsdangerous&gt;=2.0 in /usr/local/lib/python3.9/dist-packages (from Flask&gt;=1.0.4-&gt;dash&lt;3.0.0,&gt;=2.2.0-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (2.1.2)
+Requirement already satisfied: Werkzeug&gt;=2.2.2 in /usr/local/lib/python3.9/dist-packages (from Flask&gt;=1.0.4-&gt;dash&lt;3.0.0,&gt;=2.2.0-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (2.2.3)
+Requirement already satisfied: importlib-metadata&gt;=3.6.0 in /usr/local/lib/python3.9/dist-packages (from Flask&gt;=1.0.4-&gt;dash&lt;3.0.0,&gt;=2.2.0-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (6.0.0)
+Requirement already satisfied: appdirs~=1.4.3 in /usr/local/lib/python3.9/dist-packages (from fs-&gt;triad&gt;=0.8.1-&gt;fugue&gt;=0.8.1-&gt;statsforecast&gt;=1.0.0-&gt;darts) (1.4.4)
+Requirement already satisfied: tornado&gt;=4.2 in /usr/local/lib/python3.9/dist-packages (from ipykernel-&gt;jupyter-dash&gt;=0.4.2-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (6.2)
+Requirement already satisfied: traitlets&gt;=4.1.0 in /usr/local/lib/python3.9/dist-packages (from ipykernel-&gt;jupyter-dash&gt;=0.4.2-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (5.7.1)
+Requirement already satisfied: jupyter-client in /usr/local/lib/python3.9/dist-packages (from ipykernel-&gt;jupyter-dash&gt;=0.4.2-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (6.1.12)
+Requirement already satisfied: pickleshare in /usr/local/lib/python3.9/dist-packages (from ipython-&gt;jupyter-dash&gt;=0.4.2-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (0.7.5)
+Requirement already satisfied: pexpect in /usr/local/lib/python3.9/dist-packages (from ipython-&gt;jupyter-dash&gt;=0.4.2-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (4.8.0)
+Requirement already satisfied: jedi&gt;=0.10 in /usr/local/lib/python3.9/dist-packages (from ipython-&gt;jupyter-dash&gt;=0.4.2-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (0.18.2)
+Requirement already satisfied: pygments in /usr/local/lib/python3.9/dist-packages (from ipython-&gt;jupyter-dash&gt;=0.4.2-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (2.6.1)
+Requirement already satisfied: prompt-toolkit&lt;2.1.0,&gt;=2.0.0 in /usr/local/lib/python3.9/dist-packages (from ipython-&gt;jupyter-dash&gt;=0.4.2-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (2.0.10)
+Requirement already satisfied: backcall in /usr/local/lib/python3.9/dist-packages (from ipython-&gt;jupyter-dash&gt;=0.4.2-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (0.2.0)
+Requirement already satisfied: decorator in /usr/local/lib/python3.9/dist-packages (from ipython-&gt;jupyter-dash&gt;=0.4.2-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (4.4.2)
+Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.0 in /usr/local/lib/python3.9/dist-packages (from jedi&gt;=0.10-&gt;ipython-&gt;jupyter-dash&gt;=0.4.2-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (0.8.3)
+Requirement already satisfied: wcwidth in /usr/local/lib/python3.9/dist-packages (from prompt-toolkit&lt;2.1.0,&gt;=2.0.0-&gt;ipython-&gt;jupyter-dash&gt;=0.4.2-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (0.2.6)
+Requirement already satisfied: jupyter-core&gt;=4.6.0 in /usr/local/lib/python3.9/dist-packages (from jupyter-client-&gt;ipykernel-&gt;jupyter-dash&gt;=0.4.2-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (5.2.0)
+Requirement already satisfied: pyzmq&gt;=13 in /usr/local/lib/python3.9/dist-packages (from jupyter-client-&gt;ipykernel-&gt;jupyter-dash&gt;=0.4.2-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (23.2.1)
+Requirement already satisfied: ptyprocess&gt;=0.5 in /usr/local/lib/python3.9/dist-packages (from pexpect-&gt;ipython-&gt;jupyter-dash&gt;=0.4.2-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (0.7.0)
+Requirement already satisfied: platformdirs&gt;=2.5 in /usr/local/lib/python3.9/dist-packages (from jupyter-core&gt;=4.6.0-&gt;jupyter-client-&gt;ipykernel-&gt;jupyter-dash&gt;=0.4.2-&gt;plotly-resampler-&gt;statsforecast&gt;=1.0.0-&gt;darts) (3.1.1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">from</span> <span class="nn">darts.models</span> <span class="kn">import</span> <span class="n">FFT</span>
+<span class="kn">from</span> <span class="nn">darts</span> <span class="kn">import</span> <span class="n">TimeSeries</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">model_selection</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;final_daily.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df1</span><span class="o">=</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="s1">&#39;price&#39;</span><span class="p">]]</span>
+<span class="n">df2</span><span class="o">=</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="s1">&#39;demand&#39;</span><span class="p">]]</span>
+<span class="n">df3</span><span class="o">=</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span><span class="s1">&#39;avg_temp&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">price_train</span><span class="o">=</span><span class="n">df1</span><span class="p">[</span><span class="n">df1</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">price_test</span><span class="o">=</span><span class="n">df1</span><span class="p">[</span><span class="n">df1</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">demand_train</span><span class="o">=</span><span class="n">df2</span><span class="p">[</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">demand_test</span><span class="o">=</span><span class="n">df2</span><span class="p">[</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">weather_train</span><span class="o">=</span><span class="n">df3</span><span class="p">[</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">&lt;</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">weather_test</span><span class="o">=</span><span class="n">df3</span><span class="p">[</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">price_train2</span> <span class="o">=</span> <span class="n">price_train</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;date&#39;</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">FFT</span><span class="p">(</span><span class="n">nr_freqs_to_keep</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">TimeSeries</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">demand_train</span><span class="p">,</span> <span class="n">time_col</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">))</span>
+<span class="c1"># model.fit(TimeSeries.from_dataframe(price_train, time_col=&#39;date&#39;))</span>
+<span class="n">forecast</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="mi">365</span><span class="p">)</span>
+<span class="n">fc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">fc</span><span class="p">,</span> <span class="n">forecast</span><span class="o">.</span><span class="n">pd_dataframe</span><span class="p">()])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">demand_test</span><span class="p">[</span><span class="s1">&#39;demand&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Truth&#39;</span><span class="p">)</span>
+<span class="c1"># plt.plot(price_test[&#39;price&#39;].reset_index(drop=True), label=&#39;Truth&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fc</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Prediction&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fadabbfde50&gt;
+</pre></div>
+</div>
+<img alt="../_images/83a47b4f3d90248de3ef3acb0ca0b44014d1146ced66fd9a1b7f06401cbf7323.png" src="../_images/83a47b4f3d90248de3ef3acb0ca0b44014d1146ced66fd9a1b7f06401cbf7323.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">fc</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">demand_test</span><span class="p">[</span><span class="s1">&#39;demand&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="c1"># np.square(fc.values.reshape(-1, 1) - price_test[&#39;price&#39;].values.reshape(-1, 1)).mean()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1240550013.4738941
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fc</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">demand_test</span><span class="p">[</span><span class="s1">&#39;demand&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="c1"># np.abs(fc.values.reshape(-1, 1) - price_test[&#39;price&#39;].values.reshape(-1, 1)).mean()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>29343.307854771603
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mape</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+  <span class="n">error</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="n">error</span><span class="p">[</span><span class="n">error</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+
+<span class="n">mape</span><span class="p">(</span><span class="n">fc</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">demand_test</span><span class="p">[</span><span class="s1">&#39;demand&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="c1"># mape(fc.values.reshape(-1, 1), price_test[&#39;price&#39;].values.reshape(-1, 1))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.08211821144976252
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Models"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Nghia Le, Lance Zheng
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
