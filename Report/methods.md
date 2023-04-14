@@ -176,7 +176,7 @@ $$y_t = \mu_t + \mathbf{\Lambda_t} \mathbf{f_t} + e_t$$
 
 $$\phi(B) \mathbf{f_t} = \eta_t$$
 
-where $\mathbf{f_t}$ is the static factor vector, $e_t$ is the idiosyncratic disturbances, $\eta_t$ is the white noise, and $\mathbf{\Lambda_t}$ is the factor loading matrix. Each factor in the dynamic factor model (i.e each $f_{jt}$, where $j = 1, ..., q$) is modelled as an autoregressive (AR) stationary process. The parameters of the model, including the factor loading matrix, the covariance matrix of $\mathbf{f_t}$, and the variance of $e_t$ are estimated using maximum likelihood estimation.
+where $\mathbf{f_t}$ is the static factor vector, $e_t$ is the idiosyncratic disturbances, $\eta_t$ is the white noise, and $\mathbf{\Lambda_t}$ is the factor loading matrix. Each factor in the dynamic factor model (i.e each $f_{jt}$, where $j = 1, ..., q$) is modelled as an autoregressive (AR) stationary process. The parameters of the model, including the factor loading matrix $\Lambda_t$, the covariance matrix of $\mathbf{f_t}$, and the variance of $e_t$ are estimated using maximum likelihood estimation.
 
 ### [XGBoost](../Models/xgboost.ipynb)
 
