@@ -507,11 +507,12 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<p>Next, we examine the cross-correlations between the variables. We find that there is a strong positive cross-correlation between price and demand, with a peak at lag 0 of almost 0.9, indicating that higher demand tends to drive up the price of electricity concurrently. The cross-correlations between price and temperature also show a strong positive relationship, peaking at lag 0 with a value of 0.9. In other lags, both price-demand and price-temperature cross-correlations remain high, at around 0.85.</p>
-<p>As for the relationship between demand and temperature, the cross-correlation is also high but occurs at different lags, with values around 0.95. This suggests that the effect of temperature on demand is relatively strong, but the relationship is not as immediate as it is for price and demand or price and temperature.</p>
+<p>Next, we examine the cross-correlations between the variables. We find that there is a moderate positive cross-correlation between price and demand, with a peak at lag 0 of 0.5, indicating that higher demand tends to drive up the price of electricity concurrently. The cross-correlations between price and demand exhibit strong seasonality, suggesting a recurring pattern in their relationship.</p>
+<p>The cross-correlations between price and temperature show a negative relationship, with the maximum value of -0.2 occurring at lag 250. This relationship also demonstrates strong annual seasonality, indicating that the influence of temperature on price follows a consistent pattern throughout the year.</p>
+<p>As for the relationship between demand and temperature, the cross-correlation peaks at lag 200 with a value of 0.15, suggesting a relatively weak but noticeable relationship between the two variables. The cross-correlation between demand and temperature also exhibits strong annual seasonality, with an opposite direction compared to the cross-correlation between price and demand. This implies that the influence of temperature on demand follows a distinct seasonal pattern, contrasting with the relationship between price and demand.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="_images/5b1ce1b352711dd6e5ef70a1d1e4f93d9fca9ebfc68368dbd15dd428e146a737.png" src="_images/5b1ce1b352711dd6e5ef70a1d1e4f93d9fca9ebfc68368dbd15dd428e146a737.png" />
+<img alt="_images/b0de57fed0267f65e5fa3881e48e9ed4c3468b92a7079a4f6f4092915100173f.png" src="_images/b0de57fed0267f65e5fa3881e48e9ed4c3468b92a7079a4f6f4092915100173f.png" />
 </div>
 </div>
 <p>Histograms of price, demand, and temperature reveal interesting distribution patterns. The shapes of demand and temperature are similar to a normal distribution, while the price distribution is heavily skewed to the right, with a large number of observations having prices less than 20 dollars/MWh and gradually decreasing as the price increases. This suggests that electricity prices are generally low, with occasional spikes due to various factors.</p>
