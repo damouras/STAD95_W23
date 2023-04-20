@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Methodology &#8212; Electricity Demand Forecasting</title>
   
@@ -44,7 +44,6 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -69,7 +68,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Results" href="results.html" />
     <link rel="prev" title="EDA" href="EDApy.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -387,12 +386,12 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="methodology">
-<h1>Methodology<a class="headerlink" href="#methodology" title="Permalink to this heading">#</a></h1>
+<h1>Methodology<a class="headerlink" href="#methodology" title="Permalink to this headline">#</a></h1>
 <p>In this section, we will give some details about the model that we implemented. Click the header to see the Jupyter Notebook file that contains the model.</p>
 <section id="overview-of-the-model">
-<h2>Overview of the model<a class="headerlink" href="#overview-of-the-model" title="Permalink to this heading">#</a></h2>
+<h2>Overview of the model<a class="headerlink" href="#overview-of-the-model" title="Permalink to this headline">#</a></h2>
 <section id="sarima">
-<h3><a class="reference internal" href="Models/SARIMA.html"><span class="doc std std-doc">SARIMA</span></a><a class="headerlink" href="#sarima" title="Permalink to this heading">#</a></h3>
+<h3><a class="reference internal" href="Models/SARIMA.html"><span class="doc std std-doc">SARIMA</span></a><a class="headerlink" href="#sarima" title="Permalink to this headline">#</a></h3>
 <p>The implementation of SARIMA in <code>Python</code> is supported by the <code>pmdarima</code> as well as the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>forecast</code> package. We perform model selection using the AIC (Akaike Information Criterion); in particular, we take the model with the lowest AIC value.</p>
 <p>SARIMA is the abbreviation for Seasonal Autoregressive Integrated Moving Average model. To introduce the SARIMA model, we will give some overview about the canonical autoregressive (AR) model and moving average (MA) model.</p>
 <p>An autoregressive of order <span class="math notranslate nohighlight">\(p\)</span>, denoted AR(<span class="math notranslate nohighlight">\(p\)</span>), can be written as:</p>
@@ -405,9 +404,9 @@ document.write(`
 <p>We refer to this model as an MA(<span class="math notranslate nohighlight">\(q\)</span>) model, a moving average model of order <span class="math notranslate nohighlight">\(q\)</span>.</p>
 </section>
 <section id="vector-autoregressive-var">
-<h3>Vector autoregressive (VAR)<a class="headerlink" href="#vector-autoregressive-var" title="Permalink to this heading">#</a></h3>
+<h3>Vector autoregressive (VAR)<a class="headerlink" href="#vector-autoregressive-var" title="Permalink to this headline">#</a></h3>
 <p>The implement of VAR in <code>Python</code> is supported by the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>vars</code> package.</p>
-<p>The general model specification for vector autogressive model of order <span class="math notranslate nohighlight">\(p\)</span>, or VAR(<span class="math notranslate nohighlight">\(p\)</span>):</p>
+<p>The general model specification for a vector autogressive model of order <span class="math notranslate nohighlight">\(p\)</span>, or VAR(<span class="math notranslate nohighlight">\(p\)</span>), is:</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{y}_t = \mathbf{\Phi}_1 \mathbf{y}_{t - 1} + ... + \mathbf{\Phi}_p \mathbf{y}_{t - p} + \mathcal{E}_t\]</div>
 <p>where:</p>
@@ -468,7 +467,7 @@ y_{k, t}
 \end{split}\]</div>
 </section>
 <section id="regression-with-arima-errors">
-<h3><a class="reference internal" href="Models/SARIMA_2xreg.html"><span class="doc std std-doc">Regression with ARIMA errors</span></a><a class="headerlink" href="#regression-with-arima-errors" title="Permalink to this heading">#</a></h3>
+<h3><a class="reference internal" href="Models/SARIMA_2xreg.html"><span class="doc std std-doc">Regression with ARIMA errors</span></a><a class="headerlink" href="#regression-with-arima-errors" title="Permalink to this headline">#</a></h3>
 <p>The implement of regression with ARIMA errors in <code>R</code> is supported by the <code>forecast</code> package.</p>
 <p>Often, when we use linear regression (with respect to time), we consider regression models of the form:</p>
 <div class="math notranslate nohighlight">
@@ -483,8 +482,9 @@ y_{k, t}
 <p>Here, <span class="math notranslate nohighlight">\(B\)</span> denotes the backshift operator, and <span class="math notranslate nohighlight">\(\epsilon_t\)</span> is a white noise series.</p>
 </section>
 <section id="exponential-smoothing">
-<h3><a class="reference internal" href="Models/ets.html"><span class="doc std std-doc">Exponential smoothing</span></a><a class="headerlink" href="#exponential-smoothing" title="Permalink to this heading">#</a></h3>
-<p>The implementation of exponential smoothing in <code>Python</code> is supported by the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>forecast</code> package using the <code>ets</code> function.</p>
+<h3><a class="reference internal" href="Models/ets.html"><span class="doc std std-doc">Exponential smoothing</span></a><a class="headerlink" href="#exponential-smoothing" title="Permalink to this headline">#</a></h3>
+<p>The implementation of exponential smoothing in <code>Python</code> is supported by the <code>statsmodels</code> package.</p>
+<!-- In <code>R</code>, the model is implemented using the <code>forecast</code> package using the <code>ets</code> function. -->
 <p>The prediction of the exponential smoothing model can be expressed as:</p>
 <div class="math notranslate nohighlight">
 \[\hat{y}_{t+1|t} = \alpha y_t + \alpha (1 - \alpha) y_{t-1} + \alpha (1 - \alpha)^2 y_{t-2} + ... \]</div>
@@ -493,8 +493,8 @@ y_{k, t}
 \[\hat{y}_{t+1|t} = \alpha y_t + (1 - \alpha) \hat{y}_{t|t-1}\]</div>
 </section>
 <section id="kalman-filter-simple-version">
-<h3><a class="reference internal" href="Models/kalman_filter.html"><span class="doc std std-doc">Kalman filter</span></a> (<a class="reference internal" href="Models/kalman_filter_simple.html"><span class="doc std std-doc">Simple version</span></a>)<a class="headerlink" href="#kalman-filter-simple-version" title="Permalink to this heading">#</a></h3>
-<p>We implement two versions of the Kalman filter in <code>Python</code>. The simple version is an implementation from scratch using <code>Numpy</code>, and the advanced version using the class <code>KalmanForecaster</code> from the <code>darts</code> package (which uses N4SID algorithm, which is also supported by <a class="reference external" href="https://www.mathworks.com/help/ident/ref/n4sid.html">Matlab</a>).</p>
+<h3><a class="reference internal" href="Models/kalman_filter.html"><span class="doc std std-doc">Kalman filter</span></a> (<a class="reference internal" href="Models/kalman_filter_simple.html"><span class="doc std std-doc">Simple version</span></a>)<a class="headerlink" href="#kalman-filter-simple-version" title="Permalink to this headline">#</a></h3>
+<p>We implement two versions of the Kalman filter in <code>Python</code>. The simple version is an implementation from scratch using <code>Numpy</code>, and the advanced version is implemented using the class <code>KalmanForecaster</code> from the <code>darts</code> package (which uses N4SID algorithm, which is also supported by <a class="reference external" href="https://www.mathworks.com/help/ident/ref/n4sid.html">Matlab</a>).</p>
 <p>Let’s define <span class="math notranslate nohighlight">\(\mathbf{x}_1, \mathbf{x}_2, ..., \mathbf{x}_T\)</span> to be the states and <span class="math notranslate nohighlight">\(\mathbf{y}_1, \mathbf{y}_2, ..., \mathbf{y}_T\)</span> to be the measurements. Generally, state space models have the following form:</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{x}_k \sim p(\mathbf{x_k} | \mathbf{x}_{k-1})\]</div>
@@ -536,8 +536,8 @@ y_{k, t}
 \[\mathbf{P}_k = \mathbf{P}^{-}_k - \mathbf{K}_k \mathbf{S}_k \mathbf{K}_k^{\top}\]</div>
 </section>
 <section id="dynamic-factor">
-<h3><a class="reference internal" href="Models/dynamic_factor.html"><span class="doc std std-doc">Dynamic factor</span></a><a class="headerlink" href="#dynamic-factor" title="Permalink to this heading">#</a></h3>
-<p>The implement of the dynamic factor model in <code>Python</code> is supported by the <code>statsmodels</code> package.</p>
+<h3><a class="reference internal" href="Models/dynamic_factor.html"><span class="doc std std-doc">Dynamic factor</span></a><a class="headerlink" href="#dynamic-factor" title="Permalink to this headline">#</a></h3>
+<p>The implementation of the dynamic factor model in <code>Python</code> is supported by the <code>statsmodels</code> package.</p>
 <p>The dynamic factor can be written as:</p>
 <div class="math notranslate nohighlight">
 \[y_t = \mu_t + \mathbf{\Lambda_t} \mathbf{f_t} + e_t\]</div>
@@ -546,15 +546,15 @@ y_{k, t}
 <p>where <span class="math notranslate nohighlight">\(\mathbf{f_t}\)</span> is the static factor vector, <span class="math notranslate nohighlight">\(e_t\)</span> is the idiosyncratic disturbances, <span class="math notranslate nohighlight">\(\eta_t\)</span> is the white noise, and <span class="math notranslate nohighlight">\(\mathbf{\Lambda_t}\)</span> is the factor loading matrix. Each factor in the dynamic factor model (i.e each <span class="math notranslate nohighlight">\(f_{jt}\)</span>, where <span class="math notranslate nohighlight">\(j = 1, ..., q\)</span>) is modelled as an autoregressive (AR) stationary process. The parameters of the model, including the factor loading matrix <span class="math notranslate nohighlight">\(\Lambda_t\)</span>, the covariance matrix of <span class="math notranslate nohighlight">\(\mathbf{f_t}\)</span>, and the variance of <span class="math notranslate nohighlight">\(e_t\)</span> are estimated using maximum likelihood estimation.</p>
 </section>
 <section id="xgboost">
-<h3><a class="reference internal" href="Models/xgboost.html"><span class="doc std std-doc">XGBoost</span></a><a class="headerlink" href="#xgboost" title="Permalink to this heading">#</a></h3>
-<p>The implement of the XGBoost model for time series regression in <code>Python</code> is supported by the <code>xgboost</code> package, together with the <code>RegressorChain</code> module from the <code>scikit-learn</code> package.</p>
+<h3><a class="reference internal" href="Models/xgboost.html"><span class="doc std std-doc">XGBoost</span></a><a class="headerlink" href="#xgboost" title="Permalink to this headline">#</a></h3>
+<p>The implementation of the XGBoost model for time series regression in <code>Python</code> is supported by the <code>xgboost</code> package, together with the <code>RegressorChain</code> module from the <code>scikit-learn</code> package.</p>
 <p>XGBoost is a supervised learning algorithm that can be used for both regression and classification. It attempts to predict the target variable by combining the estimates of a set of simpler and weaker models.</p>
 <p>When using gradient boosting for regression, the weak learners are regression trees, and each regression tree maps an input data point to one of its leafs that contains a continuous score. XGBoost minimizes an objective function that combines a convex loss function (based on the difference between the predicted and target outputs) and a penalty term for model complexity (in other words, the regression tree functions). The training proceeds iteratively, adding new trees that predict the residuals or errors of prior trees. These trees are then combined with previous trees to make the final prediction. It’s called gradient boosting because it uses a gradient descent algorithm to minimize the loss when adding new models.</p>
 <p><img alt="url-to-image" src="https://docs.aws.amazon.com/images/sagemaker/latest/dg/images/xgboost_illustration.png" /></p>
 </section>
 <section id="gaussian-process">
-<h3><a class="reference internal" href="Models/gaussian_process.html"><span class="doc std std-doc">Gaussian process</span></a><a class="headerlink" href="#gaussian-process" title="Permalink to this heading">#</a></h3>
-<p>The implement of the Gaussian process regression model for time series in <code>Python</code> is supported by the <code>scikit-learn</code> package, together with the <code>RegressorChain</code> module also from <code>scikit-learn</code>. For the choice of kernel, we use <code>DotProduct() + WhiteKernel()</code>.</p>
+<h3><a class="reference internal" href="Models/gaussian_process.html"><span class="doc std std-doc">Gaussian process</span></a><a class="headerlink" href="#gaussian-process" title="Permalink to this headline">#</a></h3>
+<p>The implementation of the Gaussian process regression model for time series in <code>Python</code> is supported by the <code>scikit-learn</code> package, together with the <code>RegressorChain</code> module also from <code>scikit-learn</code>. For the choice of kernel, we use <code>DotProduct() + WhiteKernel()</code>.</p>
 <p>A Gaussian process is a probability distribution over functions <span class="math notranslate nohighlight">\(\hat{y}(\mathbf{x})\)</span> such that for any set of values of <span class="math notranslate nohighlight">\(\hat{y}(\mathbf{x})\)</span> evaluated at an arbitrary set of points <span class="math notranslate nohighlight">\(\mathbf{x}^{(1)}, \mathbf{x}^{(2)}, ...\)</span> is jointly Gaussian. Recall that a linear model can be written in a form:</p>
 <div class="math notranslate nohighlight">
 \[y | \mathbf{x} \sim N(\hat{y}(\mathbf{x}), \sigma^2)\]</div>
@@ -587,7 +587,7 @@ y_{k, t}
 <p>Note that the vector <span class="math notranslate nohighlight">\(\mathbf{k}\)</span> is a vector with entries <span class="math notranslate nohighlight">\(k_i = \frac{1}{\alpha} k(\mathbf{x}^{(i)}, \mathbf{x}^{(N + 1)})\)</span>. Hence, <span class="math notranslate nohighlight">\(\mathbf{k}\)</span> is a function of the new test input <span class="math notranslate nohighlight">\(\mathbf{x}^{(N + 1)}\)</span>.</p>
 </section>
 <section id="fast-fourier-transform">
-<h3><a class="reference internal" href="Models/fft.html"><span class="doc std std-doc">Fast Fourier transform</span></a><a class="headerlink" href="#fast-fourier-transform" title="Permalink to this heading">#</a></h3>
+<h3><a class="reference internal" href="Models/fft.html"><span class="doc std std-doc">Fast Fourier transform</span></a><a class="headerlink" href="#fast-fourier-transform" title="Permalink to this headline">#</a></h3>
 <p>The implement of FFT for time series prediction in <code>Python</code> is from the <code>darts</code> package.</p>
 <p>Let <span class="math notranslate nohighlight">\(x_1, x_2, ..., x_N\)</span> be a sequence of length <span class="math notranslate nohighlight">\(N\)</span>. We define the discrete Fourier transform (DFT) <span class="math notranslate nohighlight">\(y_k\)</span> of length <span class="math notranslate nohighlight">\(N\)</span> as:</p>
 <div class="math notranslate nohighlight">
@@ -599,7 +599,7 @@ y_{k, t}
 <p>Note that FFT is a faster version of DFT using divide-and-conquer algorithm, developed by Cooley and Tukey (1965) (<a class="reference external" href="https://www.ams.org/journals/mcom/1965-19-090/S0025-5718-1965-0178586-1/S0025-5718-1965-0178586-1.pdf">source</a>). With the assumption that the time series is periodic, we can use the FFT to extrapolate the time series, which is equivalent to making prediction. The module <code>FFT</code> in the <code>darts</code> package allows us to choose how many frequencies to keep in order to forecast the time series.</p>
 </section>
 <section id="singular-spectrum-analysis">
-<h3><a class="reference internal" href="Models/SSA.html"><span class="doc std std-doc">Singular spectrum analysis</span></a><a class="headerlink" href="#singular-spectrum-analysis" title="Permalink to this heading">#</a></h3>
+<h3><a class="reference internal" href="Models/SSA.html"><span class="doc std std-doc">Singular spectrum analysis</span></a><a class="headerlink" href="#singular-spectrum-analysis" title="Permalink to this headline">#</a></h3>
 <p>The model is implemented using the <code>ssa</code> package in <code>R</code>.</p>
 <p>We consider a time series <span class="math notranslate nohighlight">\(\mathbf{y_T} = (y_1, ..., y_T)\)</span>. Fix <span class="math notranslate nohighlight">\(L\)</span> such that <span class="math notranslate nohighlight">\(L &lt; \frac{T}{2}\)</span>, the window length, and let <span class="math notranslate nohighlight">\(K = T - L + 1\)</span>.</p>
 <p>First, we need to compute the trajectory matrix <span class="math notranslate nohighlight">\(\mathbf{X} = [X_1, ..., X_K]\)</span> as follow:</p>
@@ -615,10 +615,10 @@ y_{L} &amp; y_{L + 1} &amp; y_{L + 2} &amp; y_{L + 3} &amp; \ldots &amp; y_{T} \
 \end{split}\]</div>
 <p>Note that the trajectory matrix <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is a Hankel matrix, which means that all the elements along the diagonal <span class="math notranslate nohighlight">\(i + j = const\)</span> are equal.</p>
 <p>Then, we apply SVD (Singular Value Decomposition) for the matrix <span class="math notranslate nohighlight">\(\mathbf{X}\mathbf{X}^{\top}\)</span>. To calculate the SVD, we need to calculate the eigenvalues and eigenvectors of the matrix <span class="math notranslate nohighlight">\(\mathbf{X}\mathbf{X}^{\top}\)</span> and represent it in the form <span class="math notranslate nohighlight">\(\mathbf{X}\mathbf{X}^{\top} = \mathbf{P}\mathbf{\Lambda}\mathbf{P}^{\top}\)</span>. Here, <span class="math notranslate nohighlight">\(\mathbf{\Lambda} = diag(\lambda_1, ..., \lambda_L)\)</span> is the diagonal matrix of <span class="math notranslate nohighlight">\(\mathbf{X}\mathbf{X}^{\top}\)</span> ordered such that <span class="math notranslate nohighlight">\(\lambda_1 \geq \lambda_2 \geq...\geq \lambda_L \geq 0\)</span> and <span class="math notranslate nohighlight">\(\mathbf{P} = (P_1, ..., P_L)\)</span> is the corresponding orthogonal matrix of eigenvectors of <span class="math notranslate nohighlight">\(\mathbf{X}\mathbf{X}^{\top}\)</span>.</p>
-<p>Next, we will reconstruct the time series from the SVD that we obtain above. We would divide the set of indices <span class="math notranslate nohighlight">\(\{1, ..., L\}\)</span> into m disjoint partitions <span class="math notranslate nohighlight">\(I_1, ..., I_m\)</span>. Let <span class="math notranslate nohighlight">\(I = \{i_1, ..., i_p\}\)</span>. Then the matrix <span class="math notranslate nohighlight">\(\mathbf{X_I}\)</span> corresponding to group <span class="math notranslate nohighlight">\(I\)</span> is defined as <span class="math notranslate nohighlight">\(\mathbf{X_I} = \mathbf{X_{i_1}} + ... + \mathbf{X_{i_p}}\)</span>. Computing this quantity for each group <span class="math notranslate nohighlight">\(I_1, ..., I_m\)</span> as constructed above, we have:</p>
+<p>Next, we will reconstruct the time series from the SVD that we obtain above. We would divide the set of indices <span class="math notranslate nohighlight">\(\{1, ..., L\}\)</span> into m disjoint partitions <span class="math notranslate nohighlight">\(I_1, ..., I_m\)</span>. Let <span class="math notranslate nohighlight">\(I = \{i_1, ..., i_p\}\)</span>. Then the matrix <span class="math notranslate nohighlight">\(\mathbf{X_I}\)</span> corresponding to group <span class="math notranslate nohighlight">\(I\)</span> is defined as <span class="math notranslate nohighlight">\(\mathbf{X}_I = \mathbf{X}_{i_1} + ... + \mathbf{X}_{i_p}\)</span>. Computing this quantity for each group <span class="math notranslate nohighlight">\(I_1, ..., I_m\)</span> as constructed above, we have:</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{X} = \mathbf{X}_{I_1} + ... + \mathbf{X}_{I_m}\]</div>
-<p>Next, we need to perform diagonal averaging, or Hankelization, in order to transfer each matrix <span class="math notranslate nohighlight">\(\mathbf{X_I}\)</span> into a time series, which is an additive component of the initial time series <span class="math notranslate nohighlight">\(\mathbf{y_T}\)</span>. Suppose we have a matrix <span class="math notranslate nohighlight">\(\mathbf{Z}\)</span>, and we denote each entries of <span class="math notranslate nohighlight">\(z_{ij}\)</span>. Then, the <span class="math notranslate nohighlight">\(k\)</span>-th element of the time series will be obtained by averaging <span class="math notranslate nohighlight">\(z_{ij}\)</span> over all <span class="math notranslate nohighlight">\(i, j\)</span> such that <span class="math notranslate nohighlight">\(i + j = k + 2\)</span>. This procedure will produce a Hankel matrix <span class="math notranslate nohighlight">\(\mathcal{H}\mathbf{Z}\)</span>. For example, see <a class="reference external" href="https://www.mathworks.com/matlabcentral/cody/problems/3094-hankelize-a-matrix">link</a>.</p>
+<p>Next, we need to perform diagonal averaging, or Hankelization, in order to transfer each matrix <span class="math notranslate nohighlight">\(\mathbf{X}_I\)</span> into a time series, which is an additive component of the initial time series <span class="math notranslate nohighlight">\(\mathbf{y_T}\)</span>. Suppose we have a matrix <span class="math notranslate nohighlight">\(\mathbf{Z}\)</span>, and we denote each entries of <span class="math notranslate nohighlight">\(z_{ij}\)</span>. Then, the <span class="math notranslate nohighlight">\(k\)</span>-th element of the time series will be obtained by averaging <span class="math notranslate nohighlight">\(z_{ij}\)</span> over all <span class="math notranslate nohighlight">\(i, j\)</span> such that <span class="math notranslate nohighlight">\(i + j = k + 2\)</span>. This procedure will produce a Hankel matrix <span class="math notranslate nohighlight">\(\mathcal{H}\mathbf{Z}\)</span>. For example, see <a class="reference external" href="https://www.mathworks.com/matlabcentral/cody/problems/3094-hankelize-a-matrix">link</a>.</p>
 <p>By applying Hankelization to all matrices <span class="math notranslate nohighlight">\(\mathbf{X_{I_1}}, ..., \mathbf{X_{I_m}}\)</span>, we obtain another expansion:</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{X} = \tilde{\mathbf{X}}_{I_1} + ... + \tilde{\mathbf{X}}_{I_m}\]</div>
@@ -638,7 +638,7 @@ y_{L} &amp; y_{L + 1} &amp; y_{L + 2} &amp; y_{L + 3} &amp; \ldots &amp; y_{T} \
 <p>Hence, we can make prediction by using this recurrent relation.</p>
 </section>
 <section id="long-short-term-memory-lstm">
-<h3><a class="reference internal" href="Models/lstm.html"><span class="doc std std-doc">Long short-term memory (LSTM)</span></a><a class="headerlink" href="#long-short-term-memory-lstm" title="Permalink to this heading">#</a></h3>
+<h3><a class="reference internal" href="Models/lstm.html"><span class="doc std std-doc">Long short-term memory (LSTM)</span></a><a class="headerlink" href="#long-short-term-memory-lstm" title="Permalink to this headline">#</a></h3>
 <p>The model is implemented using the <code>PyTorch</code> library in <code>Python</code>.</p>
 <p>Long short-term memory (LSTM) is a type of neural network that is explicitly designed to avoid the long-term dependency problem. LSTM uses three gates (input, forget and output gates) to control the flow of information. Each gate is implemented as a sigmoid layer that receives the input and the previous hidden state, and produces a value between 0 and 1. The update equations are as follows:</p>
 <div class="math notranslate nohighlight">
@@ -654,22 +654,21 @@ y_{L} &amp; y_{L + 1} &amp; y_{L + 2} &amp; y_{L + 3} &amp; \ldots &amp; y_{T} \
 <p>where <span class="math notranslate nohighlight">\(i_t\)</span> is the input gate, <span class="math notranslate nohighlight">\(o_t\)</span> is the output gate, <span class="math notranslate nohighlight">\(f_t\)</span> is the forget gate, <span class="math notranslate nohighlight">\(c_t\)</span> is the memory cell, and <span class="math notranslate nohighlight">\(h_t\)</span> is the hidden state. We denote <span class="math notranslate nohighlight">\(\sigma\)</span> as the sigmoid function, which is defined as <span class="math notranslate nohighlight">\(\sigma(x) = \frac{1}{1 + e^{-x}}\)</span>.</p>
 </section>
 <section id="transformer">
-<h3><a class="reference internal" href="Models/transformer.html"><span class="doc std std-doc">Transformer</span></a><a class="headerlink" href="#transformer" title="Permalink to this heading">#</a></h3>
-<p>The model is implemented using the <code>PyTorch</code> library in <code>Python</code>.</p>
-<p>Transformer is a type of neural network architecture that is used for sequential data, such as NLP tasks or time series data. The model is known for its ability to efficiently handle long-term dependencies and parallelizable computation. The underlying core of Transformer model is the <strong>self-attention mechanism</strong>, which allows the model to weigh the importance of different parts of the input when making predictions. Furthermore, the model has an encoder-decoder architecture, where the encoder is responsible for processing the input sequence and the decoder is mainly responsible for producing the output sequence.</p>
+<h3><a class="reference internal" href="Models/transformer.html"><span class="doc std std-doc">Transformer</span></a><a class="headerlink" href="#transformer" title="Permalink to this headline">#</a></h3>
+<p>The model is implemented using the <code>PyTorch</code> library in <code>Python</code>. A transformer is a type of neural network architecture that is used for sequential data, such as NLP tasks or time series data. The model is known for its ability to efficiently handle long-term dependencies and parallelizable computation. The underlying core of Transformer model is the <strong>self-attention mechanism</strong>, which allows the model to weigh the importance of different parts of the input when making predictions. Furthermore, the model has an encoder-decoder architecture, where the encoder is responsible for processing the input sequence and the decoder is mainly responsible for producing the output sequence.</p>
 <p>The attention mechanism can be mathematically represented as: <span class="math notranslate nohighlight">\(Attention(Q, K, V) = softmax(\frac{QK^{\top}}{\sqrt{}d_k})V\)</span></p>
 <p>where <span class="math notranslate nohighlight">\(Q\)</span>, <span class="math notranslate nohighlight">\(K\)</span>, and <span class="math notranslate nohighlight">\(V\)</span> are matrices representing the query, key, and value respectively. <span class="math notranslate nohighlight">\(d_k\)</span> is the dimension of the key.</p>
 <p>The attention mechanism is applied multiple times in the Transformer model, in a multi-head attention mechanism, where multiple sets of queries, keys, and values are used. The output of the multi-head attention is then concatenated and passed through a linear layer.</p>
 </section>
 <section id="structured-state-space-model-s4">
-<h3><a class="reference internal" href="Models/S4.html"><span class="doc std std-doc">Structured state space model (S4)</span></a><a class="headerlink" href="#structured-state-space-model-s4" title="Permalink to this heading">#</a></h3>
+<h3><a class="reference internal" href="Models/S4.html"><span class="doc std std-doc">Structured state space model (S4)</span></a><a class="headerlink" href="#structured-state-space-model-s4" title="Permalink to this headline">#</a></h3>
 <p>The model is implemented using the <code>PyTorch</code> library in <code>Python</code>.</p>
 <p>In control theory, the general state space model (or representation) has the following form:</p>
 <div class="math notranslate nohighlight">
 \[x'(t) = \mathbf{A}x(t) + \mathbf{B}u(t)\]</div>
 <div class="math notranslate nohighlight">
 \[y(t) = \mathbf{C}x(t) + \mathbf{D}u(t)\]</div>
-<p>where <span class="math notranslate nohighlight">\(u(t)\)</span> is the input, <span class="math notranslate nohighlight">\(x(t)\)</span> is the latent variable, and <span class="math notranslate nohighlight">\(y(t)\)</span> is the output that we want to find. Here, <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{B}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{C}\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> are learnable parameters that would be computed using gradient descent. In the <a class="reference external" href="https://arxiv.org/pdf/2111.00396.pdf">paper</a>, the author omits <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> since it is easy to be implemented (using a skip connection).</p>
+<p>where <span class="math notranslate nohighlight">\(u(t)\)</span> is the input, <span class="math notranslate nohighlight">\(x(t)\)</span> is the latent variable, and <span class="math notranslate nohighlight">\(y(t)\)</span> is the output that we want to find. Here, <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{B}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{C}\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> are learnable parameters that would be computed using gradient descent. In <a class="reference external" href="https://arxiv.org/pdf/2111.00396.pdf">Gu, Goel, and Re (2022))</a>, the author omits <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> since it is easy to be implemented (using a skip connection).</p>
 <p>For implementation of state space model, we need to discretize the input function <span class="math notranslate nohighlight">\(u(t)\)</span> into <span class="math notranslate nohighlight">\(u_1, u_2, ...\)</span> instead. Let <span class="math notranslate nohighlight">\(\Delta\)</span> denote the step size where <span class="math notranslate nohighlight">\(u_k = u(k \Delta)\)</span>. Define another variables <span class="math notranslate nohighlight">\(\overline{\mathbf{A}}, \overline{\mathbf{B}}\)</span>, and <span class="math notranslate nohighlight">\(\overline{\mathbf{C}}\)</span> as follow:</p>
 <div class="math notranslate nohighlight">
 \[\overline{\mathbf{A}} = (\mathbf{I} - \Delta/2 \cdot \mathbf{A})^{-1} (\mathbf{I} + \Delta / 2 \cdot \mathbf{A})\]</div>

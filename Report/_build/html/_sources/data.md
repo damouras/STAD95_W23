@@ -9,7 +9,7 @@ reliable sources, processed, and cleaned, while considering several data limitat
    - Weather data: Environment and Climate Change Canada website (https://climate.weather.gc.ca)
 
 2. Time period:
-   - Data was collected for the years 2020 to 2022.
+   - Data was collected from January 1, 2020 to December 31, to 2022 .
     
 3. Variables:
    - Hourly electricity price: The cost of electricity in Ontario for each hour.
@@ -20,7 +20,7 @@ reliable sources, processed, and cleaned, while considering several data limitat
     
 4. Data processing:
    - Hourly electricity price and demand data were collected from the IESO website.
-   - Daily electricity price was calculated as the average of hourly prices for each day.
+   - Daily electricity prices were calculated as the average of hourly prices for each day.
    - Daily electricity demand was calculated as the sum of hourly demands for each day.
    - Weather data was collected from the Environment and Climate Change Canada website.
    - The average temperature for each day was extracted from weather stations in the GTA whose postal code started with "M".
@@ -37,8 +37,11 @@ reliable sources, processed, and cleaned, while considering several data limitat
    - The data only includes electricity price and demand data for Ontario, and temperature data for the GTA, which may not be representative of other regions.
    - Other factors that may impact electricity price and demand, such as economic conditions or policy changes, are not included in the dataset.
 
-8. Process files:
+8. Data preparation files:
    - [Prepare price and demand](../Data/1a.data_preparing.ipynb)
    - [Prepare weather data](../Data/1b.data_prep_weather.ipynb)
    - [Data cleaning and calculating](../Data/1c.process_weather_data.ipynb)
+ 
+9. Final data file:
+   - The file with the processed data is [here](../Data/final_daily.csv)
   

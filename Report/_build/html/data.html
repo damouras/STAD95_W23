@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Data Description &#8212; Electricity Demand Forecasting</title>
   
@@ -44,7 +44,6 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -67,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="EDA" href="EDApy.html" />
     <link rel="prev" title="Introduction" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -360,7 +359,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="data-description">
-<h1>Data Description<a class="headerlink" href="#data-description" title="Permalink to this heading">#</a></h1>
+<h1>Data Description<a class="headerlink" href="#data-description" title="Permalink to this headline">#</a></h1>
 <p>We analyzed electricity price, demand, and weather data in Ontario from 2020 to 2022, using variables such as hourly and daily
 electricity prices and demand, and daily average temperature data for the Greater Toronto Area (GTA). The data was collected from
 reliable sources, processed, and cleaned, while considering several data limitations during the analysis.</p>
@@ -373,7 +372,7 @@ reliable sources, processed, and cleaned, while considering several data limitat
 </li>
 <li><p>Time period:</p>
 <ul class="simple">
-<li><p>Data was collected for the years 2020 to 2022.</p></li>
+<li><p>Data was collected from January 1, 2020 to December 31, to 2022 .</p></li>
 </ul>
 </li>
 <li><p>Variables:</p>
@@ -388,7 +387,7 @@ reliable sources, processed, and cleaned, while considering several data limitat
 <li><p>Data processing:</p>
 <ul class="simple">
 <li><p>Hourly electricity price and demand data were collected from the IESO website.</p></li>
-<li><p>Daily electricity price was calculated as the average of hourly prices for each day.</p></li>
+<li><p>Daily electricity prices were calculated as the average of hourly prices for each day.</p></li>
 <li><p>Daily electricity demand was calculated as the sum of hourly demands for each day.</p></li>
 <li><p>Weather data was collected from the Environment and Climate Change Canada website.</p></li>
 <li><p>The average temperature for each day was extracted from weather stations in the GTA whose postal code started with “M”.</p></li>
@@ -412,11 +411,16 @@ reliable sources, processed, and cleaned, while considering several data limitat
 <li><p>Other factors that may impact electricity price and demand, such as economic conditions or policy changes, are not included in the dataset.</p></li>
 </ul>
 </li>
-<li><p>Process files:</p>
+<li><p>Data preparation files:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="Data/1a.data_preparing.html"><span class="doc std std-doc">Prepare price and demand</span></a></p></li>
 <li><p><a class="reference internal" href="Data/1b.data_prep_weather.html"><span class="doc std std-doc">Prepare weather data</span></a></p></li>
 <li><p><a class="reference internal" href="Data/1c.process_weather_data.html"><span class="doc std std-doc">Data cleaning and calculating</span></a></p></li>
+</ul>
+</li>
+<li><p>Final data file:</p>
+<ul class="simple">
+<li><p>The file with the processed data is <a class="reference download internal" download="" href="_downloads/ab0d569805045e5d8e4d2fa9a661804e/final_daily.csv"><span class="xref download myst">here</span></a></p></li>
 </ul>
 </li>
 </ol>

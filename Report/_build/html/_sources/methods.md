@@ -25,7 +25,7 @@ We refer to this model as an MA($q$) model, a moving average model of order $q$.
 
 The implement of VAR in <code>Python</code> is supported by the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>vars</code> package.
 
-The general model specification for vector autogressive model of order $p$, or VAR($p$):
+The general model specification for a vector autogressive model of order $p$, or VAR($p$), is:
 
 $$\mathbf{y}_t = \mathbf{\Phi}_1 \mathbf{y}_{t - 1} + ... + \mathbf{\Phi}_p \mathbf{y}_{t - p} + \mathcal{E}_t$$
 
@@ -108,7 +108,8 @@ $$(1 - \phi_1 B)(1 - B)\eta_t = (1 + \theta_1 B)\epsilon_t$$
 Here, $B$ denotes the backshift operator, and $\epsilon_t$ is a white noise series.
 
 ### [Exponential smoothing](../Models/ets.ipynb)
-The implementation of exponential smoothing in <code>Python</code> is supported by the <code>statsmodels</code> package. In <code>R</code>, the model is implemented using the <code>forecast</code> package using the <code>ets</code> function.
+The implementation of exponential smoothing in <code>Python</code> is supported by the <code>statsmodels</code> package. 
+<!-- In <code>R</code>, the model is implemented using the <code>forecast</code> package using the <code>ets</code> function. -->
 
 The prediction of the exponential smoothing model can be expressed as:
 
@@ -120,7 +121,7 @@ $$\hat{y}_{t+1|t} = \alpha y_t + (1 - \alpha) \hat{y}_{t|t-1}$$
 
 ### [Kalman filter](../Models/kalman_filter.ipynb) ([Simple version](../Models/kalman_filter_simple.ipynb))
 
-We implement two versions of the Kalman filter in <code>Python</code>. The simple version is an implementation from scratch using <code>Numpy</code>, and the advanced version using the class <code>KalmanForecaster</code> from the <code>darts</code> package (which uses N4SID algorithm, which is also supported by [Matlab](https://www.mathworks.com/help/ident/ref/n4sid.html)).
+We implement two versions of the Kalman filter in <code>Python</code>. The simple version is an implementation from scratch using <code>Numpy</code>, and the advanced version is implemented using the class <code>KalmanForecaster</code> from the <code>darts</code> package (which uses N4SID algorithm, which is also supported by [Matlab](https://www.mathworks.com/help/ident/ref/n4sid.html)).
 
 Let's define $\mathbf{x}_1, \mathbf{x}_2, ..., \mathbf{x}_T$ to be the states and $\mathbf{y}_1, \mathbf{y}_2, ..., \mathbf{y}_T$ to be the measurements. Generally, state space models have the following form:
 
@@ -168,7 +169,7 @@ $$\mathbf{P}_k = \mathbf{P}^{-}_k - \mathbf{K}_k \mathbf{S}_k \mathbf{K}_k^{\top
 
 ### [Dynamic factor](../Models/dynamic_factor.ipynb)
 
-The implement of the dynamic factor model in <code>Python</code> is supported by the <code>statsmodels</code> package.
+The implementation of the dynamic factor model in <code>Python</code> is supported by the <code>statsmodels</code> package.
 
 The dynamic factor can be written as:
 
@@ -180,7 +181,7 @@ where $\mathbf{f_t}$ is the static factor vector, $e_t$ is the idiosyncratic dis
 
 ### [XGBoost](../Models/xgboost.ipynb)
 
-The implement of the XGBoost model for time series regression in <code>Python</code> is supported by the <code>xgboost</code> package, together with the <code>RegressorChain</code> module from the <code>scikit-learn</code> package.
+The implementation of the XGBoost model for time series regression in <code>Python</code> is supported by the <code>xgboost</code> package, together with the <code>RegressorChain</code> module from the <code>scikit-learn</code> package.
 
 XGBoost is a supervised learning algorithm that can be used for both regression and classification. It attempts to predict the target variable by combining the estimates of a set of simpler and weaker models. 
 
@@ -191,7 +192,7 @@ When using gradient boosting for regression, the weak learners are regression tr
 
 ### [Gaussian process](../Models/gaussian_process.ipynb)
 
-The implement of the Gaussian process regression model for time series in <code>Python</code> is supported by the <code>scikit-learn</code> package, together with the <code>RegressorChain</code> module also from <code>scikit-learn</code>. For the choice of kernel, we use <code>DotProduct() + WhiteKernel()</code>.
+The implementation of the Gaussian process regression model for time series in <code>Python</code> is supported by the <code>scikit-learn</code> package, together with the <code>RegressorChain</code> module also from <code>scikit-learn</code>. For the choice of kernel, we use <code>DotProduct() + WhiteKernel()</code>.
 
 A Gaussian process is a probability distribution over functions $\hat{y}(\mathbf{x})$ such that for any set of values of $\hat{y}(\mathbf{x})$ evaluated at an arbitrary set of points $\mathbf{x}^{(1)}, \mathbf{x}^{(2)}, ...$ is jointly Gaussian. Recall that a linear model can be written in a form:
 
@@ -270,11 +271,11 @@ Note that the trajectory matrix $\mathbf{X}$ is a Hankel matrix, which means tha
 
 Then, we apply SVD (Singular Value Decomposition) for the matrix $\mathbf{X}\mathbf{X}^{\top}$. To calculate the SVD, we need to calculate the eigenvalues and eigenvectors of the matrix $\mathbf{X}\mathbf{X}^{\top}$ and represent it in the form $\mathbf{X}\mathbf{X}^{\top} = \mathbf{P}\mathbf{\Lambda}\mathbf{P}^{\top}$. Here, $\mathbf{\Lambda} = diag(\lambda_1, ..., \lambda_L)$ is the diagonal matrix of $\mathbf{X}\mathbf{X}^{\top}$ ordered such that $\lambda_1 \geq \lambda_2 \geq...\geq \lambda_L \geq 0$ and $\mathbf{P} = (P_1, ..., P_L)$ is the corresponding orthogonal matrix of eigenvectors of $\mathbf{X}\mathbf{X}^{\top}$.
 
-Next, we will reconstruct the time series from the SVD that we obtain above. We would divide the set of indices $\{1, ..., L\}$ into m disjoint partitions $I_1, ..., I_m$. Let $I = \{i_1, ..., i_p\}$. Then the matrix $\mathbf{X_I}$ corresponding to group $I$ is defined as $\mathbf{X_I} = \mathbf{X_{i_1}} + ... + \mathbf{X_{i_p}}$. Computing this quantity for each group $I_1, ..., I_m$ as constructed above, we have:
+Next, we will reconstruct the time series from the SVD that we obtain above. We would divide the set of indices $\{1, ..., L\}$ into m disjoint partitions $I_1, ..., I_m$. Let $I = \{i_1, ..., i_p\}$. Then the matrix $\mathbf{X_I}$ corresponding to group $I$ is defined as $\mathbf{X}_I = \mathbf{X}_{i_1} + ... + \mathbf{X}_{i_p}$. Computing this quantity for each group $I_1, ..., I_m$ as constructed above, we have:
 
 $$\mathbf{X} = \mathbf{X}_{I_1} + ... + \mathbf{X}_{I_m}$$
 
-Next, we need to perform diagonal averaging, or Hankelization, in order to transfer each matrix $\mathbf{X_I}$ into a time series, which is an additive component of the initial time series $\mathbf{y_T}$. Suppose we have a matrix $\mathbf{Z}$, and we denote each entries of $z_{ij}$. Then, the $k$-th element of the time series will be obtained by averaging $z_{ij}$ over all $i, j$ such that $i + j = k + 2$. This procedure will produce a Hankel matrix $\mathcal{H}\mathbf{Z}$. For example, see [link](https://www.mathworks.com/matlabcentral/cody/problems/3094-hankelize-a-matrix).
+Next, we need to perform diagonal averaging, or Hankelization, in order to transfer each matrix $\mathbf{X}_I$ into a time series, which is an additive component of the initial time series $\mathbf{y_T}$. Suppose we have a matrix $\mathbf{Z}$, and we denote each entries of $z_{ij}$. Then, the $k$-th element of the time series will be obtained by averaging $z_{ij}$ over all $i, j$ such that $i + j = k + 2$. This procedure will produce a Hankel matrix $\mathcal{H}\mathbf{Z}$. For example, see [link](https://www.mathworks.com/matlabcentral/cody/problems/3094-hankelize-a-matrix).
 
 By applying Hankelization to all matrices $\mathbf{X_{I_1}}, ..., \mathbf{X_{I_m}}$, we obtain another expansion:
 
@@ -321,9 +322,7 @@ where $i_t$ is the input gate, $o_t$ is the output gate, $f_t$ is the forget gat
 
 ### [Transformer](../Models/transformer.ipynb)
 
-The model is implemented using the <code>PyTorch</code> library in <code>Python</code>.
-
-Transformer is a type of neural network architecture that is used for sequential data, such as NLP tasks or time series data. The model is known for its ability to efficiently handle long-term dependencies and parallelizable computation. The underlying core of Transformer model is the **self-attention mechanism**, which allows the model to weigh the importance of different parts of the input when making predictions. Furthermore, the model has an encoder-decoder architecture, where the encoder is responsible for processing the input sequence and the decoder is mainly responsible for producing the output sequence.
+The model is implemented using the <code>PyTorch</code> library in <code>Python</code>. A transformer is a type of neural network architecture that is used for sequential data, such as NLP tasks or time series data. The model is known for its ability to efficiently handle long-term dependencies and parallelizable computation. The underlying core of Transformer model is the **self-attention mechanism**, which allows the model to weigh the importance of different parts of the input when making predictions. Furthermore, the model has an encoder-decoder architecture, where the encoder is responsible for processing the input sequence and the decoder is mainly responsible for producing the output sequence.
 
 The attention mechanism can be mathematically represented as: $Attention(Q, K, V) = softmax(\frac{QK^{\top}}{\sqrt{}d_k})V$
 
@@ -343,7 +342,7 @@ $$x'(t) = \mathbf{A}x(t) + \mathbf{B}u(t)$$
 
 $$y(t) = \mathbf{C}x(t) + \mathbf{D}u(t)$$
 
-where $u(t)$ is the input, $x(t)$ is the latent variable, and $y(t)$ is the output that we want to find. Here, $\mathbf{A}$, $\mathbf{B}$, $\mathbf{C}$, and $\mathbf{D}$ are learnable parameters that would be computed using gradient descent. In the [paper](https://arxiv.org/pdf/2111.00396.pdf), the author omits $\mathbf{D}$ since it is easy to be implemented (using a skip connection).
+where $u(t)$ is the input, $x(t)$ is the latent variable, and $y(t)$ is the output that we want to find. Here, $\mathbf{A}$, $\mathbf{B}$, $\mathbf{C}$, and $\mathbf{D}$ are learnable parameters that would be computed using gradient descent. In [Gu, Goel, and Re (2022))](https://arxiv.org/pdf/2111.00396.pdf), the author omits $\mathbf{D}$ since it is easy to be implemented (using a skip connection).
 
 For implementation of state space model, we need to discretize the input function $u(t)$ into $u_1, u_2, ...$ instead. Let $\Delta$ denote the step size where $u_k = u(k \Delta)$. Define another variables $\overline{\mathbf{A}}, \overline{\mathbf{B}}$, and $\overline{\mathbf{C}}$ as follow:
 

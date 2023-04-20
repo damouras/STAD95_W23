@@ -1,4 +1,4 @@
-# Forecasting Electricity Price & Demand.
+# Forecasting Electricity Prices & Demand.
 
 ```{tableofcontents}
 ```

@@ -24,7 +24,6 @@ The performance of each model was evaluated using Mean Absolute Error (MAE), Mea
 | Kalman forecaster      |     13.08 |    286.66 |       0.34 |   17641.76 |  512782421.67 | 0.04739837037 |
 | Dynamic factor         |     13.31 |    301.65 |       0.38 |   14874.44 |  388028400.16 | 0.04001733041 |
 | Transformer            |     19.28 |    600.66 |       0.57 |   17509.55 |  489325704.16 | 0.04769337162 |
-| ETS (Python)           |     12.95 |    281.01 |       0.33 |   15270.60 |  414561050.30 | 0.04100255746 |
 | Fast Fourier Transform |     32.71 |   1527.91 |       0.91 |   29343.31 | 1240550013.47 | 0.09738732874 |
 | XGBoost                |     17.93 |    568.41 |       0.47 |   15339.24 |  419687148.36 | 0.04041825596 |
 | Gaussian Process       |     12.84 |    274.91 |       0.34 |   14334.84 |  329325202.30 | 0.03825991559 |
@@ -42,8 +41,7 @@ with the SARIMA_weather model yielding the lowest error values. These findings s
 weather data and using appropriate data transformations can enhance the predictive capabilities of time series models.
 
 On the other hand, among the machine learning and deep learning models, Gaussian process performs very well and almost matches the
-performance of the SARIMA model. Other state space models, such as both versions of Kalman filter, dynamic factor model, and
-exponential smoothing also have very low error which closes to that of SARIMA. The neural network models, such as LSTM, Transformer,
+performance of the SARIMA model. Other state space models, such as both versions of Kalman filter and the dynamic factor model, also have very low error which approaches that of SARIMA. The neural network models, such as LSTM, Transformer,
 and structured state space model (S4) do not work as well as other machine learning models or statistical models in this case. However, it is
 noticeable that as we add more series to the model (such as combining the demand and average temperature series together with the price series), 
 the error of these models (MSE, MAE, MAPE) is reduced. One implication is that deep learning models might perform well when the dataset
