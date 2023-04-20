@@ -37,8 +37,11 @@ reliable sources, processed, and cleaned, while considering several data limitat
    - The data only includes electricity price and demand data for Ontario, and temperature data for the GTA, which may not be representative of other regions.
    - Other factors that may impact electricity price and demand, such as economic conditions or policy changes, are not included in the dataset.
 
-8. Process files:
+8. Data preparation files:
    - [Prepare price and demand](../Data/1a.data_preparing.ipynb)
    - [Prepare weather data](../Data/1b.data_prep_weather.ipynb)
    - [Data cleaning and calculating](../Data/1c.process_weather_data.ipynb)
+ 
+9. Final data file:
+   - The file with the processed data is [here](../Data/final_daily.csv)
   
