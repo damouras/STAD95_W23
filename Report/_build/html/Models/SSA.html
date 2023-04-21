@@ -396,9 +396,9 @@ for( i in (n-365):(n-1) ){
 plot(ts(price_test))
 lines(ts(for1), col=&#39;blue&#39;)
 
-mean((ts(for1) - ts(price_test)**2))
+print(mean((ts(for1) - ts(price_test)**2)))
 
-mean(abs(ts(for1) - ts(price_test)))
+print(mean(abs(ts(for1) - ts(price_test))))
 </pre></div>
 </div>
 </div>
@@ -411,6 +411,9 @@ R[write to console]: Registered S3 method overwritten by &#39;quantmod&#39;:
   method            from
   as.zoo.data.frame zoo 
 
+R[write to console]: This is forecast 8.17.0 
+  Use suppressPackageStartupMessages() to eliminate package startup messages.
+
 R[write to console]: 
 Attaching package: ‘Rssa’
 
@@ -420,7 +423,8 @@ R[write to console]: The following object is masked from ‘package:stats’:
     decompose
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 15.75596
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] -2530.932
+[1] 15.75596
 </pre></div>
 </div>
 <img alt="../_images/c814f823e8289ae75b533d5f4530b106082721a5cd4514da64d52049cd3798b0.png" src="../_images/c814f823e8289ae75b533d5f4530b106082721a5cd4514da64d52049cd3798b0.png" />
@@ -462,14 +466,15 @@ for( i in (n-365):(n-1) ){
 plot(ts(demand_test))
 lines(ts(for1), col=&#39;blue&#39;)
 
-mean((ts(for1) - ts(demand_test))**2)
+print(mean((ts(for1) - ts(demand_test))**2))
 
-mean(abs(ts(for1) - ts(demand_test)))
+print(mean(abs(ts(for1) - ts(demand_test))))
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 19292.29
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 676312825
+[1] 19292.29
 </pre></div>
 </div>
 <img alt="../_images/4bdbda596e1f38f446525f5542967ad49f1611b7d65899910b744206258cd206.png" src="../_images/4bdbda596e1f38f446525f5542967ad49f1611b7d65899910b744206258cd206.png" />
