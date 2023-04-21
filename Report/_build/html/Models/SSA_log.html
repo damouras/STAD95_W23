@@ -374,8 +374,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.8/site-packages/pandas/core/computation/expressions.py:20: UserWarning: Pandas requires version &#39;2.7.3&#39; or newer of &#39;numexpr&#39; (version &#39;2.7.1&#39; currently installed).
-  from pandas.core.computation.check import NUMEXPR_INSTALLED
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The rpy2.ipython extension is already loaded. To reload it, use:
+  %reload_ext rpy2.ipython
 </pre></div>
 </div>
 </div>
@@ -386,68 +386,39 @@ document.write(`
 library(Rssa)
 
 df = read.csv(&#39;final_daily.csv&#39;)
+price = df[,&quot;price&quot;]
+price_test = tail( price, 365 )
+price_train = head( price, length(ts(df[&#39;price&#39;])) - 365)
 
-price_test = tail(df[&quot;price&quot;], 365)
-price_train = head(df[&quot;price&quot;], length(ts(df[&#39;price&#39;])) - 365)
+lprice = log(price+1)
 
-price_train = log(price_train+5)
-price_test = price_test+5
+lfor1 = NULL
+n = length(price)
+for( i in (n-365):(n-1) ){
+  stmp = ssa( lprice[1:i], L = 24 )
+  tmp = exp( rforecast( stmp, groups = list(trend = c(1:12) ) ) )-1
+  lfor1 = c( lfor1, tmp )
+}
 
-s &lt;- ssa(price_train, L = 100)
-for1 &lt;- rforecast(s, groups = list(trend = c(1:24)), len = 365, recurrent=TRUE)
-
-for1=exp(for1)
 
 plot(ts(price_test))
-lines(ts(for1), col=&#39;blue&#39;)
+lines(ts(lfor1), col=&#39;blue&#39;)
 
-mean((ts(for1) - ts(price_test))**2)
+print(mean( (ts(lfor1) - ts(price_test)) ^2))
 
-mean(abs(ts(for1) - ts(price_test)))
+print(mean( abs( lfor1 - price_test) ))
+
+print(mean( pmin( abs( lfor1 - price_test)  / abs( price_test ),  1 ) ))
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R[write to console]: Loading required package: svd
-
-R[write to console]: Loading required package: forecast
-
-R[write to console]: Registered S3 method overwritten by &#39;quantmod&#39;:
-  method            from
-  as.zoo.data.frame zoo 
-
-R[write to console]: This is forecast 8.17.0 
-  Want to meet other forecasters? Join the International Institute of Forecasters:
-  http://forecasters.org/
-
-R[write to console]: 
-Attaching package: ‘Rssa’
-
-
-R[write to console]: The following object is masked from ‘package:stats’:
-
-    decompose
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 598.2451
+[1] 18.70852
+[1] 0.4471353
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 23.96515
-</pre></div>
-</div>
-<img alt="../_images/ead5ed034032c572b3129265c69e24e169be8a6b711c3c2069eef19d644d9a56.png" src="../_images/ead5ed034032c572b3129265c69e24e169be8a6b711c3c2069eef19d644d9a56.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
-error = abs(ts(price_test)-ts(for1))/abs(ts(price_test))
-error[error &gt; 1] = 1
-mean(error)
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 0.4617527
-</pre></div>
-</div>
+<img alt="../_images/f7f1d021ba899db3d1be6db17cadb71e84958fa4a916d6f9595a25c829a87730.png" src="../_images/f7f1d021ba899db3d1be6db17cadb71e84958fa4a916d6f9595a25c829a87730.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -455,46 +426,39 @@ mean(error)
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
 ##Demand
 
-demand_test = tail(df[&quot;demand&quot;], 365)
-demand_train = head(df[&quot;demand&quot;], length(ts(df[&#39;demand&#39;])) - 365)
+demand = df[,&quot;demand&quot;]
+demand_test = tail( demand, 365 )
+demand_train = head( demand, length(ts(df[&#39;demand&#39;])) - 365)
 
-demand_train=log(demand_train)
-demand_test=log(demand_test)
+ldemand = log(demand+1)
 
-s &lt;- ssa(demand_train, L = 100)
-for1 &lt;- rforecast(s, groups = list(trend = c(1:24)), len = 365, recurrent=TRUE)
+lfor1 = NULL
+n = length(demand)
+for( i in (n-365):(n-1) ){
+  stmp = ssa( ldemand[1:i], L = 24 )
+  tmp = exp( rforecast( stmp, groups = list(trend = c(1:12) ) ) )-1
+  lfor1 = c( lfor1, tmp )
+}
 
-demand_test = exp(demand_test)
-for1=exp(for1)
+
 plot(ts(demand_test))
-lines(ts(for1), col=&#39;blue&#39;)
+lines(ts(lfor1), col=&#39;blue&#39;)
 
-mean((ts(for1) - ts(demand_test))**2)
+print(mean( (ts(lfor1) - ts(demand_test)) ^2))
 
-mean(abs(ts(for1) - ts(demand_test)))
+print(mean( abs( lfor1 - demand_test) ))
+
+print(mean( pmin( abs( lfor1 - demand_test)  / abs( demand_test ),  1 ) ))
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 35387.91
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 693156155
+[1] 19373.1
+[1] 0.05137282
 </pre></div>
 </div>
-<img alt="../_images/0728c894a3d2eb53865fb7dd94e2768cd3358623d08aed900d184fcde4f06945.png" src="../_images/0728c894a3d2eb53865fb7dd94e2768cd3358623d08aed900d184fcde4f06945.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
-error = abs(ts(demand_test)-ts(for1))/abs(ts(demand_test))
-error[error &gt; 1] = 1
-mean(error)
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 0.09078513
-</pre></div>
-</div>
+<img alt="../_images/09760b233ed2424b58dcab8746fb1146a4150389d2baf2b8f5b847a35e0f0b80.png" src="../_images/09760b233ed2424b58dcab8746fb1146a4150389d2baf2b8f5b847a35e0f0b80.png" />
 </div>
 </div>
 

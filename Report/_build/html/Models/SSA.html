@@ -373,12 +373,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/lib/python3.8/site-packages/pandas/core/computation/expressions.py:20: UserWarning: Pandas requires version &#39;2.7.3&#39; or newer of &#39;numexpr&#39; (version &#39;2.7.1&#39; currently installed).
-  from pandas.core.computation.check import NUMEXPR_INSTALLED
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -386,12 +380,17 @@ document.write(`
 library(Rssa)
 
 df = read.csv(&#39;final_daily.csv&#39;)
+price = df[,&quot;price&quot;]
+price_test = tail( price, 365 )
+price_train = head( price, length(ts(df[&#39;price&#39;])) - 365)
 
-price_test = tail(df[&quot;price&quot;], 365)
-price_train = head(df[&quot;price&quot;], length(ts(df[&#39;price&#39;])) - 365)
+n = length(price); for1 = NULL
 
-s &lt;- ssa(price_train)
-for1 &lt;- rforecast(s, groups = list(trend = c(1:12)), len = 365, recurrent=TRUE)
+for( i in (n-365):(n-1) ){
+  stmp = ssa( price[1:i], L = 24 )
+  tmp = rforecast( stmp, groups = list(trend = c(1:12) ) )
+  for1 = c( for1, tmp )
+}
 
 #for1 = exp(for1)
 plot(ts(price_test))
@@ -412,10 +411,6 @@ R[write to console]: Registered S3 method overwritten by &#39;quantmod&#39;:
   method            from
   as.zoo.data.frame zoo 
 
-R[write to console]: This is forecast 8.17.0 
-  Crossvalidated is a great place to get help on forecasting issues:
-  http://stats.stackexchange.com/tags/forecasting.
-
 R[write to console]: 
 Attaching package: ‘Rssa’
 
@@ -425,10 +420,10 @@ R[write to console]: The following object is masked from ‘package:stats’:
     decompose
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 37.87815
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 15.75596
 </pre></div>
 </div>
-<img alt="../_images/f6b37c27a263564e808ecfa20cf7bec4bd8af02b459c0c1d50cfd794a864ef7c.png" src="../_images/f6b37c27a263564e808ecfa20cf7bec4bd8af02b459c0c1d50cfd794a864ef7c.png" />
+<img alt="../_images/c814f823e8289ae75b533d5f4530b106082721a5cd4514da64d52049cd3798b0.png" src="../_images/c814f823e8289ae75b533d5f4530b106082721a5cd4514da64d52049cd3798b0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -441,7 +436,7 @@ mean(error)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 0.6388409
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 0.4054478
 </pre></div>
 </div>
 </div>
@@ -450,12 +445,19 @@ mean(error)
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">R</span>
 ##Demand
-
+demand = df[,&quot;demand&quot;]
 demand_test = tail(df[&quot;demand&quot;], 365)
 demand_train = head(df[&quot;demand&quot;], length(ts(df[&#39;demand&#39;])) - 365)
 
-s &lt;- ssa(demand_train)
-for1 &lt;- rforecast(s, groups = list(trend = c(1:12)), len = 365, recurrent=TRUE)
+n = length(demand); for1 = NULL
+
+for( i in (n-365):(n-1) ){
+  stmp = ssa( demand[1:i], L = 24 )
+  tmp = rforecast( stmp, groups = list(trend = c(1:12) ) )
+  for1 = c( for1, tmp )
+}
+
+
 
 plot(ts(demand_test))
 lines(ts(for1), col=&#39;blue&#39;)
@@ -467,10 +469,10 @@ mean(abs(ts(for1) - ts(demand_test)))
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 23351.09
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 19292.29
 </pre></div>
 </div>
-<img alt="../_images/5fcd55ecd07b83d51f30a24d894b8a8088da38e681194a73073940b8e3251722.png" src="../_images/5fcd55ecd07b83d51f30a24d894b8a8088da38e681194a73073940b8e3251722.png" />
+<img alt="../_images/4bdbda596e1f38f446525f5542967ad49f1611b7d65899910b744206258cd206.png" src="../_images/4bdbda596e1f38f446525f5542967ad49f1611b7d65899910b744206258cd206.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -483,7 +485,7 @@ mean(error)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 0.06180689
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 0.05126683
 </pre></div>
 </div>
 </div>
