@@ -396,7 +396,7 @@ for( i in (n-365):(n-1) ){
 plot(ts(price_test))
 lines(ts(for1), col=&#39;blue&#39;)
 
-print(mean((ts(for1) - ts(price_test)**2)))
+print(mean((ts(for1) - ts(price_test))**2))
 
 print(mean(abs(ts(for1) - ts(price_test))))
 </pre></div>
@@ -411,9 +411,6 @@ R[write to console]: Registered S3 method overwritten by &#39;quantmod&#39;:
   method            from
   as.zoo.data.frame zoo 
 
-R[write to console]: This is forecast 8.17.0 
-  Use suppressPackageStartupMessages() to eliminate package startup messages.
-
 R[write to console]: 
 Attaching package: ‘Rssa’
 
@@ -423,7 +420,7 @@ R[write to console]: The following object is masked from ‘package:stats’:
     decompose
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] -2530.932
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] 412.8451
 [1] 15.75596
 </pre></div>
 </div>
