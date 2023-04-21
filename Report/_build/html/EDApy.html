@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>EDA &#8212; Electricity Demand Forecasting</title>
   
@@ -44,6 +44,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -66,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Methodology" href="methods.html" />
     <link rel="prev" title="Data Description" href="data.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -359,7 +360,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="eda">
-<h1>EDA<a class="headerlink" href="#eda" title="Permalink to this headline">#</a></h1>
+<h1>EDA<a class="headerlink" href="#eda" title="Permalink to this heading">#</a></h1>
 <p>We begin our analysis by examining the variables collected for this study: date, price, demand, and average temperature. Date is a categorical variable that represents the date of the observation, while the other variables are continuous and measured in units of dollars/MWh, MWh, and degrees Celsius, respectively.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -506,14 +507,6 @@ document.write(`
 </table>
 </div></div></div>
 </div>
-<p>Next, we examine the cross-correlations between the variables. We find that there is a moderate positive cross-correlation between price and demand, with a peak at lag 0 of 0.5, indicating that higher demand tends to drive up the price of electricity concurrently. The cross-correlations between price and demand exhibit strong seasonality, suggesting a recurring pattern in their relationship.</p>
-<p>The cross-correlations between price and temperature show a negative relationship, with the maximum value of -0.2 occurring at lag 250. This relationship also demonstrates strong annual seasonality, suggesting that the influence of temperature on price follows a consistent pattern throughout the year.</p>
-<p>As for the relationship between demand and temperature, the cross-correlation peaks at lag 200 with a value of 0.15, suggesting a relatively weak but noticeable relationship between the two variables. The cross-correlation between demand and temperature also exhibits strong annual seasonality, with an opposite direction compared to the cross-correlation between price and demand. This implies that the influence of temperature on demand follows a distinct seasonal pattern, contrasting with the relationship between price and demand.</p>
-<div class="cell tag_remove-input docutils container">
-<div class="cell_output docutils container">
-<img alt="_images/b0de57fed0267f65e5fa3881e48e9ed4c3468b92a7079a4f6f4092915100173f.png" src="_images/b0de57fed0267f65e5fa3881e48e9ed4c3468b92a7079a4f6f4092915100173f.png" />
-</div>
-</div>
 <p>Histograms of price, demand, and temperature reveal interesting distribution patterns. The shapes of demand and temperature are roughly unimodal and symmetric, while the price distribution is heavily skewed to the right, with a large number of observations having prices less than 20 dollars/MWh and gradually decreasing as the price increases. This suggests that electricity prices are generally low, with occasional spikes due to various factors.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -526,17 +519,25 @@ document.write(`
 <p>To explore the seasonal patterns in the data, we plot the average daily price, demand, and temperature over time, as well as their autocorrelation functions (ACF). We observe that both demand and temperature exhibit strong annual trends. Demand is high during both summer months (June to September) due to increased use of air conditioning and winter months (December to February) because of heating. Temperature, on the other hand, peaks in the summer months and troughs in the winter months. In contrast, the price of electricity does not display a clear annual trend but rather an increasing trend over time. The price appears to be more volatile, with occasional spikes occurring throughout the year.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="_images/4be3110735aafdf290d5a7ad98ffa132637573075fdfa611ece4da2ead748857.png" src="_images/4be3110735aafdf290d5a7ad98ffa132637573075fdfa611ece4da2ead748857.png" />
+<img alt="_images/1ceb02b713722d0a459a806add7f5cc0e4892192c5a25fac5a745fdb5278f150.png" src="_images/1ceb02b713722d0a459a806add7f5cc0e4892192c5a25fac5a745fdb5278f150.png" />
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="_images/ab896effe6bb446cd67b77a0eba7584f277f9547f85d7083dcc5499bc82440a0.png" src="_images/ab896effe6bb446cd67b77a0eba7584f277f9547f85d7083dcc5499bc82440a0.png" />
+<img alt="_images/9a297eb30136d88f094afe3338df33f92a91309b31551deca06f997576200a72.png" src="_images/9a297eb30136d88f094afe3338df33f92a91309b31551deca06f997576200a72.png" />
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="_images/576d64cd82d0ad5f642b47fcc0d5ca030a4a0bf20dd49233400739f6eb19c1b5.png" src="_images/576d64cd82d0ad5f642b47fcc0d5ca030a4a0bf20dd49233400739f6eb19c1b5.png" />
+<img alt="_images/9b3820cd7d894da5e56a7b5eef0f30b6fb278532070a42f4a9d316eaf1918b4b.png" src="_images/9b3820cd7d894da5e56a7b5eef0f30b6fb278532070a42f4a9d316eaf1918b4b.png" />
+</div>
+</div>
+<p>Next, we examine the cross-correlations between the variables. We find that there is a moderate positive cross-correlation between price and demand, with a peak at lag 0 of 0.5, indicating that higher demand tends to drive up the price of electricity concurrently. The cross-correlations between price and demand exhibit strong seasonality, suggesting a recurring pattern in their relationship.</p>
+<p>The cross-correlations between price and temperature show a negative relationship, with the maximum value of -0.2 occurring at lag 250. This relationship also demonstrates strong annual seasonality, suggesting that the influence of temperature on price follows a consistent pattern throughout the year.</p>
+<p>As for the relationship between demand and temperature, the cross-correlation peaks at lag 200 with a value of 0.15, suggesting a relatively weak but noticeable relationship between the two variables. The cross-correlation between demand and temperature also exhibits strong annual seasonality, with an opposite direction compared to the cross-correlation between price and demand. This implies that the influence of temperature on demand follows a distinct seasonal pattern, contrasting with the relationship between price and demand.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/b0de57fed0267f65e5fa3881e48e9ed4c3468b92a7079a4f6f4092915100173f.png" src="_images/b0de57fed0267f65e5fa3881e48e9ed4c3468b92a7079a4f6f4092915100173f.png" />
 </div>
 </div>
 <p>Overall, these exploratory data analysis techniques provide us with a better understanding of the patterns and relationships in our data and help us identify potential issues or trends that may need to be addressed in our subsequent analysis. The presence of annual trends in demand and temperature, the skewed distribution of electricity prices, and the increasing trend in price all provide valuable insights for the selection and development of appropriate forecasting models.</p>

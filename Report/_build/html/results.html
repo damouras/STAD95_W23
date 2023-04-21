@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Results &#8212; Electricity Demand Forecasting</title>
   
@@ -44,6 +44,7 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -66,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Conclusion" href="discussion.html" />
     <link rel="prev" title="Methodology" href="methods.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -359,14 +360,14 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="results">
-<h1>Results<a class="headerlink" href="#results" title="Permalink to this headline">#</a></h1>
+<h1>Results<a class="headerlink" href="#results" title="Permalink to this heading">#</a></h1>
 <p>We tested several time series models, including Exponential Smoothing State Space Model (ETS), Seasonal Autoregressive Integrated
 Moving Average (SARIMA), and Singular Spectrum Analysis (SSA), to predict the price and demand for electricity in Ontario. The
 data from 2020 and 2021 was used for training the models, while the 2023 data served as the test set. We employed one-step ahead
 predictions and updated the training set with true data after each prediction. Each model had different input data versions,
 including the original price or demand data, and log-transformed versions.</p>
 <p>The performance of each model was evaluated using Mean Absolute Error (MAE), Mean Square Error (MSE), and Mean Absolute Percentage Error (MAPE). The results are summarized in the following table:</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Model</p></th>
 <th class="head"><p>Price_MAE</p></th>
@@ -458,7 +459,15 @@ including the original price or demand data, and log-transformed versions.</p>
 <td><p>1838608713.00</p></td>
 <td><p>0.09078513</p></td>
 </tr>
-<tr class="row-even"><td><p>Kalman filter (simple)</p></td>
+<tr class="row-even"><td><p>VAR</p></td>
+<td><p>23.64</p></td>
+<td><p>898.23</p></td>
+<td><p>0.33</p></td>
+<td><p>42462.15</p></td>
+<td><p>2750605858.94</p></td>
+<td><p>0.03999313156</p></td>
+</tr>
+<tr class="row-odd"><td><p>Kalman filter (simple)</p></td>
 <td><p>12.94</p></td>
 <td><p>280.92</p></td>
 <td><p>0.34</p></td>
@@ -466,7 +475,7 @@ including the original price or demand data, and log-transformed versions.</p>
 <td><p>1108128912.54</p></td>
 <td><p>0.05357406444</p></td>
 </tr>
-<tr class="row-odd"><td><p>Kalman forecaster</p></td>
+<tr class="row-even"><td><p>Kalman forecaster</p></td>
 <td><p>13.08</p></td>
 <td><p>286.66</p></td>
 <td><p>0.34</p></td>
@@ -474,7 +483,7 @@ including the original price or demand data, and log-transformed versions.</p>
 <td><p>512782421.67</p></td>
 <td><p>0.04739837037</p></td>
 </tr>
-<tr class="row-even"><td><p>Dynamic factor</p></td>
+<tr class="row-odd"><td><p>Dynamic factor</p></td>
 <td><p>13.31</p></td>
 <td><p>301.65</p></td>
 <td><p>0.38</p></td>
@@ -482,13 +491,21 @@ including the original price or demand data, and log-transformed versions.</p>
 <td><p>388028400.16</p></td>
 <td><p>0.04001733041</p></td>
 </tr>
-<tr class="row-odd"><td><p>Transformer</p></td>
+<tr class="row-even"><td><p>Transformer</p></td>
 <td><p>19.28</p></td>
 <td><p>600.66</p></td>
 <td><p>0.57</p></td>
 <td><p>17509.55</p></td>
 <td><p>489325704.16</p></td>
 <td><p>0.04769337162</p></td>
+</tr>
+<tr class="row-odd"><td><p>ETS (Python)</p></td>
+<td><p>12.95</p></td>
+<td><p>281.01</p></td>
+<td><p>0.33</p></td>
+<td><p>15270.60</p></td>
+<td><p>414561050.30</p></td>
+<td><p>0.04100255746</p></td>
 </tr>
 <tr class="row-even"><td><p>Fast Fourier Transform</p></td>
 <td><p>32.71</p></td>
